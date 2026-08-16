@@ -6,6 +6,8 @@ import About from "../features/home/component/about";
 import Services from "../features/home/component/services";
 import WorkProcess from "../features/home/component/workProcess";
 import Client from "../features/home/component/client";
+import Protection from "../features/home/component/protection";
+import ChooseUs from "../features/home/component/chooseUs";
 const Home = () => {
   return (
     <div>
@@ -14,6 +16,8 @@ const Home = () => {
       <Services/>
       <WorkProcess/>
       <Client/>
+      <Protection/>
+      <ChooseUs/>
     </div>
   );
 };
