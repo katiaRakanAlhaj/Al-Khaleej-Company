@@ -7,6 +7,9 @@ import Twitter from "../../assets/images/twitter.svg";
 import instgram from "../../assets/images/instgram.svg";
 import logo from "../../assets/images/logo.svg";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
+import phone from "../../assets/images/phone.svg";
+import email from "../../assets/images/email.svg";
+import location from "../../assets/images/location.svg";
 
 const Navbar = () => {
   const navLinks = [
@@ -20,34 +23,98 @@ const Navbar = () => {
     { name: "Contact us", path: "/contact", active: false },
   ];
 
+  // Social media links array
+  const socialLinks = [
+    { 
+      id: 1, 
+      name: "Facebook", 
+      icon: facebook, 
+      url: "https://facebook.com/yourpage" 
+    },
+    { 
+      id: 2, 
+      name: "Instagram", 
+      icon: instgram, 
+      url: "https://instagram.com/yourpage" 
+    },
+    { 
+      id: 3, 
+      name: "LinkedIn", 
+      icon: LinkedIn, 
+      url: "https://linkedin.com/company/yourpage" 
+    },
+    { 
+      id: 4, 
+      name: "Twitter", 
+      icon: Twitter, 
+      url: "https://twitter.com/yourpage" 
+    },
+  ];
+
+  // Contact information array
+  const contactInfo = [
+    {
+      id: 1,
+      type: "phone",
+      icon: phone,
+      value: "6102",
+      label: "Phone",
+      href: "tel:6102"
+    },
+    {
+      id: 2,
+      type: "email",
+      icon: email,
+      value: "info@yourcompany.com",
+      label: "Email",
+      href: "mailto:info@yourcompany.com"
+    },
+    {
+      id: 3,
+      type: "address",
+      icon: location,
+      value: "238, Arimantab, Moska - USA",
+      label: "Address"
+    }
+  ];
+
   return (
     <header className="w-full bg-white relative shadow-md">
       {/* Top Dark Bar */}
       <div className="bg-[#003057] w-full">
-        <div className="mx-auto px-4 lg:px-12 py-3.5">
+        <div className="mx-auto px-4 lg:px-12 py-6">
           <div className="flex flex-wrap items-center justify-between">
             <div className="w-[25rem] flex-shrink-0 hidden lg:block"></div>
             
             <div className="flex flex-1 items-center justify-between space-x-6 text-white text-xs md:text-sm">
               <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <span className="text-white">6102</span>
-                </div>
-                <div className="flex items-center space-x-2 border-l border-gray-700 pl-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-white">InsurInfo@gmail.com</span>
-                </div>
-                <div className="flex items-center space-x-2 border-l border-gray-700 pl-6 hidden lg:flex">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span className="text-white">238, Arimantab, Moska - USA</span>
+                {/* Map through contactInfo for phone, email, and address */}
+                <div className="flex items-center space-x-12 ml-[-5rem]">
+                  {contactInfo.map((contact, index) => (
+                    <div 
+                      key={contact.id}
+                      className={`flex items-center space-x-4 ${
+                        index > 0 ? "border-l-2 border-primary pl-10" : ""
+                      } ${contact.type === "address" ? "hidden lg:flex" : ""}`}
+                    >
+                      <img 
+                        src={contact.icon} 
+                        alt={contact.label} 
+                        className="w-6 h-6"
+                      />
+                      {contact.type === "phone" ? (
+                        <a href={contact.href} className="text-white hover:underline">
+                          {contact.value}
+                        </a>
+                      ) : contact.type === "email" ? (
+                        <a href={contact.href} className="text-white hover:underline">
+                          {contact.value}
+                        </a>
+                      ) : (
+                        <span className="text-white">{contact.value}</span>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -60,19 +127,24 @@ const Navbar = () => {
                   <span className="text-white uppercase font-medium">English</span>
                 </div>
 
-                <div className="flex items-end justify-end space-x-3 border-l border-gray-700 pl-6">
-                  <a href="#" className="hover:opacity-80 transition-opacity">
-                    <img src={facebook} alt="Facebook" className="w-4 h-4 brightness-0 invert" />
-                  </a>
-                  <a href="#" className="hover:opacity-80 transition-opacity">
-                    <img src={instgram} alt="Instagram" className="w-4 h-4 brightness-0 invert" />
-                  </a>
-                  <a href="#" className="hover:opacity-80 transition-opacity">
-                    <img src={LinkedIn} alt="LinkedIn" className="w-4 h-4 brightness-0 invert" />
-                  </a>
-                  <a href="#" className="hover:opacity-80 transition-opacity">
-                    <img src={Twitter} alt="Twitter" className="w-4 h-4 brightness-0 invert" />
-                  </a>
+                <div className="flex items-end justify-end space-x-4 border-l-2 border-gray-700 pl-8">
+                  {/* Map through socialLinks array */}
+                  {socialLinks.map((social) => (
+                    <a 
+                      key={social.id}
+                      href={social.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:opacity-80 transition-opacity"
+                      aria-label={social.name}
+                    >
+                      <img 
+                        src={social.icon} 
+                        alt={social.name} 
+                        className="w-5 h-5 brightness-0 invert" 
+                      />
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
@@ -97,16 +169,16 @@ const Navbar = () => {
 
         {/* Logo Container */}
         <div
-          className="bg-[#1e40af] absolute bottom-0 left-0 top-[-3rem] w-[20rem] md:w-[25rem] flex items-center justify-center px-8 py-4 z-20"
+          className="bg-[#1e40af] absolute bottom-0 left-0 top-[-4.4rem] w-[20rem] lg:w-[27rem] flex items-center justify-center px-8 py-4 z-20"
           style={{
             clipPath: "polygon(0 0, 70% 0, 100% 100%, 0 100%)",
           }}
         >
-          <img src={logo} alt="Logo" className="w-[8rem] md:w-[10rem] ml-[-3rem] md:ml-[-5rem]" />
+          <img src={logo} alt="Logo" className="w-[10rem] ml-[-5rem]" />
         </div>
 
         {/* Navigation Links - FIXED */}
-        <nav className="hidden xl:flex items-center justify-center flex-1 gap-x-4 lg:gap-x-6 xl:gap-x-8 text-base lg:text-lg font-medium z-20 ml-auto">
+        <nav className="flex items-center justify-center flex-1 gap-x-[3rem] text-base lg:text-lg font-medium z-20 ml-[30rem]">
           {navLinks.map((link, index) => (
             <a
               key={index}

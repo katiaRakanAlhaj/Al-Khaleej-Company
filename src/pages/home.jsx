@@ -1,4 +1,3 @@
-// src/pages/home.jsx
 import slide from "../assets/images/slide1.png";
 import { useEffect } from "react";
 import SliderHome from "../features/home/component/sliderHome";
@@ -8,6 +7,8 @@ import WorkProcess from "../features/home/component/workProcess";
 import Client from "../features/home/component/client";
 import Protection from "../features/home/component/protection";
 import ChooseUs from "../features/home/component/chooseUs";
+import OurBranches from "../features/home/component/ourBranches";
+import Contact from "../features/home/component/contact";
 const Home = () => {
   return (
     <div>
@@ -18,6 +19,8 @@ const Home = () => {
       <Client/>
       <Protection/>
       <ChooseUs/>
+      <OurBranches/>
+      <Contact/>
     </div>
   );
 };

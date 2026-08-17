@@ -77,18 +77,7 @@ const Services = () => {
                     <h3 className="text-white tracking-[0.1rem] font-[600] text-xl leading-snug transition-all duration-300 group-hover:-translate-y-[0.8rem]">
                       {service.title}
                     </h3>
-                    
-                    {/* Learn More - hidden initially, appears on hover */}
-                    <div className="overflow-hidden h-0 transition-all duration-300 group-hover:h-[2.5rem]">
-                      <div className="transform translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                        <div className=" flex gap-x-2 text-white font-bold text-[1rem] pb-[0.25rem]">
-                          <p className = "border-b-2 border-white">Learn More</p>
-                          <div className= "w-[1.5rem] h-[1.5rem] bg-secondary rounded-full z-10 flex justify-center items-center">
-                            <TfiArrowTopRight/>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  
                   </div>
                 </div>
               </SwiperSlide>

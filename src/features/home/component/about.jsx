@@ -13,10 +13,14 @@ const About = () => {
     <div className="grid grid-cols-12 container mx-auto">
       <div className="translate-y-[2rem] col-span-6">
         <div className="relative">
-          <img className="w-full h-auto ml-[-5rem]" src={aboutImage} alt="About Us" />
+          <img
+            className="w-full h-auto ml-[-5rem]"
+            src={aboutImage}
+            alt="About Us"
+          />
           <div className="absolute w-[21rem] h-[8rem] bg-[#003057] -bottom-[5rem] flex items-center px-6 gap-x-5 text-white shadow-lg">
             <div className="relative flex items-center justify-center w-[4.8rem] h-[5.2rem] ">
-              <span 
+              <span
                 className="relative z-10 text-7xl font-extrabold tracking-wider"
                 style={{
                   WebkitTextStroke: "1.5px #93c5fd",
@@ -27,14 +31,16 @@ const About = () => {
               </span>
             </div>
             <div className="flex flex-col">
-              <span className="text-[2rem] font-bold leading-tight">Years of experience</span>
+              <span className="text-[2rem] font-bold leading-tight">
+                Years of experience
+              </span>
             </div>
           </div>
         </div>
       </div>
 
       <div className="flex flex-col col-span-6 mt-[5rem] ml-[-4rem]">
-       <TitleSection title={"About Us"}/>
+        <TitleSection title={"About Us"} />
         <div>
           <p className="font-bold text-[2.5rem] text-primary">
             Providing The Best Insurance Policy To Customers
