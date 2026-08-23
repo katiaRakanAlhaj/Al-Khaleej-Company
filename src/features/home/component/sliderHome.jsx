@@ -26,7 +26,7 @@ const SliderHome = () => {
       </div>
 
       {/* Content Overlay */}
-      <div className="absolute left-[10rem] top-[-3rem] inset-0 flex items-center px-8 md:px-16 z-10">
+      <div className="absolute left-[7rem] top-[-3rem] inset-0 flex items-center px-8 md:px-16 z-10">
         <div className="text-white max-w-xl">
           <h1 className="lg:text-[2.5rem] font-bold leading-tight mb-4">
             An investment in your peace of mind... Lifetime security... Protect

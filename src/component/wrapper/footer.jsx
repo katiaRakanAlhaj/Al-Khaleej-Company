@@ -45,7 +45,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="">
+    <div className="mt-[6rem]">
       <footer className="bg-[#111620] h-auto text-white pt-16 pb-8 font-sans">
         <div className="container1 mx-auto">
           <div className="grid grid-cols-12">
@@ -130,8 +130,8 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className = "w-full h-[0.01rem] bg-[#FFFFFF40] mt-[4rem]"></div>
-          <div className = "flex justify-between mt-[2rem] text-white text-lg opacity-80">
+          <div className="w-full h-[0.01rem] bg-[#FFFFFF40] mt-[4rem]"></div>
+          <div className="flex justify-between mt-[2rem] text-white text-lg opacity-80">
             <p>© 2026 Gulfinsco Insurance Company. All rights reserved.</p>
             <p>Terms Privacy</p>
           </div>

@@ -6,22 +6,32 @@ import LinkedIn from "../../assets/images/linkedIn.svg";
 import Twitter from "../../assets/images/twitter.svg";
 import instgram from "../../assets/images/instgram.svg";
 import logo from "../../assets/images/logo.svg";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
 import phone from "../../assets/images/phone.svg";
 import email from "../../assets/images/email.svg";
 import location from "../../assets/images/location.svg";
 
 const Navbar = () => {
+  const { lang } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const navLinks = [
-    { name: "Home", path: "/", active: true },
-    { name: "About", path: "/about", active: false },
-    { name: "Services", path: "/services", active: false },
-    { name: "Projects", path: "/projects", active: false },
-    { name: "News", path: "/news", active: false },
-    { name: "Branches", path: "/branches", active: false },
-    { name: "Clients", path: "/clients", active: false },
-    { name: "Contact us", path: "/contact", active: false },
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/Services" },
+    { name: "Projects", path: "/projects" },
+    { name: "News", path: "/News" },
+    { name: "Branches", path: "/branches" },
+    { name: "Clients", path: "/clients" },
+    { name: "Contact us", path: "/contact" },
   ];
+
+  // Calculate active state based on current path
+  const updatedNavLinks = navLinks.map(link => ({
+    ...link,
+    active: location.pathname === `/${lang}${link.path === '/' ? '' : link.path}`
+  }));
 
   // Social media links array
   const socialLinks = [
@@ -78,6 +88,15 @@ const Navbar = () => {
     }
   ];
 
+  // Handle language switch
+  const handleLanguageSwitch = () => {
+    const newLang = lang === 'en' ? 'ar' : 'en';
+    const currentPath = location.pathname.replace(`/${lang}`, '');
+    navigate(`/${newLang}${currentPath}`);
+    i18n.changeLanguage(newLang);
+    localStorage.setItem("language", newLang);
+  };
+
   return (
     <header className="w-full bg-white relative shadow-md">
       {/* Top Dark Bar */}
@@ -119,12 +138,17 @@ const Navbar = () => {
               </div>
 
               <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-2 cursor-pointer">
+                <div 
+                  className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={handleLanguageSwitch}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                     <circle cx="12" cy="12" r="10" />
                     <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
                   </svg>
-                  <span className="text-white uppercase font-medium">English</span>
+                  <span className="text-white uppercase font-medium">
+                    {lang === 'en' ? 'العربية' : 'English'}
+                  </span>
                 </div>
 
                 <div className="flex items-end justify-end space-x-4 border-l-2 border-gray-700 pl-8">
@@ -152,8 +176,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Main Navigation Bar - FIXED VERSION */}
-      <div className="relative bg-white flex items-center px-4 lg:px-12 h-[8rem]">
+      {/* Main Navigation Bar */}
+      <div className="relative bg-white flex items-center px-4 lg:px-12 h-[7rem]">
         {/* Background shape */}
         <div
           className="bg-slate-50 z-10"
@@ -174,27 +198,32 @@ const Navbar = () => {
             clipPath: "polygon(0 0, 70% 0, 100% 100%, 0 100%)",
           }}
         >
-          <img src={logo} alt="Logo" className="w-[10rem] ml-[-5rem]" />
+          <Link to={`/${lang}`} className="cursor-pointer">
+            <img src={logo} alt="Logo" className="w-[14rem] ml-[-4rem]" />
+          </Link>
         </div>
 
-        {/* Navigation Links - FIXED */}
+        {/* Navigation Links */}
         <nav className="flex items-center justify-center flex-1 gap-x-[3rem] text-base lg:text-lg font-medium z-20 ml-[30rem]">
-          {navLinks.map((link, index) => (
-            <a
-              key={index}
-              href={link.path}
-              className={`text-base lg:text-lg whitespace-nowrap ${
-                link.active
-                  ? "text-[#003057] font-[700] border-b-2 border-[#003057] pb-1"
-                  : "hover:text-[#1e40af] font-[600] transition-colors pb-1"
-              }`}
-            >
-              {link.name}
-            </a>
-          ))}
+          {updatedNavLinks.map((link, index) => {
+            const path = `/${lang}${link.path === '/' ? '' : link.path}`;
+            return (
+              <Link
+                key={index}
+                to={path}
+                className={`text-base lg:text-lg whitespace-nowrap ${
+                  link.active
+                    ? "text-[#003057] font-[700] border-b-2 border-[#003057] pb-1"
+                    : "hover:text-[#1e40af] font-[600] transition-colors pb-1"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* Mobile Menu Button - Add if needed */}
+        {/* Mobile Menu Button */}
         <button className="xl:hidden ml-auto z-20 p-2">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />

@@ -15,6 +15,9 @@ import { useTranslation } from "react-i18next";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Wrapper from "./component/wrapper/wrapper";
 import Home from "./pages/home";
+import About from "./pages/about"; // Import About component
+import Services from "./pages/services";
+import News from "./pages/news";
 // import NotFound from "./component/pageNotFpund";
 
 const queryClient = new QueryClient({
@@ -38,7 +41,7 @@ function LanguageHandler() {
   useEffect(() => {
     console.log("📍 Current lang:", lang);
     console.log("📍 Current path:", location.pathname);
-    
+
     let languageToUse = lang;
 
     if (!languageToUse || (languageToUse !== "en" && languageToUse !== "ar")) {
@@ -77,16 +80,21 @@ function App() {
       <Route element={<LanguageHandler />}>
         {/* Redirect root to /en */}
         <Route path="/" element={<Navigate to="/en" replace />} />
-        
+
         {/* Language routes */}
         <Route path="/:lang" element={<Wrapper />}>
           {/* This is the index route - it will render Home */}
           <Route index element={<Home />} />
+          {/* About route */}
+          <Route path="about" element={<About />} />
+          <Route path="Services" element={<Services />} />
+          <Route path="News" element={<News />} />
+
           {/* 404 route */}
           {/* <Route path="*" element={<NotFound />} /> */}
         </Route>
-      </Route>
-    )
+      </Route>,
+    ),
   );
 
   return (
