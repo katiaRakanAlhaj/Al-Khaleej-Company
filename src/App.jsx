@@ -18,6 +18,7 @@ import Home from "./pages/home";
 import About from "./pages/about"; // Import About component
 import Services from "./pages/services";
 import News from "./pages/news";
+import SingleNews from "./pages/singleNews";
 // import NotFound from "./component/pageNotFpund";
 
 const queryClient = new QueryClient({
@@ -89,6 +90,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="Services" element={<Services />} />
           <Route path="News" element={<News />} />
+          <Route path="News/:id" element={<SingleNews />} />
 
           {/* 404 route */}
           {/* <Route path="*" element={<NotFound />} /> */}

@@ -1,9 +1,13 @@
+import { useNavigate, useParams } from 'react-router-dom';
 import service1 from "../../../assets/images/servicegrid1.jpg";
 import service2 from "../../../assets/images/servicegrid2.jpg";
 import service3 from "../../../assets/images/servicegrid3.jpg";
 import readMoreArrow from "../../../assets/images/readMoreArrow.svg";
 
 const NewsGrid = () => {
+  const navigate = useNavigate();
+  const { lang } = useParams(); // Get the current language from URL
+
   // Array of news data
   const newsData = [
     {
@@ -32,9 +36,14 @@ const NewsGrid = () => {
       date: "July 2, 2019",
       title: "6 Reasons That Will Change Your Perspective on...",
       description: "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
-      image: service1, // You can add more images or reuse
+      image: service1,
     },
   ];
+
+  const handleCardClick = (id) => {
+    // Navigate with the language parameter
+    navigate(`/${lang}/News/${id}`);
+  };
 
   return (
     <div className="container3 mx-auto mt-[4rem]">
@@ -43,7 +52,8 @@ const NewsGrid = () => {
         {newsData.map((news) => (
           <div
             key={news.id}
-            className="w-full h-[20rem] border border-[#DAE2FD] rounded-md overflow-hidden"
+            className="w-full h-[20rem] border border-[#DAE2FD] rounded-md overflow-hidden cursor-pointer transition-transform hover:scale-[1.01]"
+            onClick={() => handleCardClick(news.id)}
           >
             <div className="grid grid-cols-2 gap-x-[2rem] h-full">
               <img
