@@ -7,6 +7,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./servicesStyle.css";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next"; // Add this import
 
 const branchesData = [
   {
@@ -60,6 +62,16 @@ const branchesData = [
 ];
 
 const OurBranches = () => {
+  const navigate = useNavigate();
+  const { i18n } = useTranslation(); // Get current language
+
+  const handleCardClick = (branchId) => {
+    // Get current language from i18n
+    const currentLang = i18n.language;
+    // Navigate with language prefix
+    navigate(`/${currentLang}/branch/${branchId}`);
+  };
+
   return (
     <div className="w-full mt-[4rem] py-[2rem] h-auto bg-[#FFFFFF] overflow-hidden">
       {/* Header Section */}
@@ -92,7 +104,10 @@ const OurBranches = () => {
                 key={index}
                 className="!w-[28rem] transition-all duration-300"
               >
-                <div className="bg-white h-[26rem] rounded-[1.5rem] overflow-hidden shadow-lg cursor-pointer group border border-gray-100">
+                <div 
+                  className="bg-white h-[26rem] rounded-[1.5rem] overflow-hidden shadow-lg cursor-pointer group border border-gray-100"
+                  onClick={() => handleCardClick(branch.id)}
+                >
                   {/* Branch Image Container with Glassy Primary Cover Overlay */}
                   <div className="w-full h-[15rem] relative overflow-hidden">
                     <img
@@ -101,7 +116,7 @@ const OurBranches = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     {/* Glassmorphic & Primary Color Blended Cover on Hover */}
-                    <div className="absolute inset-0 bg-primary/30  opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                    <div className="absolute inset-0 bg-primary/30 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                   </div>
 
                   {/* Branch Content */}

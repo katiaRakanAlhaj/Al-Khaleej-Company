@@ -19,6 +19,8 @@ import About from "./pages/about"; // Import About component
 import Services from "./pages/services";
 import News from "./pages/news";
 import SingleNews from "./pages/singleNews";
+import Contact from "./pages/contact";
+import BranchDetails from "./pages/branchDetails";
 // import NotFound from "./component/pageNotFpund";
 
 const queryClient = new QueryClient({
@@ -91,6 +93,8 @@ function App() {
           <Route path="Services" element={<Services />} />
           <Route path="News" element={<News />} />
           <Route path="News/:id" element={<SingleNews />} />
+          <Route path="Contact" element={<Contact />} />
+          <Route path="branch/:id" element={<BranchDetails />} />
 
           {/* 404 route */}
           {/* <Route path="*" element={<NotFound />} /> */}

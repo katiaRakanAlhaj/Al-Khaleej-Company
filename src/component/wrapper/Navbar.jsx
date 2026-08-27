@@ -1,6 +1,4 @@
-import { useContext, useEffect, useState, useRef } from "react";
 import i18n from "../../i18n";
-import { MyContext } from "../store";
 import facebook from "../../assets/images/facebook.svg";
 import LinkedIn from "../../assets/images/linkedIn.svg";
 import Twitter from "../../assets/images/twitter.svg";
@@ -9,8 +7,8 @@ import logo from "../../assets/images/logo.svg";
 import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
 import phone from "../../assets/images/phone.svg";
 import email from "../../assets/images/email.svg";
-import location from "../../assets/images/location.svg";
-
+import Location from "../../assets/images/location.svg";
+import flag from "../../assets/images/flag.svg";
 const Navbar = () => {
   const { lang } = useParams();
   const location = useLocation();
@@ -24,7 +22,7 @@ const Navbar = () => {
     { name: "News", path: "/News" },
     { name: "Branches", path: "/branches" },
     { name: "Clients", path: "/clients" },
-    { name: "Contact us", path: "/contact" },
+    { name: "Contact us", path: "/Contact" },
   ];
 
   // Calculate active state based on current path
@@ -82,7 +80,7 @@ const Navbar = () => {
     {
       id: 3,
       type: "address",
-      icon: location,
+      icon: Location,
       value: "238, Arimantab, Moska - USA",
       label: "Address"
     }
@@ -122,32 +120,30 @@ const Navbar = () => {
                         className="w-6 h-6"
                       />
                       {contact.type === "phone" ? (
-                        <a href={contact.href} className="text-white hover:underline">
+                        <a href={contact.href} className="text-white font-[600] text-md hover:underline">
                           {contact.value}
                         </a>
                       ) : contact.type === "email" ? (
-                        <a href={contact.href} className="text-white hover:underline">
+                        <a href={contact.href} className="text-white font-[600] text-md  hover:underline">
                           {contact.value}
                         </a>
                       ) : (
-                        <span className="text-white">{contact.value}</span>
+                        <span className="text-white font-[600] text-md">{contact.value}</span>
                       )}
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-6 ">
                 <div 
-                  className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity"
+                  className="flex items-center space-x-3 pl-[-6rem] cursor-pointer"
                   onClick={handleLanguageSwitch}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
-                  </svg>
-                  <span className="text-white uppercase font-medium">
-                    {lang === 'en' ? 'العربية' : 'English'}
+                 
+                 <img src = {flag} className = "w-[1.5rem]"/>
+                  <span className="text-white mt-1 uppercase font-[600] font-lg">
+                    {lang === 'en' ? 'English' : 'English'}
                   </span>
                 </div>
 
