@@ -1,11 +1,7 @@
-import BranchCard from "../../../ui/branchCard";
 import branch1 from "../../../assets/images/branch1.png";
 import branch2 from "../../../assets/images/branch2.jpg";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-const MoreBranches = () => {
+import BranchCard from "../../../ui/branchCard";
+const OurBranchesGrid = () => {
   const branchesData = [
     {
       id: 1,
@@ -56,42 +52,15 @@ const MoreBranches = () => {
       image: branch2,
     },
   ];
+
   return (
-    <div className="mt-[7rem]">
-      <div className="container1 mx-auto">
-        <div className="bg-[#C4C6D4] w-full h-[0.1rem] pr-[3.8rem]"></div>
-      </div>
-      <div className="w-full pl-[3.8rem]">
-        <h1 className="text-[#111C2D] text-3xl font-bold mt-[1rem] mb-[1rem]">
-          More branches
-        </h1>
-        <div className="swiper-wrapper-custom">
-          <Swiper
-            modules={[Pagination, Autoplay]}
-            spaceBetween={24}
-            slidesPerView="auto"
-            pagination={{
-              clickable: true,
-            }}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            className="w-full pb-[4rem]"
-          >
-            {branchesData.map((branch, index) => (
-              <SwiperSlide
-                key={index}
-                className="!w-[28rem] transition-all duration-300"
-              >
-                <BranchCard branch={branch} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+    <div className="container5 mx-auto">
+      <div className="grid grid-cols-3 gap-[2rem] mt-[3rem]">
+        {branchesData.map((branch) => (
+          <BranchCard branch={branch} />
+        ))}
       </div>
     </div>
   );
 };
-export default MoreBranches;
+export default OurBranchesGrid;

@@ -1,5 +1,3 @@
-// Reusable Banner Component (Banner.jsx)
-
 const Banner = ({ image, title, description, altText = "Banner image" }) => {
   return (
     <div className="relative w-full h-[33rem] overflow-hidden">

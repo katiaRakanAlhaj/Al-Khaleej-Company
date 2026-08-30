@@ -29,6 +29,10 @@ html::-webkit-scrollbar {
     max-width: 83%;
 }
 
+.container5 {
+    max-width: 88%;
+}
+
 @media only screen and (max-width: 400px) {
     html {
         font-size: 14px;

@@ -4,9 +4,11 @@ import MoreBranches from "../features/branchDetails/component/MoreBranches";
 
 const BranchDetails = ()=> {
     return(
-        <div className = "container1 mx-auto">
-            <BranchDetailsHeader/>
+        <div>
+           <div className = "container1 mx-auto">
+             <BranchDetailsHeader/>
             <BranchDetailsMain/>
+           </div>
             <MoreBranches/>
         </div>
     )
