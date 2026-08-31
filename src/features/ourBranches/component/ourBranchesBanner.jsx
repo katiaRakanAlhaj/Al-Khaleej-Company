@@ -1,5 +1,5 @@
 import bgBranch from "../../../assets/images/bgBranch.png";
-import Banner from "../../../component/ux/banner";
+import Banner from "../../../ui/banner";
 const OurBranchesBanner = () => {
   return (
     <div>

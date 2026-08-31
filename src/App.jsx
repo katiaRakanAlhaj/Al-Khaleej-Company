@@ -14,14 +14,15 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Wrapper from "./component/wrapper/wrapper";
-import Home from "./pages/home";
-import About from "./pages/about"; // Import About component
-import Services from "./pages/services";
-import News from "./pages/news";
-import SingleNews from "./pages/singleNews";
-import Contact from "./pages/contact";
-import BranchDetails from "./pages/branchDetails";
-import OurBranches from "./pages/branches";
+import Home from "./pages/Home";
+import About from "./pages/About"; // Import About component
+import Services from "./pages/Services";
+import News from "./pages/News";
+import SingleNews from "./pages/SingleNews";
+import Contact from "./pages/Contact";
+import BranchDetails from "./pages/BranchDetails";
+import OurBranches from "./pages/Branches";
+import Projects from "./pages/projects";
 // import NotFound from "./component/pageNotFpund";
 
 const queryClient = new QueryClient({
@@ -97,6 +98,7 @@ function App() {
           <Route path="Contact" element={<Contact />} />
           <Route path="branch/:id" element={<BranchDetails />} />
           <Route path="Branches" element={<OurBranches />} />
+          <Route path="Projects" element={<Projects />} />
 
           {/* 404 route */}
           {/* <Route path="*" element={<NotFound />} /> */}

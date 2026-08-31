@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from "react-router-dom";
 import service1 from "../../../assets/images/servicegrid1.jpg";
 import service2 from "../../../assets/images/servicegrid2.jpg";
 import service3 from "../../../assets/images/servicegrid3.jpg";
@@ -13,29 +13,34 @@ const NewsGrid = () => {
     {
       id: 1,
       date: "July 2, 2019",
-      title: "The Reality of Insurance in Iraq and the Draft Law for Compulsory Insurance",
-      description: "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
+      title:
+        "The Reality of Insurance in Iraq and the Draft Law for Compulsory Insurance",
+      description:
+        "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
       image: service1,
     },
     {
       id: 2,
       date: "July 2, 2019",
       title: "The Most Important Benefits of Getting Travel...",
-      description: "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
+      description:
+        "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
       image: service2,
     },
     {
       id: 3,
       date: "July 2, 2019",
       title: "Why You Might Need a Property Insurance Policy?",
-      description: "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
+      description:
+        "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
       image: service3,
     },
     {
       id: 4,
       date: "July 2, 2019",
       title: "6 Reasons That Will Change Your Perspective on...",
-      description: "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
+      description:
+        "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
       image: service1,
     },
   ];
@@ -52,7 +57,7 @@ const NewsGrid = () => {
         {newsData.map((news) => (
           <div
             key={news.id}
-            className="w-full h-[20rem] border border-[#DAE2FD] rounded-md overflow-hidden cursor-pointer transition-transform hover:scale-[1.01]"
+            className="w-full h-[20rem] border border-[#DAE2FD] rounded-md overflow-hidden cursor-pointer"
             onClick={() => handleCardClick(news.id)}
           >
             <div className="grid grid-cols-2 gap-x-[2rem] h-full">

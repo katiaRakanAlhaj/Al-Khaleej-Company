@@ -1,5 +1,5 @@
 import serviesBanner from "../../../assets/images/aboutBanner.png";
-import Banner from "../../../component/ux/banner";
+import Banner from "../../../ui/banner";
 
 const ServicesBanner = () => {
   return (
