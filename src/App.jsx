@@ -23,6 +23,7 @@ import Contact from "./pages/Contact";
 import BranchDetails from "./pages/BranchDetails";
 import OurBranches from "./pages/Branches";
 import Projects from "./pages/projects";
+import Clients from "./pages/Clients";
 // import NotFound from "./component/pageNotFpund";
 
 const queryClient = new QueryClient({
@@ -99,6 +100,7 @@ function App() {
           <Route path="branch/:id" element={<BranchDetails />} />
           <Route path="Branches" element={<OurBranches />} />
           <Route path="Projects" element={<Projects />} />
+          <Route path="Clients" element={<Clients />} />
 
           {/* 404 route */}
           {/* <Route path="*" element={<NotFound />} /> */}
