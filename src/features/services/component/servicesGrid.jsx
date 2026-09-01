@@ -59,20 +59,20 @@ const ServicesGrid = () => {
   ];
 
   return (
-    <div className="container2 mx-auto mt-[5rem]">
+    <div className="container2 mx-auto lg:mt-[5rem] mt-[3rem]">
       {/* Header Section */}
       <div className="flex flex-col items-center justify-center mt-[2rem]">
-        <h1 className="font-bold text-[#131B2E] text-4xl">
+        <h1 className="font-bold text-[#131B2E] lg:text-4xl text-[1.5rem] text-nowrap">
           Comprehensive Coverage
         </h1>
-        <p className="text-[#434652] text-lg px-[15rem] mt-3 text-center">
+        <p className="text-[#434652] text-lg lg:px-[15rem] mt-3 text-center">
           Discover our range of specialized insurance products designed to offer
           peace of mind in every aspect of life and business.
         </p>
       </div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-3 gap-[2rem] mt-[4rem]">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2rem] lg:mt-[4rem] mt-[2rem]">
         {services.map((service) => (
           <div
             key={service.id}
@@ -89,7 +89,7 @@ const ServicesGrid = () => {
               <h1 className="text-primary font-bold text-[1.4rem]">
                 {service.title}
               </h1>
-              <p className="text-[#434652] leading-relaxed text-md">
+              <p className="text-[#434652] leading-relaxed text-md line-clamp-3">
                 {service.desc}
               </p>
             </div>

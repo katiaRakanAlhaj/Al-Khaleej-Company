@@ -6,11 +6,11 @@ const SingleNews = () => {
   return (
     <div className="container4 mx-auto">
       <SingleNewsBanner />
-      <div className="grid grid-cols-12 gap-x-[2rem] mt-[3rem]">
-        <div className="col-span-8">
-          <SingleNewsDescription />
+      <div className="grid lg:grid-cols-12 grid-cols-1 gap-[2rem] mt-[3rem]">
+        <div className="lg:col-span-8 col-span-1">
+          <SingleNewsDescription /> 
         </div>
-        <div className="col-span-4">
+        <div className="lg:col-span-4 col-span-1">
           <LastNews />
         </div>
       </div>

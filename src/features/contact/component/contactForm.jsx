@@ -10,7 +10,7 @@ const InputField = ({
   className = "",
 }) => (
   <div className={className}>
-    <label className="block text-lg font-bold text-gray-900 mb-1">
+    <label className="block md:text-lg text-md font-bold text-gray-900 mb-1">
       {label} {required && <span className="text-red-500">*</span>}
     </label>
     <input
@@ -24,7 +24,7 @@ const InputField = ({
 // Reusable textarea component
 const TextAreaField = ({ label, rows = 4, placeholder, required = true }) => (
   <div>
-    <label className="block text-lg font-bold text-gray-900 mb-1">
+    <label className="block md:text-lg text-md font-bold text-gray-900 mb-1">
       {label} {required && <span className="text-red-500">*</span>}
     </label>
     <textarea
@@ -45,11 +45,11 @@ const ContactForm = ({ noMargin = false }) => {
   return (
     <div 
       style={{ boxShadow: '0px 0px 8px 0px #00000040' }} 
-      className={`lg:col-span-6 h-[47rem] bg-white rounded-2xl px-[3rem] py-[4rem] ${
-        noMargin ? '' : 'mt-[6rem]'
+      className={`lg:col-span-6 lg:h-[47rem] bg-white rounded-2xl lg:px-[3rem] px-[1.5rem] lg:py-[4rem] py-[2rem] ${
+        noMargin ? '' : 'lg:mt-[6rem] mt-[3rem]'
       }`}
     >
-      <h2 className="text-5xl font-bold text-gray-900 mb-6">Get in Touch</h2>
+      <h2 className="lg:text-5xl text-[2rem] font-bold text-gray-900 mb-6">Get in Touch</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* First Name & Last Name */}
@@ -78,10 +78,10 @@ const ContactForm = ({ noMargin = false }) => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="inline-flex items-center justify-center px-4 py-4 mt-[1rem] bg-primary hover:bg-blue-800 text-white font-bold text-lg cursor-pointer shadow-md transition-colors duration-200 space-x-2"
+          className="inline-flex items-center justify-center px-4 py-4 mt-[1rem] bg-primary hover:bg-blue-800 text-white font-bold md:text-lg text-md cursor-pointer shadow-md transition-colors duration-200 space-x-2"
         >
           <span>Submit Message</span>
-          <icon className="text-[1.5rem]">
+          <icon className="md:text-[1.5rem] text-[1.3rem]">
             <MdOutlineArrowOutward />
           </icon>
         </button>

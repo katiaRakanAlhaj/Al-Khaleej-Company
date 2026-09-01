@@ -68,10 +68,10 @@ const ProjectsFilter = () => {
   return (
     <div>
       <div className="container4 mx-auto mt-[4rem]">
-        <div className="flex justify-between items-center">
+        <div className="lg:flex space-y-2 justify-between items-center">
           <div>
             <ProjectsTitle title={"Key Partnerships"} />
-            <p className="text-[#434652] mt-2 text-xl">
+            <p className="text-[#434652] mt-2 lg:text-xl text-lg">
               A detailed log of our issued engineering policies.{" "}
             </p>
           </div>

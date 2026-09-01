@@ -25,17 +25,17 @@ const AboutCompany = () => {
   ];
 
   return (
-    <div className="container1 mx-auto py-[4rem]">
-      <div className="grid grid-cols-12 gap-[2rem]">
+    <div className="container1 mx-auto lg:py-[4rem] py-[3rem]">
+      <div className="grid lg:grid-cols-12 grid-cols-1 gap-[2rem]">
         {/* first column */}
-        <div className="col-span-8">
+        <div className="lg:col-span-8 col-span-1">
           <div
             style={{ boxShadow: "0px 0px 8px 0px #00000040" }}
             className="w-full h-auto pb-[3.5rem] bg-white p-[2rem] rounded-xl"
           >
             <div className="flex gap-x-2 items-center-safe">
               <img className="w-[2rem]" src={mainCompany} alt="Company" />
-              <h1 className="text-primary text-4xl font-bold">
+              <h1 className="text-primary lg:text-4xl text-[1.5rem] font-bold">
                 Company Overview
               </h1>
             </div>
@@ -59,7 +59,7 @@ const AboutCompany = () => {
           </div>
         </div>
         {/* second column */}
-        <div className="col-span-4">
+        <div className="lg:col-span-4 col-span-1">
           <div className="flex flex-col space-y-[1rem]">
             {items.map((item, index) => (
               <div
@@ -69,7 +69,7 @@ const AboutCompany = () => {
               >
                 <div className="flex gap-x-[1rem]">
                   <div>
-                    <img className="w-[1.2rem]" src={item.image} alt={item.title} />
+                    <img className="w-[1.2rem] lg:mt-0 mt-[0.6rem]" src={item.image} alt={item.title} />
                   </div>
                   <div className="flex flex-col">
                     <h1 className="text-lg text-[#505F76]">{item.title}</h1>

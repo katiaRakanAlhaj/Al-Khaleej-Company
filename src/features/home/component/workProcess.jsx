@@ -43,7 +43,7 @@ const WorkProcess = () => {
       <div className="mx-auto flex flex-col items-center justify-center">
         <TitleSection title="Work Process" />
 
-        <h1 className="mt-[1rem] text-center font-bold leading-tight text-primary text-[2.5rem]">
+        <h1 className="mt-[1rem] text-center font-bold leading-tight text-primary lg:text-[2.5rem] text-[1.5rem] text-wrap lg:w-[100%] w-[80%]">
           Easy our Work Process in 4 step
         </h1>
       </div>
@@ -91,7 +91,7 @@ const WorkProcess = () => {
         {/* =========================
             STEPS 
         ========================== */}
-        <div className="relative z-10 grid grid-cols-1 gap-[4rem] sm:grid-cols-2 px-[6rem] lg:grid-cols-4 lg:gap-[2rem]">
+        <div className="relative z-10 grid grid-cols-1 gap-[2rem] sm:grid-cols-2 lg:px-[6rem] px-[3rem] lg:grid-cols-4 lg:gap-[2rem]">
           {steps.map((step, index) => {
             // Get number position based on the number
             const getNumberPosition = (num) => {
@@ -150,6 +150,8 @@ const WorkProcess = () => {
                   <div
                     className={`
                       absolute 
+                      lg:block
+                      hidden
                       z-30 
                       flex 
                       h-[3.5rem] 
@@ -177,7 +179,7 @@ const WorkProcess = () => {
                 </h3>
 
                 {/* Description */}
-                <p className="mt-[0.5rem] text-[1.125rem] text-[#717171] max-w-[90%]">
+                <p className="mt-[0.5rem] text-[1.125rem] text-[#717171] lg:max-w-[90%] max-w-[100%]">
                   {step.description}
                 </p>
               </div>

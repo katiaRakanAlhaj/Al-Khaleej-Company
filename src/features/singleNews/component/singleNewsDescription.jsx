@@ -3,14 +3,14 @@ import mail from "../../../assets/images/mail.svg";
 const SingleNewsDescription = () => {
   // Reusable classes to avoid repetition
   const bodyTextStyles =
-    "text-[#131B2E] text-xl leading-relaxed mt-4 flex text-justify";
-  const headingStyles = "text-[#00348A] font-bold text-3xl mt-4";
+    "text-[#131B2E] lg:text-xl text-lg leading-relaxed mt-4 flex text-justify";
+  const headingStyles = "text-[#00348A] font-bold lg:text-3xl text-[1.5rem] mt-4";
   const buttonStyles =
     "w-[2.5rem] h-[2.5rem] flex justify-center items-center rounded-full bg-[#E2E7FF]";
   const buttons = ["Insurance", "Legislation", "Iraq"];
   return (
     <div>
-      <p className="text-[#131B2E] flex text-justify text-xl leading-relaxed">
+      <p className="text-[#131B2E] flex text-justify lg:text-xl text-lg leading-relaxed">
         The Iraqi insurance sector has faced numerous challenges both
         historically and in recent times. Economic fluctuations, regulatory
         hurdles, and a lack of public awareness have contributed to a fragmented
@@ -35,7 +35,7 @@ const SingleNewsDescription = () => {
 
       <div className="w-full h-auto bg-[#F2F3FF] mt-4 flex justify-center items-center p-8 relative">
         <div className="absolute h-full left-0 top-0 w-[0.3em] bg-[#00348A]"></div>
-        <p className="w-full text-xl leading-relaxed text-[#434652]">
+        <p className="w-full lg:text-xl text-lg leading-relaxed text-[#434652]">
           "Enacting a compulsory insurance law will represent a qualitative leap
           in protecting individuals and properties, and will effectively
           contribute to the stability of the national economy."
@@ -53,13 +53,13 @@ const SingleNewsDescription = () => {
         Insurance.
       </p>
       <div className="w-full h-[0.1rem] mt-[4rem] bg-[#C4C6D4]"></div>
-      <div className="mt-[2rem] flex justify-between items-center">
+      <div className="mt-[2rem] flex justify-between items-center flex-wrap">
         <div className="flex gap-x-2  text-lg text-[#505F76]">
           {buttons?.map((button) => (
             <div className="w-fit p-2 h-[2.4rem] bg-[#E2E7FF]">{button}</div>
           ))}
         </div>
-        <div className="flex items-center gap-x-2">
+        {/* <div className="flex items-center gap-x-2">
           <p className="text-md text-[#505F76]">Share News:</p>
           <div className={buttonStyles}>
             <img className="w-[1rem]" src={sharing} />
@@ -67,7 +67,7 @@ const SingleNewsDescription = () => {
           <div className={buttonStyles}>
             <img className="w-[1rem]" src={mail} />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

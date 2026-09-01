@@ -61,17 +61,17 @@ const branchesData = [
 
 const OurBranches = () => {
   return (
-    <div className="w-full mt-[4rem] py-[2rem] h-auto bg-[#FFFFFF] overflow-hidden">
+    <div className="w-full lg:mt-[4rem] mt-[2rem] py-[2rem] h-auto bg-[#FFFFFF] overflow-hidden">
       {/* Header Section */}
-      <div className="flex flex-col justify-center items-center mb-[3rem]">
+      <div className="flex flex-col justify-center items-center mb-[3rem] px-4">
         <TitleSection title={"Our branches"} />
-        <h1 className="font-bold text-primary text-[2.5rem] mt-[1rem] text-center">
+        <h1 className="font-bold text-primary lg:text-[2.5rem] md:text-[2rem] text-[1.5rem] mt-[1rem] text-center">
           The Prims People Trust Most
         </h1>
       </div>
 
       {/* Swiper Slider Section */}
-      <div className="w-full pl-[4rem]">
+      <div className="w-full px-4 md:px-0 lg:pl-[4rem]">
         <div className="swiper-wrapper-custom">
           <Swiper
             modules={[Pagination, Autoplay]}
@@ -86,11 +86,31 @@ const OurBranches = () => {
             }}
             loop={true}
             className="w-full pb-[4rem]"
+            breakpoints={{
+              // Mobile - show 1 slide with padding
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                centeredSlides: false,
+              },
+              // Tablet - show 2 slides
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                centeredSlides: false,
+              },
+              // Desktop - show auto slides
+              1024: {
+                slidesPerView: "auto",
+                spaceBetween: 24,
+                centeredSlides: false,
+              },
+            }}
           >
             {branchesData.map((branch, index) => (
               <SwiperSlide
                 key={index}
-                className="!w-[28rem] transition-all duration-300"
+                className="lg:!w-[28rem] md:!w-[20rem] !w-full transition-all duration-300"
               >
                 <BranchCard 
                   branch={branch} 

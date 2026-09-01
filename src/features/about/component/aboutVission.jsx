@@ -6,14 +6,14 @@ const AboutVission = () => {
   const cardShadow = "shadow-[0px_1px_2px_0px_#0000000D]";
   const sectionTitleClasses = "flex gap-x-[1rem] items-center";
   const titleBarClasses = "w-[0.3rem] h-[3rem] bg-primary";
-  const titleTextClasses = "font-bold text-[#131B2E] text-4xl";
+  const titleTextClasses = "font-bold text-[#131B2E] lg:text-4xl text-[1.5rem]";
   const descriptionClasses = "text-lg mt-3";
   const cardClasses = "w-full h-auto p-[1.5rem] rounded-md";
 
   return (
-    <div className="w-full h-[40rem] bg-[#F6F8FF] py-[4rem]">
+    <div className="w-full h-auto bg-[#F6F8FF] py-[4rem]">
       <div className="container1 mx-auto">
-        <div className="grid grid-cols-2 gap-x-[4rem]">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-y-[2rem] gap-x-[4rem]">
           {/* First Column */}
           <div>
             <div className={sectionTitleClasses}>
@@ -27,14 +27,14 @@ const AboutVission = () => {
               Insurance Diwan and the Ministry of Finance, allowing us to offer
               life and general insurance products.
             </p>
-            <div className="flex gap-x-4 mt-[3rem]">
+            <div className="lg:flex gap-x-4 mt-[3rem]">
               <div className="w-full h-[6rem] bg-white p-[1rem] border border-[#C4C6D4]">
                 <h1 className="text-[#505F76] text-lg">Current Capital</h1>
                 <p className="text-[#131B2E] mt-1 font-bold text-2xl">
                   7 Billion
                 </p>
               </div>
-              <div className="w-full h-[6rem] bg-white p-[1rem] border border-[#C4C6D4]">
+              <div className="w-full h-[6rem] bg-white p-[1rem] border border-[#C4C6D4] lg:mt-0 mt-[1rem]">
                 <h1 className="text-[#505F76] text-lg">Massive Reserves</h1>
                 <p className="text-[#131B2E] mt-1 font-bold text-2xl">
                   242.1 Million

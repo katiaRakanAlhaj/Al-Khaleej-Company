@@ -18,10 +18,10 @@ const BranchDetailsMain = () => {
     { image: branchService5, name: "Life Insurance" },
   ];
   return (
-    <div className="grid grid-cols-12 gap-x-[2rem] mt-[4rem]">
+    <div className="grid lg:grid-cols-12 gap-y-[2rem] grid-cols-1 gap-x-[2rem] mt-[4rem]">
       {/* first column */}
-      <div className="col-span-8">
-        <div className="w-full h-[43rem] p-[2rem] rounded-lg border border-[#C4C6D4]">
+      <div className="lg:col-span-8 col-span-1">
+        <div className="w-full lg:h-[43rem] h-[38rem] p-[2rem] rounded-lg border border-[#C4C6D4]">
           <div className="flex gap-x-2">
             <img className="w-[1.2rem]" src={branchLocation} />
             <h1 className="text-[#111C2D] font-bold text-2xl">Location</h1>
@@ -30,7 +30,7 @@ const BranchDetailsMain = () => {
           <p className="text-[#434652] mt-[1rem] text-lg">
             100 Tech Square, Innovation District, Sector 4
           </p>
-          <div className="w-full h-[32rem] border border-[#F9F9FF33] mt-[1rem] rounded-lg overflow-hidden shadow-lg">
+          <div className="w-full lg:h-[32rem] h-[25rem] border border-[#F9F9FF33] mt-[1rem] rounded-lg overflow-hidden shadow-lg">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509419!2d144.9537353153167!3d-37.81627997975159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d5df1f2f8e3%3A0x5045675218ce6e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1647044532148!5m2!1sen!2sus"
               width="100%"
@@ -45,9 +45,11 @@ const BranchDetailsMain = () => {
         </div>
       </div>
       {/*second column */}
-      <div className="col-span-4 space-y-[2rem]">
+      <div className="lg:col-span-4 col-span-1 space-y-[2rem]">
         <div className="w-full h-auto border border-[#C4C6D4] rounded-lg p-[2rem]">
-          <h1 className="text-[#111C2D] text-2xl font-bold">Hours</h1>
+          <h1 className="text-[#111C2D] lg:text-2xl text-[1.5rem] font-bold">
+            Hours
+          </h1>
           <LineStyle />
           {hours.map((item, index) => (
             <div key={index}>
@@ -60,14 +62,18 @@ const BranchDetailsMain = () => {
           ))}
         </div>
         <div className="w-full h-auto border border-[#C4C6D4] rounded-lg p-[2rem]">
-          <h1 className="text-[#111C2D] text-2xl font-bold">Contact</h1>
+          <h1 className="text-[#111C2D] lg:text-2xl text-[1.5rem] font-bold">
+            Contact
+          </h1>
           <LineStyle />
           <p className="text-[#00348A] font-[600] mt-[1rem] text-[1.3rem]">
             +1 (555) 012-3456
           </p>
         </div>
         <div className="w-full h-auto border border-[#C4C6D4] rounded-lg p-[2rem]">
-          <h1 className="text-[#111C2D] text-2xl font-bold">Services</h1>
+          <h1 className="text-[#111C2D] lg:text-2xl text-[1.5rem] font-bold">
+            Services
+          </h1>
           <LineStyle />
           <div className="flex flex-wrap gap-2 mt-[1rem]">
             {services.map((service, index) => (

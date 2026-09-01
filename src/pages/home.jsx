@@ -15,12 +15,12 @@ const Home = () => {
       <SliderHome />
       <About />
       <Services/>
-      <WorkProcess/>
+       <WorkProcess/>
       <Client/>
       <Protection/>
       <ChooseUs/>
       <OurBranches/>
-      <Contact/>
+      <Contact/> 
     </div>
   );
 };

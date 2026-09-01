@@ -45,14 +45,14 @@ const Footer = () => {
   ];
 
   return (
-    <div className="mt-[6rem]">
+    <div className="lg:mt-[6rem] mt-[3rem]">
       <footer className="bg-[#111620] h-auto text-white pt-16 pb-8 font-sans">
         <div className="container1 mx-auto">
-          <div className="grid grid-cols-12">
+          <div className="grid lg:grid-cols-12 grid-cols-1">
             {/* first column */}
-            <div className="col-span-4">
+            <div className="lg:col-span-4 col-span-1">
               <img src={logoFooter} alt="Logo" />
-              <p className="text-white font-[400] opacity-80 mt-[1rem] leading-relaxed text-lg w-[60%]">
+              <p className="text-white font-[400] opacity-80 mt-[1rem] leading-relaxed text-lg lg:w-[60%] w-[90%]">
                 Redefining insurance for the modern world. We provide security
                 and peace of mind through expert consultation and innovative
                 digital solutions.
@@ -60,11 +60,11 @@ const Footer = () => {
             </div>
 
             {/* second column */}
-            <div className="col-span-8">
-              <div className="grid grid-cols-3 gap-4">
+            <div className="lg:col-span-8 col-span-1">
+              <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-2 gap-4">
                 {/* Column 1 - Quick Links (first half) */}
                 <div>
-                  <h1 className="font-bold text-lg text-white mb-4">
+                  <h1 className="font-bold text-lg text-white mb-4 lg:mt-0 mt-[1rem]">
                     Quick Links
                   </h1>
                   <ul className="space-y-2">
@@ -82,8 +82,8 @@ const Footer = () => {
                 </div>
 
                 {/* Column 2 - Quick Links (second half) */}
-                <div className="ml-[-4rem]">
-                  <ul className="space-y-2 mt-[2.5rem]">
+                <div className="lg:ml-[-4rem]">
+                  <ul className="space-y-2 lg:mt-[2.5rem] mt-[4rem]">
                     {secondHalf.map((link) => (
                       <li key={link.id}>
                         <a
@@ -97,27 +97,31 @@ const Footer = () => {
                   </ul>
                 </div>
 
-                {/* Column 3 - Contact Us */}
-                <div className="ml-[-6rem]">
-                  <h1 className="font-bold text-lg text-white mb-4">
+                {/* Column 3 - Contact Us - IMPROVED FOR MOBILE */}
+                <div className="lg:ml-[-6rem] col-span-2 lg:col-span-1 md:col-span-2">
+                  <h1 className="font-bold text-lg text-white mb-4 lg:mt-0 mt-[1rem]">
                     Contact Us
                   </h1>
-                  <ul className="space-y-3">
+                  <ul className="space-y-4">
                     {contactData.map((item, index) => (
                       <li
                         key={index}
-                        className={`flex ${item.isStart ? "items-center" : "items-center"} gap-3`}
+                        className="flex items-start lg:items-center gap-3 bg-white/5 lg:bg-transparent p-3 lg:p-0 rounded-lg lg:rounded-none hover:bg-white/10 lg:hover:bg-transparent transition-all duration-300"
                       >
-                        <img
-                          src={item.icon}
-                          alt={item.alt}
-                          className="w-7 h-7 flex-shrink-0"
-                        />
+                        <div className="bg-[#003057] lg:bg-transparent p-2 lg:p-0 rounded-full lg:rounded-none flex-shrink-0">
+                          <img
+                            src={item.icon}
+                            alt={item.alt}
+                            className="w-5 h-5 lg:w-7 lg:h-7"
+                          />
+                        </div>
                         <div className="flex flex-col">
                           {item.lines.map((line, idx) => (
                             <span
                               key={idx}
-                              className={`text-white opacity-80 text-md ${idx > 0 ? "mt-1" : ""}`}
+                              className={`text-white opacity-80 text-sm lg:text-md ${
+                                idx > 0 ? "mt-0.5" : ""
+                              }`}
                             >
                               {line}
                             </span>
@@ -131,9 +135,9 @@ const Footer = () => {
             </div>
           </div>
           <div className="w-full h-[0.01rem] bg-[#FFFFFF40] mt-[4rem]"></div>
-          <div className="flex justify-between mt-[2rem] text-white text-lg opacity-80">
+          <div className="lg:flex justify-between mt-[2rem] text-white text-lg opacity-80">
             <p>© 2026 Gulfinsco Insurance Company. All rights reserved.</p>
-            <p>Terms Privacy</p>
+            <p className="lg:mt-0 mt-[1.5rem]">Terms Privacy</p>
           </div>
         </div>
       </footer>

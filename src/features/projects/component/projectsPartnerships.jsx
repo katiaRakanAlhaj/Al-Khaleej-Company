@@ -25,12 +25,12 @@ const ProjectPartnerships = () => {
 
   return (
     <div>
-      <div className="container4 mx-auto mt-[5rem]">
+      <div className="container4 mx-auto lg:mt-[5rem] mt-[3rem]">
         <ProjectsTitle title = {"Key Partnerships"}/>
-        <p className="text-[#434652] mt-2 text-xl">
+        <p className="text-[#434652] mt-2 lg:text-xl text-lg">
           Securing Iraq's most critical assets and infrastructure.
         </p>
-        <div className="grid grid-cols-3 gap-[1.5rem] mt-[2rem]">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[1.5rem] mt-[2rem]">
           {projectItems.map((item, index) => (
             <div
               key={index}

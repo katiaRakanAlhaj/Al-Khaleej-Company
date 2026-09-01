@@ -55,7 +55,7 @@ const OurBranchesGrid = () => {
 
   return (
     <div className="container5 mx-auto">
-      <div className="grid grid-cols-3 gap-[2rem] mt-[3rem]">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-[2rem] mt-[3rem]">
         {branchesData.map((branch) => (
           <BranchCard branch={branch} />
         ))}

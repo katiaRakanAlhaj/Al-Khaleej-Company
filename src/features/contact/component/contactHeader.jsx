@@ -5,23 +5,44 @@ import hour from "../../../assets/images/hour.svg";
 
 const ContactHeader = () => {
   const contactHeaderItems = [
-    { image: location, title: "Headquarters", desc1: 'Baghdad - Al Harthiya', desc2: 'Al Kindi StreAet' },
-    { image: callContact, title: "Customer Support", desc1: "009647729000530", desc2: "009647821041006" },
-    { image: emailContact, title: "General Inquiries", desc1: "info@gulfinsco.com" },
-    { image: hour, title: "Business Hours", desc1: "Sunday - Thursday", desc2: "8:30 AM - 2:00 PM" }
+    {
+      image: location,
+      title: "Headquarters",
+      desc1: "Baghdad - Al Harthiya",
+      desc2: "Al Kindi StreAet",
+    },
+    {
+      image: callContact,
+      title: "Customer Support",
+      desc1: "009647729000530",
+      desc2: "009647821041006",
+    },
+    {
+      image: emailContact,
+      title: "General Inquiries",
+      desc1: "info@gulfinsco.com",
+    },
+    {
+      image: hour,
+      title: "Business Hours",
+      desc1: "Sunday - Thursday",
+      desc2: "8:30 AM - 2:00 PM",
+    },
   ];
 
   const descClasses = "text-[#43474F] text-md";
 
   return (
-    <div className="mt-[4rem]">
-      <h1 className="text-5xl font-bold text-[#001E40]">Contact Us</h1>
-      <p className="text-[#43474F] w-[60%] leading-relaxed text-xl mt-[2rem]">
+    <div className="lg:mt-[4rem] mt-[3rem]">
+      <h1 className="lg:text-5xl text-3xl font-bold text-[#001E40]">
+        Contact Us
+      </h1>
+      <p className="text-[#43474F] lg:w-[60%] leading-relaxed lg:text-xl text-lg mt-[2rem]">
         We are here to assist you with precision and care. Reach out to our
         dedicated team for inquiries, support, or consultation regarding your
         insurance needs.
       </p>
-      <div className="grid grid-cols-4 gap-[2rem] mt-[2rem]">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-[2rem] mt-[2rem]">
         {contactHeaderItems.map((item, index) => (
           <div
             key={index}

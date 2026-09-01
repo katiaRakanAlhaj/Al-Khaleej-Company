@@ -9,7 +9,7 @@ const Projects = ()=> {
             <ProjectsBanner/>
             <ProjectPartnerships/>
             <ProjectsFilter/>
-            <ProjectsSpeclalizedCoverage/>
+            {/* <ProjectsSpeclalizedCoverage/> */}
         </div>
     )
 }

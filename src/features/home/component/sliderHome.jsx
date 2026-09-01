@@ -35,7 +35,7 @@ const slidesData = [
 
 const SliderHome = () => {
   return (
-    <div className="relative w-full h-[40rem] overflow-hidden">
+    <div className="relative w-full lg:h-[40rem] h-[25rem] overflow-hidden">
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect={"fade"}
@@ -52,7 +52,7 @@ const SliderHome = () => {
               <>
                 {/* Background Image with Rounded Corner, Gradient, and Downward Slide Animation */}
                 <div
-                  className={`absolute inset-0 w-full h-full rounded-bl-[16rem] overflow-hidden transition-all duration-1000 ease-out ${
+                  className={`absolute inset-0 w-full h-full lg:rounded-bl-[16rem] overflow-hidden transition-all duration-1000 ease-out ${
                     isActive ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
                   }`}
                 >
@@ -72,7 +72,7 @@ const SliderHome = () => {
                 </div>
 
                 {/* Content Overlay with Gradual Downward Slide Animation */}
-                <div className="absolute left-[7rem] top-[-3rem] inset-0 flex items-center px-8 md:px-16 z-10">
+                <div className="absolute lg:left-[7rem] left-[2rem] lg:top-[-3rem] inset-0 flex items-center px-8 md:px-16 z-10">
                   <div
                     className={`text-white max-w-xl transition-all duration-1000 ease-out delay-300 ${
                       isActive
@@ -80,7 +80,7 @@ const SliderHome = () => {
                         : "opacity-0 -translate-y-12"
                     }`}
                   >
-                    <h1 className="lg:text-[2.5rem] font-bold leading-tight mb-4">
+                    <h1 className="lg:text-[2.5rem] text-[1.5rem] font-bold leading-tight mb-4">
                       {slide.title}
                     </h1>
                     <button className="w-[14rem] h-[3.5rem] flex justify-center cursor-pointer items-center gap-x-2 shadow-lg bg-[#214CA9] hover:bg-[#1a3b85] transition-colors">
