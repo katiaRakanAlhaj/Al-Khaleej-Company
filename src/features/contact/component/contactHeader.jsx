@@ -2,6 +2,7 @@ import location from "../../../assets/images/locationContact.svg";
 import callContact from "../../../assets/images/callContact.svg";
 import emailContact from "../../../assets/images/emailContact.svg";
 import hour from "../../../assets/images/hour.svg";
+import i18next from "i18next";
 
 const ContactHeader = () => {
   const contactHeaderItems = [
@@ -33,11 +34,11 @@ const ContactHeader = () => {
   const descClasses = "text-[#43474F] text-md";
 
   return (
-    <div className="lg:mt-[4rem] mt-[3rem]">
+    <div className="lg:mt-[4rem] mt-[6rem]">
       <h1 className="lg:text-5xl text-3xl font-bold text-[#001E40]">
-        Contact Us
+        {i18next.t("navbar.navLinks.contactUs")}
       </h1>
-      <p className="text-[#43474F] lg:w-[60%] leading-relaxed lg:text-xl text-lg mt-[2rem]">
+      <p className="text-[#43474F] lg:w-[60%] leading-relaxed lg:text-xl text-lg lg:mt-[2rem]">
         We are here to assist you with precision and care. Reach out to our
         dedicated team for inquiries, support, or consultation regarding your
         insurance needs.

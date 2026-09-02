@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import i18next from "i18next";
 
 const MoreBranches = () => {
   const branchesData = [
@@ -59,12 +60,12 @@ const MoreBranches = () => {
   ];
 
   return (
-    <div className="lg:mt-[7rem] mt-[3rem]">
+    <div className="lg:mt-[7rem] mt-[3rem] overflow-hidden">
       <div className="container1 mx-auto">
         <div className="bg-[#C4C6D4] w-full h-[0.1rem] pr-[3.8rem]"></div>
       </div>
-      <div className="w-full lg:pl-[3.8rem]">
-        <h1 className="text-[#111C2D] text-3xl font-bold lg:mt-[1rem] mt-[2rem] mb-[1rem] px-4 lg:px-0">
+      <div className={`w-full ${i18next.language == "en"?'lg:pl-[3.8rem]':'lg:pr-[3.8rem]'}`}>
+        <h1 className="text-[#111C2D] lg:text-3xl text-[1.5rem] font-bold lg:mt-[1rem] mt-[2rem] mb-[1rem] px-4 lg:px-0">
           More branches
         </h1>
         <div className="swiper-wrapper-custom px-4 lg:px-0">

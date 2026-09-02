@@ -1,6 +1,6 @@
 import React from "react";
 import { MdOutlineArrowOutward } from "react-icons/md";
-
+import i18next from "i18next";
 // Reusable input field component
 const InputField = ({
   label,
@@ -43,45 +43,59 @@ const ContactForm = ({ noMargin = false }) => {
   };
 
   return (
-    <div 
-      style={{ boxShadow: '0px 0px 8px 0px #00000040' }} 
+    <div
+      style={{ boxShadow: "0px 0px 8px 0px #00000040" }}
       className={`lg:col-span-6 lg:h-[47rem] bg-white rounded-2xl lg:px-[3rem] px-[1.5rem] lg:py-[4rem] py-[2rem] ${
-        noMargin ? '' : 'lg:mt-[6rem] mt-[3rem]'
+        noMargin ? "" : "lg:mt-[6rem] mt-[3rem]"
       }`}
     >
-      <h2 className="lg:text-5xl text-[2rem] font-bold text-gray-900 mb-6">Get in Touch</h2>
+      <h2 className="lg:text-5xl text-[2rem] font-bold text-gray-900 mb-6">
+        {i18next.t("contact.title")}
+      </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* First Name & Last Name */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <InputField label="First Name" placeholder="Enter First Name" />
-          <InputField label="Last Name" placeholder="Enter Last Name" />
+          <InputField
+            label={i18next.t("contact.first_name")}
+            placeholder={i18next.t("contact.first_name_placeholder")}
+          />
+          <InputField
+            label={i18next.t("contact.last_name")}
+            placeholder={i18next.t("contact.last_name_placeholder")}
+          />
         </div>
 
         {/* Phone Number & Email Address */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <InputField
-            label="Phone Number"
+            label={i18next.t("contact.phone")}
             type="tel"
-            placeholder="Enter Phone Number"
+            placeholder={i18next.t("contact.phone_placeholder")}
           />
           <InputField
-            label="Email Address"
+            label={i18next.t("contact.email")}
             type="email"
-            placeholder="Enter Email Address"
+            placeholder={i18next.t("contact.email_placeholder")}
           />
         </div>
 
         {/* Message */}
-        <TextAreaField label="Message" placeholder="Any Message" rows={4} />
+        <TextAreaField
+          label={i18next.t("contact.message")}
+          placeholder={i18next.t("contact.message_placeholder")}
+          rows={4}
+        />
 
         {/* Submit Button */}
         <button
           type="submit"
           className="inline-flex items-center justify-center px-4 py-4 mt-[1rem] bg-primary hover:bg-blue-800 text-white font-bold md:text-lg text-md cursor-pointer shadow-md transition-colors duration-200 space-x-2"
         >
-          <span>Submit Message</span>
-          <icon className="md:text-[1.5rem] text-[1.3rem]">
+          <span>{i18next.t("contact.message_placeholder")}</span>
+          <icon
+            className={`md:text-[1.5rem] text-[1.3rem] ${i18next.language == "ar" ? "-rotate-90" : ""}`}
+          >
             <MdOutlineArrowOutward />
           </icon>
         </button>

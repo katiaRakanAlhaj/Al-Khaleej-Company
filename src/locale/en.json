@@ -1,0 +1,80 @@
+{
+    "navbar": {
+        "navLinks": {
+            "home": "Home",
+            "about": "About",
+            "services": "Services",
+            "projects": "Projects",
+            "news": "News",
+            "branches": "Branches",
+            "clients": "Clients",
+            "contactUs": "Contact us"
+        },
+        "socialMedia": {
+            "facebook": "Facebook",
+            "instagram": "Instagram",
+            "linkedin": "LinkedIn",
+            "twitter": "Twitter"
+        },
+        "contactInfo": {
+            "phone": "Phone",
+            "email": "Email",
+            "address": "Address"
+        },
+        "language": {
+            "english": "English",
+            "arabic": "Arabic"
+        },
+        "logoAlt": "Logo"
+    },
+    "Services": {
+        "our_services": "Our Services"
+    },
+    "aboutUs": {
+        "about_us": "About Us",
+        "Licensed & Financially Secure": "Licensed & Financially Secure",
+        "our_vission": "Our Vision & Partners",
+        "Our_Partners": "Our Partners"
+    },
+    "WorkProcess": {
+        "work_process": "Work Process",
+        "work_steps": "Our Work Process in 4 Steps"
+    },
+    "Protection": {
+        "prtection_title": "Protection that matters to you",
+        "donwload_pdf": "Download PDF"
+    },
+    "chooseUs": {
+        "choose_us_title": "why choose us"
+    },
+    "branches": {
+        "branches_title": "Our branches"
+    },
+    "contact": {
+        "title": "Get in Touch",
+        "first_name": "First Name",
+        "first_name_placeholder": "Enter First Name",
+        "last_name": "Last Name",
+        "last_name_placeholder": "Enter Last Name",
+        "phone": "Phone Number",
+        "phone_placeholder": "Enter Phone Number",
+        "email": "Email Address",
+        "email_placeholder": "Enter Email Address",
+        "message": "Message",
+        "message_placeholder": "Any Message",
+        "submit": "Submit Message"
+    },
+    "clients": {
+        "our_clients": "Our Clients"
+    },
+    "projects": {
+        "Key_Partnerships": "Key Partnerships",
+        "Engineering_Projects": "Engineering Projects",
+        "Filter_projects": "Filter projects...",
+        "SPECIALIZED_COVERAGE": "SPECIALIZED COVERAGE"
+
+    },
+    "read_more": "Read More",
+    "last_news": "Latest News"
+
+}

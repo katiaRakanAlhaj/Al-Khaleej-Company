@@ -2,7 +2,7 @@ import singleBranchImage from "../../../assets/images/singleBranchImage.png";
 
 const BranchDetailsHeader = () => {
   return (
-    <div className="grid lg:grid-cols-12 grid-cols-1 gap-y-[2rem] gap-x-[2rem] lg:mt-[6rem] mt-[3rem]">
+    <div className="grid lg:grid-cols-12 grid-cols-1 gap-y-[2rem] gap-x-[2rem] lg:mt-[6rem] mt-[5rem]">
       {/*first column */}
       <div className="lg:col-span-5 col-span-1 flex flex-col justify-center">
         <h1 className="font-bold text-[#111C2D] lg:text-5xl text-[2rem]">Al-Arsat branch</h1>

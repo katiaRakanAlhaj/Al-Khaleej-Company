@@ -2,6 +2,7 @@ import operationImage from "../../../assets/images/operationImage.png";
 import operationIcon from "../../../assets/images/operationIcon.svg";
 import checkProject from "../../../assets/images/checkProject.svg";
 import { ProjectsTitle } from "../../../ui/projectsTitle";
+import i18next from "i18next";
 
 const ProjectsSpeclalizedCoverage = () => {
   const itemsCheck = [
@@ -13,12 +14,12 @@ const ProjectsSpeclalizedCoverage = () => {
 
   return (
     <div className="container4 mx-auto mt-[4rem]">
-      <div className="grid grid-cols-12 gap-x-[2rem]">
-        <div className="col-span-5 flex flex-col justify-center">
+      <div className="grid lg:grid-cols-12 grid-cols-1 gap-x-[2rem]">
+        <div className="lg:col-span-5 col-span-1 flex flex-col justify-center">
           <div className="flex gap-x-2 items-center">
             <div className="w-[3rem] h-[0.2rem] rounded-full bg-[#00348A]"></div>
             <h1 className="text-[#00348A] text-lg font-bold">
-              SPECIALIZED COVERAGE
+              {i18next.t("projects.SPECIALIZED_COVERAGE")}
             </h1>
           </div>
           <div className="mt-[1.5rem]">
@@ -41,10 +42,10 @@ const ProjectsSpeclalizedCoverage = () => {
           </div>
         </div>
 
-        <div className="col-span-7">
+        <div className="lg:col-span-7 col-span-1">
           <div className="relative">
             <img
-              className="w-full h-[29rem] object-cover rounded-lg"
+              className="w-full lg:h-[29rem] h-[25rem] object-cover rounded-lg"
               src={operationImage}
             />
 

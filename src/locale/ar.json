@@ -1,0 +1,78 @@
+{
+    "navbar": {
+        "navLinks": {
+            "home": "الرئيسية",
+            "about": "من نحن",
+            "services": "الخدمات",
+            "projects": "المشاريع",
+            "news": "الأخبار",
+            "branches": "الفروع",
+            "clients": "العملاء",
+            "contactUs": "اتصل بنا"
+        },
+        "socialMedia": {
+            "facebook": "فيسبوك",
+            "instagram": "انستغرام",
+            "linkedin": "لينكد إن",
+            "twitter": "تويتر"
+        },
+        "contactInfo": {
+            "phone": "هاتف",
+            "email": "البريد الإلكتروني",
+            "address": "العنوان"
+        },
+        "language": {
+            "english": "الإنجليزية",
+            "arabic": "العربية"
+        },
+        "logoAlt": "الشعار"
+    },
+    "Services": {
+        "our_services]": "خدماتنا"
+    },
+    "aboutUs": {
+        "about_us": "من نحن",
+        "Licensed & Financially Secure": "مرخص وآمن مالياً",
+        "our_vission": "رؤيتنا وشركاؤنا",
+        "Our_Partners": ""
+    },
+    "WorkProcess": {
+        "work_process": "عملية العمل",
+        "work_steps": "عملية عملنا في 4 خطوات"
+    },
+    "Protection": {
+        "prtection_title": "الحماية التي تهمك",
+        "donwload_pdf": "تحميل ملف"
+    },
+    "chooseUs": {
+        "choose_us_title": "لماذا نحن؟"
+    },
+    "branches": {
+        "branches_title": "فروعنا"
+    },
+    "contact": {
+        "title": "تواصل معنا",
+        "first_name": "الاسم الأول",
+        "first_name_placeholder": "أدخل الاسم الأول",
+        "last_name": "اسم العائلة",
+        "last_name_placeholder": "أدخل اسم العائلة",
+        "phone": "رقم الهاتف",
+        "phone_placeholder": "أدخل رقم الهاتف",
+        "email": "البريد الإلكتروني",
+        "email_placeholder": "أدخل البريد الإلكتروني",
+        "message": "الرسالة",
+        "message_placeholder": "أكتب رسالتك",
+        "submit": "إرسال الرسالة"
+    },
+    "clients": {
+        "our_clients": "عملاؤنا"
+    },
+    "projects": {
+        "Key_Partnerships": "الشراكات الرئيسية",
+        "Engineering_Projects": "المشاريع الهندسية",
+        "Filter_projects": "تصفية المشاريع...",
+        "SPECIALIZED_COVERAGE": "تغطية متخصصة"
+    },
+    "read_more": "اقرأ المزيد",
+    "last_news": "آخر الأخبار"
+}

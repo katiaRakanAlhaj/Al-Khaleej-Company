@@ -2,6 +2,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./footer";
+import NavbarMobile from "./NavbarMobile";
 
 function Wrapper() {
 
@@ -13,7 +14,7 @@ function Wrapper() {
         <Navbar/>
       </div>
       <div className="lg:hidden md:block">
-        {/* <NavbarMobile servicesData = {servicesData} companyData={companyData}/>  */}
+        <NavbarMobile /> 
       </div>
       {/* This is where your Home component should render */}
       <div className="min-h-screen">

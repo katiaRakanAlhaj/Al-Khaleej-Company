@@ -1,12 +1,12 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-// import enJSON from "../src/locale/en.json";
-// import arJSON from "../src/locale/ar.json";
+import enJSON from "../src/locale/en.json";
+import arJSON from "../src/locale/ar.json";
 
-// const resources = {
-//     en: { translation: enJSON },
-//     ar: { translation: arJSON }
-// };
+const resources = {
+    en: { translation: enJSON },
+    ar: { translation: arJSON }
+};
 
 // Get language from URL first, then localStorage
 const getInitialLanguage = () => {
@@ -16,7 +16,7 @@ const getInitialLanguage = () => {
   if (langMatch) return langMatch[1];
   
   // Fallback to localStorage
-  return localStorage.getItem("language") || "ar";
+  return localStorage.getItem("language") || "en";
 };
 
 const language = getInitialLanguage();
@@ -24,16 +24,20 @@ const language = getInitialLanguage();
 i18n
   .use(initReactI18next)
   .init({
-      fallbackLng: "ar",
+      resources: resources,  // ← THIS WAS COMMENTED OUT!
+      fallbackLng: "en",
       debug: true,
-      // resources: { ...resources },
       interpolation: {
           escapeValue: false,
       },
       lng: language,
   }, (err) => {
-      if (err) return console.log('i18next init error:', err);
-      i18n.changeLanguage(language);
+      if (err) {
+          console.log('i18next init error:', err);
+          return;
+      }
+      console.log('i18next initialized with language:', language);
+      console.log('Available resources:', Object.keys(i18n.options.resources));
   });
 
 export default i18n;

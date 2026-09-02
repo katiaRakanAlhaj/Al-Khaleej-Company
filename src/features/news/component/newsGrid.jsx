@@ -3,6 +3,7 @@ import service1 from "../../../assets/images/servicegrid1.jpg";
 import service2 from "../../../assets/images/servicegrid2.jpg";
 import service3 from "../../../assets/images/servicegrid3.jpg";
 import readMoreArrow from "../../../assets/images/readMoreArrow.svg";
+import i18next from "i18next";
 
 const NewsGrid = () => {
   const navigate = useNavigate();
@@ -51,7 +52,7 @@ const NewsGrid = () => {
   };
 
   return (
-    <div className="container3 mx-auto mt-[4rem]">
+    <div className="container3 mx-auto lg:mt-[4rem] mt-[6rem]">
       {/* Grid container for multiple cards */}
       <div className="grid grid-cols-1 gap-10">
         {newsData.map((news) => (
@@ -66,7 +67,7 @@ const NewsGrid = () => {
                 src={news.image}
                 alt={news.title}
               />
-              <div className="flex flex-col space-y-4 py-[1.5rem] lg:pr-[2rem] lg:pl-0 pl-[1rem]">
+              <div className={`flex flex-col space-y-4 py-[1.5rem] ${i18next.language == "en"?'lg:pr-[2rem] lg:pl-0 pl-[1rem]':'lg:pl-[2rem] lg:pr-0 pr-[1rem]'}`}>
                 <p className="text-[#505F76] text-lg">{news.date}</p>
                 <h1 className="text-[#131B2E] lg:w-[90%] font-bold lg:text-2xl text-[1.2rem] line-clamp-2">
                   {news.title}
@@ -75,8 +76,8 @@ const NewsGrid = () => {
                   {news.description}
                 </p>
                 <div className="flex gap-x-2 cursor-pointer items-center">
-                  <p className="text-primary text-md font-[400]">Read More</p>
-                  <img className="w-[1rem]" src={readMoreArrow} alt="arrow" />
+                  <p className="text-primary text-md font-[400]">{i18next.t("read_more")}</p>
+                  <img className={`w-[1rem] ${i18next.language == "ar"?'rotate-180':''}`} src={readMoreArrow} alt="arrow" />
                 </div>
               </div>
             </div>

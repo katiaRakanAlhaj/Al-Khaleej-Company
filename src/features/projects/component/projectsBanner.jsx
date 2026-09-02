@@ -1,3 +1,4 @@
+import i18next from "i18next";
 import image from "../../../assets/images/projectBanner.png";
 
 const ProjectsBanner = () => {
@@ -17,7 +18,7 @@ const ProjectsBanner = () => {
       </div>
 
       {/* Content Overlay - Centered */}
-      <div className="absolute inset-0 flex lg:left-[15rem] left-[3rem] flex-col lg:top-[7rem] top-[4rem]">
+      <div className={`absolute inset-0 flex ${i18next.language == "en"?'lg:left-[15rem] left-[3rem]':'lg:right-[15rem] right-[3rem]'} flex-col lg:top-[7rem] top-[5rem]`}>
         {/* Your content here */}
         <h1 className="font-bold lg:leading-[3.5rem] lg:text-5xl text-[1.5rem] w-[100%] lg:w-[40%] text-[#00348A]">
           Our Work & Major Contracts

@@ -7,6 +7,7 @@ import "./servicesStyle.css";
 import service1 from "../../../assets/images/service1.png";
 import service2 from "../../../assets/images/service2.png";
 import service3 from "../../../assets/images/service3.png";
+import i18next from "i18next";
 const servicesData = [
   { id: 1, title: "Vehicle Insurance Vehicle Insurance", image: service1 },
   { id: 2, title: "Vehicle Insurance Vehicle Insurance", image: service2 },
@@ -20,7 +21,7 @@ const Services = () => {
   return (
     <div className="w-full mt-[4rem] py-[4rem] h-auto bg-[#F4F7FF] overflow-hidden">
       <div className="container1 mx-auto">
-        <TitleSection title={"Our Services"} />
+        <TitleSection title={i18next.t("Services.our_services")} />
         <div className="grid lg:grid-cols-12 mb-[3rem] lg:mt-0 mt-[0.6rem]">
           <div className="flex flex-col lg:col-span-6">
             <h1 className="text-primary  font-bold lg:text-[2.5rem] md:text-[1.5rem] text-[1.5rem] md:w-[80%] leading-tight">

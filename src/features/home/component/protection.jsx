@@ -1,11 +1,12 @@
 import TitleSection from "../../../ui/titleSection";
 import protectionImage from "../../../assets/images/protectionImage.png";
 import download from "../../../assets/images/download.svg";
+import i18next from "i18next";
 const Protection = () => {
   return (
     <div className="w-full h-auto py-[4rem] bg-[#F4F7FF]">
       <div className="flex justify-center items-center">
-        <TitleSection title={"Protection that matters to you"} />
+        <TitleSection title={i18next.t("Protection.prtection_title")} />
       </div>
       <div className="container1 mx-auto">
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-[6rem] gap-y-[2rem] mt-[3rem]">
@@ -49,7 +50,7 @@ const Protection = () => {
               any protection inclusions that are ideal for you.
             </p>
             <button className="w-full cursor-pointer h-[3.5rem] gap-x-2 mt-[1.5rem] flex justify-center items-center bg-primary rounded-b-2xl">
-              <p className="text-white">Download PDF</p>
+              <p className="text-white">{i18next.t("Protection.donwload_pdf")}</p>
               <img src={download} />
             </button>
           </div>

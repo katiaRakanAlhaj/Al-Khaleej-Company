@@ -13,6 +13,7 @@ import slide2 from "../../../assets/images/service1.png";
 import slide3 from "../../../assets/images/service2.png";
 
 import { IoIosArrowRoundForward } from "react-icons/io";
+import i18next from "i18next";
 
 // Slide Data array
 const slidesData = [
@@ -52,7 +53,7 @@ const SliderHome = () => {
               <>
                 {/* Background Image with Rounded Corner, Gradient, and Downward Slide Animation */}
                 <div
-                  className={`absolute inset-0 w-full h-full lg:rounded-bl-[16rem] overflow-hidden transition-all duration-1000 ease-out ${
+                  className={`absolute inset-0 w-full h-full ${i18next.language == "en"?'lg:rounded-bl-[16rem]':'lg:rounded-br-[16rem]'} overflow-hidden transition-all duration-1000 ease-out ${
                     isActive ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
                   }`}
                 >
@@ -83,14 +84,14 @@ const SliderHome = () => {
                     <h1 className="lg:text-[2.5rem] text-[1.5rem] font-bold leading-tight mb-4">
                       {slide.title}
                     </h1>
-                    <button className="w-[14rem] h-[3.5rem] flex justify-center cursor-pointer items-center gap-x-2 shadow-lg bg-[#214CA9] hover:bg-[#1a3b85] transition-colors">
+                    {/* <button className="w-[14rem] h-[3.5rem] flex justify-center cursor-pointer items-center gap-x-2 shadow-lg bg-[#214CA9] hover:bg-[#1a3b85] transition-colors">
                       <p className="text-white text-lg font-bold">
                         {slide.buttonText}
                       </p>
                       <span className="text-[2.5rem]">
                         <IoIosArrowRoundForward />
                       </span>
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </>

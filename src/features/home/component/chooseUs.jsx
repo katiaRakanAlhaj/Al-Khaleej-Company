@@ -5,6 +5,7 @@ import money from "../../../assets/images/money.svg";
 import flexible from "../../../assets/images/flexible.svg";
 import company from "../../../assets/images/company.svg";
 import safe from "../../../assets/images/safe.svg";
+import i18next from "i18next";
 
 const ChooseUs = () => {
   const items = [
@@ -55,7 +56,7 @@ const ChooseUs = () => {
   return (
     <div className="py-[4rem]">
       <div className="flex flex-col justify-center items-center">
-        <TitleSection title={"why choose us"} />
+        <TitleSection title={i18next.t("chooseUs.choose_us_title")} />
         <p className="text-primary font-bold lg:text-4xl text-[1.5rem] mt-[2rem]">
           Most of the People Choose Us
         </p>

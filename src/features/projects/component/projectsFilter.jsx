@@ -2,6 +2,7 @@ import search from "../../../assets/images/search.svg";
 import { RiArrowDropRightLine, RiArrowDropLeftLine } from "react-icons/ri";
 import { ProjectLineStyle } from "../../../ui/projectLineStyle";
 import { ProjectsTitle } from "../../../ui/projectsTitle";
+import i18next from "i18next";
 
 const ProjectsFilter = () => {
   const projects = [
@@ -70,25 +71,25 @@ const ProjectsFilter = () => {
       <div className="container4 mx-auto mt-[4rem]">
         <div className="lg:flex space-y-2 justify-between items-center">
           <div>
-            <ProjectsTitle title={"Key Partnerships"} />
+            <ProjectsTitle title={i18next.t("projects.Engineering_Projects")} />
             <p className="text-[#434652] mt-2 lg:text-xl text-lg">
-              A detailed log of our issued engineering policies.{" "}
+              A detailed log of our issued engineering policies.
             </p>
           </div>
           <div className={styles.searchWrapper}>
             <input
               className={styles.searchInput}
               type="search"
-              placeholder="Filter projects..."
+              placeholder={i18next.t("projects.Filter_projects")}
             />
-            <img src={search} alt="search" className={styles.searchIcon} />
+            <img src={search} alt="search" className={`absolute ${i18next.language == "en"?'right-3':'left-3'} w-5 h-5 text-[#C4C6D4]` }/>
           </div>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full border mt-[2rem] relative border-[#C4C6D4]">
             <thead>
-              <tr className="bg-[#204CA9] text-left">
+              <tr className={`bg-[#204CA9] ${i18next.language == "en"?'text-left':'text-right'}`}>
                 <th className={styles.tableHeader}>COMPANY NAME</th>
                 <th className={styles.tableHeader}>RESPONSIBLE AUTHORITY</th>
                 <th className={styles.tableHeader}>PROJECT TYPE</th>
@@ -126,16 +127,16 @@ const ProjectsFilter = () => {
               <div className="mt-4 text-[#434652] text-lg">
                 Showing {projects.length} of 17 projects
               </div>
-              <div className="absolute right-6 bottom-3 gap-x-2">
+              <div className={`absolute ${i18next.language == "en"?'right-6':'left-6'} bottom-3 gap-x-2`}>
                 <div className="flex gap-x-2">
                   <div className={styles.paginationButton}>
                     <icon className={styles.paginationIcon}>
-                      <RiArrowDropLeftLine />
+                    {i18next.language == "en"?  <RiArrowDropLeftLine />:  <RiArrowDropRightLine />}
                     </icon>
                   </div>
                   <div className={styles.paginationButton}>
                     <icon className={styles.paginationIcon}>
-                      <RiArrowDropRightLine />
+                     {i18next.language == "en"? <RiArrowDropRightLine /> :  <RiArrowDropLeftLine />}
                     </icon>
                   </div>
                 </div>

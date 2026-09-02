@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./servicesStyle.css";
 import BranchCard from "../../../ui/branchCard";
+import i18next from "i18next";
 
 const branchesData = [
   {
@@ -64,7 +65,7 @@ const OurBranches = () => {
     <div className="w-full lg:mt-[4rem] mt-[2rem] py-[2rem] h-auto bg-[#FFFFFF] overflow-hidden">
       {/* Header Section */}
       <div className="flex flex-col justify-center items-center mb-[3rem] px-4">
-        <TitleSection title={"Our branches"} />
+        <TitleSection title={i18next.t("branches.branches_title")} />
         <h1 className="font-bold text-primary lg:text-[2.5rem] md:text-[2rem] text-[1.5rem] mt-[1rem] text-center">
           The Prims People Trust Most
         </h1>

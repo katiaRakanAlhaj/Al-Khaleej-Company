@@ -4,6 +4,7 @@ import work2 from "../../../assets/images/work2.png";
 import work3 from "../../../assets/images/work3.png";
 import work4 from "../../../assets/images/work4.png";
 import arrow from "../../../assets/images/arrow.svg";
+import i18next from "i18next";
 
 const WorkProcess = () => {
   const steps = [
@@ -41,10 +42,10 @@ const WorkProcess = () => {
     <section className="w-full overflow-hidden bg-white py-[4rem]">
       {/* Heading */}
       <div className="mx-auto flex flex-col items-center justify-center">
-        <TitleSection title="Work Process" />
+        <TitleSection title= {i18next.t("WorkProcess.work_process")} />
 
         <h1 className="mt-[1rem] text-center font-bold leading-tight text-primary lg:text-[2.5rem] text-[1.5rem] text-wrap lg:w-[100%] w-[80%]">
-          Easy our Work Process in 4 step
+          {i18next.t("WorkProcess.work_steps")}
         </h1>
       </div>
 

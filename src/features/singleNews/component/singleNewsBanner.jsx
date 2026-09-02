@@ -4,7 +4,7 @@ import date from "../../../assets/images/date.svg";
 import singleNewsBanner from "../../../assets/images/singleNewsBanner.jpg";
 const SingleNewsBanner = () => {
   return (
-    <div className="mt-[3rem]">
+    <div className="lg:mt-[3rem] mt-[7rem]">
       <div className="flex gap-x-2 flex-wrap">
         <p className="text-[#505F76] text-md">Home</p>
         <img src={rightIcon} />

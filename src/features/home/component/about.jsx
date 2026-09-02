@@ -1,3 +1,4 @@
+import i18next from "i18next";
 import aboutImage from "../../../assets/images/aboutUs.png";
 import check from "../../../assets/images/check.svg";
 import TitleSection from "../../../ui/titleSection";
@@ -14,7 +15,7 @@ const About = () => {
       <div className="translate-y-[2rem] lg:col-span-6 col-span-1">
         <div className="relative">
           <img
-            className="w-full h-auto lg:ml-[-5rem]"
+            className={`w-full h-auto ${i18next.language == "en"?'lg:ml-[-5rem]':'lg:mr-[-5rem]'}`}
             src={aboutImage}
             alt="About Us"
           />
@@ -40,7 +41,7 @@ const About = () => {
       </div>
 
       <div className="flex flex-col lg:col-span-6 col-span-1 lg:mt-[5rem] mt-[7rem] lg:ml-[-4rem]">
-        <TitleSection title={"About Us"} />
+        <TitleSection title={i18next.t("aboutUs.about_us")} />
         <div>
           <p className="font-bold lg:text-[2.5rem] text-[1.5rem] lg:mt-0 mt-[1rem] text-primary">
             Providing The Best Insurance Policy To Customers
