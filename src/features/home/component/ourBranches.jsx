@@ -61,6 +61,12 @@ const branchesData = [
 ];
 
 const OurBranches = () => {
+  // Detect if current language is Arabic
+  const isRTL = i18next.language === 'ar';
+  
+  // Reverse slides for RTL if needed
+  const slides = isRTL ? [...branchesData].reverse() : branchesData;
+
   return (
     <div className="w-full lg:mt-[4rem] mt-[2rem] py-[2rem] h-auto bg-[#FFFFFF] overflow-hidden">
       {/* Header Section */}
@@ -78,6 +84,8 @@ const OurBranches = () => {
             modules={[Pagination, Autoplay]}
             spaceBetween={24}
             slidesPerView="auto"
+            dir={isRTL ? "rtl" : "ltr"}
+            rtl={isRTL}
             pagination={{
               clickable: true,
             }}
@@ -108,7 +116,7 @@ const OurBranches = () => {
               },
             }}
           >
-            {branchesData.map((branch, index) => (
+            {slides.map((branch, index) => (
               <SwiperSlide
                 key={index}
                 className="lg:!w-[28rem] md:!w-[20rem] !w-full transition-all duration-300"

@@ -9,7 +9,9 @@ import Protection from "../features/home/component/protection";
 import ChooseUs from "../features/home/component/chooseUs";
 import OurBranches from "../features/home/component/ourBranches";
 import Contact from "../features/home/component/contact";
+import { usefetchHomePage } from "../features/home/hook/useFetchHome";
 const Home = () => {
+  const {data} = usefetchHomePage();
   return (
     <div>
       <SliderHome />

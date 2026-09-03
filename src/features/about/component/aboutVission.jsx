@@ -1,5 +1,6 @@
 import vission from "../../../assets/images/vission.svg";
 import partners from "../../../assets/images/partners.svg";
+import i18next from "i18next";
 
 const AboutVission = () => {
   // Reusable class constants
@@ -19,7 +20,7 @@ const AboutVission = () => {
             <div className={sectionTitleClasses}>
               <div className={titleBarClasses}></div>
               <h1 className={titleTextClasses}>
-                Licensed & Financially Secure
+                {i18next.t("aboutUs.Licensed & Financially Secure")}
               </h1>
             </div>
             <p className="text-[#434652] text-lg mt-[2rem]">
@@ -47,7 +48,7 @@ const AboutVission = () => {
           <div>
             <div className={sectionTitleClasses}>
               <div className={titleBarClasses}></div>
-              <h1 className={titleTextClasses}>Our Vision & Partners</h1>
+              <h1 className={titleTextClasses}>{i18next.t("aboutUs.our_vission")}</h1>
             </div>
 
             {/* Vision Card */}
@@ -56,7 +57,7 @@ const AboutVission = () => {
             >
               <div className="flex gap-x-2">
                 <img src={vission} alt="Vision" />
-                <h1 className="text-white font-[600] text-2xl">Our Vision</h1>
+                <h1 className="text-white font-[600] text-2xl">{i18next.t("aboutUs.Our_Partners")}</h1>
               </div>
               <p className={`${descriptionClasses} text-white`}>
                 Gulf Insurance Company aims to occupy a leading position in the
@@ -75,7 +76,7 @@ const AboutVission = () => {
               <div className="flex gap-x-2">
                 <img src={partners} alt="Partners" />
                 <h1 className="text-[#131B2E] font-[600] text-2xl">
-                  Our Partners
+                  {i18next.t("aboutUs.Our_Partners")}
                 </h1>
               </div>
               <p className={`${descriptionClasses} text-[#434652]`}>

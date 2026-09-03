@@ -8,6 +8,7 @@ import service1 from "../../../assets/images/service1.png";
 import service2 from "../../../assets/images/service2.png";
 import service3 from "../../../assets/images/service3.png";
 import i18next from "i18next";
+
 const servicesData = [
   { id: 1, title: "Vehicle Insurance Vehicle Insurance", image: service1 },
   { id: 2, title: "Vehicle Insurance Vehicle Insurance", image: service2 },
@@ -18,13 +19,19 @@ const servicesData = [
 ];
 
 const Services = () => {
+  // Detect if current language is Arabic
+  const isRTL = i18next.language === 'ar';
+  
+  // Reverse slides for RTL if needed (optional - sometimes Swiper handles this automatically with dir prop)
+  const slides = isRTL ? [...servicesData].reverse() : servicesData;
+
   return (
     <div className="w-full mt-[4rem] py-[4rem] h-auto bg-[#F4F7FF] overflow-hidden">
       <div className="container1 mx-auto">
         <TitleSection title={i18next.t("Services.our_services")} />
         <div className="grid lg:grid-cols-12 mb-[3rem] lg:mt-0 mt-[0.6rem]">
           <div className="flex flex-col lg:col-span-6">
-            <h1 className="text-primary  font-bold lg:text-[2.5rem] md:text-[1.5rem] text-[1.5rem] md:w-[80%] leading-tight">
+            <h1 className="text-primary font-bold lg:text-[2.5rem] md:text-[1.5rem] text-[1.5rem] md:w-[80%] leading-tight">
               Insurance service that keep you protect & confident
             </h1>
           </div>
@@ -44,6 +51,8 @@ const Services = () => {
             modules={[Pagination, Autoplay]}
             spaceBetween={24}
             slidesPerView="auto"
+            dir={isRTL ? "rtl" : "ltr"}
+            rtl={isRTL}
             pagination={{
               clickable: true,
             }}
@@ -54,7 +63,7 @@ const Services = () => {
             loop={true}
             className="w-full pb-[4rem]"
           >
-            {servicesData.map((service, index) => (
+            {slides.map((service, index) => (
               <SwiperSlide
                 key={index}
                 className="!w-[22rem] transition-all duration-300"

@@ -1,19 +1,35 @@
 import React from "react";
+import { useLocation, Link } from "react-router-dom"; // Added Link here
 import logoFooter from "../../assets/images/logoFooter.svg";
 import locationFooter from "../../assets/images/locationFooter.svg";
 import emailFooter from "../../assets/images/emailFooter.svg";
 import callFooter from "../../assets/images/callFooter.svg";
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language;
+  const location = useLocation(); // Get current location
+  
   const Links = [
-    { id: 1, name: "Home" },
-    { id: 2, name: "About" },
-    { id: 3, name: "Services" },
-    { id: 4, name: "Projects" },
-    { id: 5, name: "Branches" },
-    { id: 6, name: "Clients" },
-    { id: 7, name: "Contact Us" },
+    { name: t("navbar.navLinks.home"), path: `/${currentLang}` },
+    { name: t("navbar.navLinks.about"), path: `/${currentLang}/about` },
+    { name: t("navbar.navLinks.services"), path: `/${currentLang}/Services` },
+    { name: t("navbar.navLinks.projects"), path: `/${currentLang}/Projects` },
+    { name: t("navbar.navLinks.news"), path: `/${currentLang}/News` },
+    { name: t("navbar.navLinks.branches"), path: `/${currentLang}/Branches` },
+    { name: t("navbar.navLinks.clients"), path: `/${currentLang}/Clients` },
+    { name: t("navbar.navLinks.contactUs"), path: `/${currentLang}/Contact` },
   ];
+
+  // Function to check if link is active
+  const isActiveLink = (path) => {
+    if (path === `/${currentLang}`) {
+      return location.pathname === path;
+    }
+    return location.pathname.startsWith(path);
+  };
 
   // Split links into two halves
   const midIndex = Math.ceil(Links.length / 2);
@@ -45,7 +61,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="lg:mt-[6rem] mt-[3rem]">
+    <div className="lg:mt-[6rem] mt-[3rem] overflow-hidden">
       <footer className="bg-[#111620] h-auto text-white pt-16 pb-8 font-sans">
         <div className="container1 mx-auto">
           <div className="grid lg:grid-cols-12 grid-cols-1">
@@ -64,43 +80,59 @@ const Footer = () => {
               <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-2 gap-4">
                 {/* Column 1 - Quick Links (first half) */}
                 <div>
-                  <h1 className="font-bold text-lg text-white mb-4 lg:mt-0 mt-[1rem]">
-                    Quick Links
+                  <h1 className="font-bold text-lg mb-4 lg:mt-0 mt-[1rem]">
+                    {t("quick_links")}
                   </h1>
                   <ul className="space-y-2">
-                    {firstHalf.map((link) => (
-                      <li key={link.id}>
-                        <a
-                          href="#"
-                          className="text-white opacity-80 hover:opacity-100 transition text-lg"
-                        >
-                          {link.name}
-                        </a>
-                      </li>
-                    ))}
+                    {firstHalf.map((link, index) => {
+                      const isActive = isActiveLink(link.path);
+                      return (
+                        <li key={index}>
+                          {/* Replaced 'a' with 'Link' and added font-bold + visible active color */}
+                          <Link
+                            to={link.path}
+                            className={`transition text-lg ${
+                              isActive 
+                                ? "text-primary font-bold opacity-100" 
+                                : "opacity-80 hover:opacity-100 text-white"
+                            }`}
+                          >
+                            {link.name}
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
 
                 {/* Column 2 - Quick Links (second half) */}
-                <div className="lg:ml-[-4rem]">
+                <div className={`${currentLang === "en" ? 'lg:ml-[-4rem]' : 'lg:mr-[-4rem]'}`}>
                   <ul className="space-y-2 lg:mt-[2.5rem] mt-[4rem]">
-                    {secondHalf.map((link) => (
-                      <li key={link.id}>
-                        <a
-                          href="#"
-                          className="text-white opacity-80 hover:opacity-100 transition text-lg"
-                        >
-                          {link.name}
-                        </a>
-                      </li>
-                    ))}
+                    {secondHalf.map((link, index) => {
+                      const isActive = isActiveLink(link.path);
+                      return (
+                        <li key={index}>
+                          {/* Replaced 'a' with 'Link' and added font-bold + visible active color */}
+                          <Link
+                            to={link.path}
+                            className={` transition text-lg ${
+                              isActive 
+                                ? "text-primary font-bold opacity-100" 
+                                : "opacity-80 hover:opacity-100 text-white"
+                            }`}
+                          >
+                            {link.name}
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
 
-                {/* Column 3 - Contact Us - IMPROVED FOR MOBILE */}
+                {/* Column 3 - Contact Us */}
                 <div className="lg:ml-[-6rem] col-span-2 lg:col-span-1 md:col-span-2">
                   <h1 className="font-bold text-lg text-white mb-4 lg:mt-0 mt-[1rem]">
-                    Contact Us
+                   {t("contact_us")}
                   </h1>
                   <ul className="space-y-4">
                     {contactData.map((item, index) => (

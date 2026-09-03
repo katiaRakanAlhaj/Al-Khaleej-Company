@@ -34,7 +34,7 @@
         "about_us": "من نحن",
         "Licensed & Financially Secure": "مرخص وآمن مالياً",
         "our_vission": "رؤيتنا وشركاؤنا",
-        "Our_Partners": ""
+        "Our_Partners": "شركاؤنا"
     },
     "WorkProcess": {
         "work_process": "عملية العمل",
@@ -74,5 +74,7 @@
         "SPECIALIZED_COVERAGE": "تغطية متخصصة"
     },
     "read_more": "اقرأ المزيد",
-    "last_news": "آخر الأخبار"
+    "last_news": "آخر الأخبار",
+    "quick_links": "روابط سريعة",
+    "contact_us": "اتصل بنا"
 }
