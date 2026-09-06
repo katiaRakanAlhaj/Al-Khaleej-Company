@@ -1,17 +1,31 @@
 import LastNews from "../features/singleNews/component/lastNews";
 import SingleNewsBanner from "../features/singleNews/component/singleNewsBanner";
 import SingleNewsDescription from "../features/singleNews/component/singleNewsDescription";
+import { useParams } from "react-router-dom"; // If using React Router
+import { useFetchNewsPageById } from "../features/singleNews/hook/usefetchNewsPageById";
+import { useFetchLatestNews } from "../features/singleNews/hook/usefetchNewsPageById";
 
 const SingleNews = () => {
+  const { id } = useParams();
+  const {
+    data: newsPageByIdData,
+    isLoading: newsPageByIdDataLoading,
+    error: newsPageByIdDataError,
+  } = useFetchNewsPageById(id);
+  const {
+    data: LatestNewsData,
+    isLoading: LatestNewsDataLoading,
+    error: LatestNewsDataError,
+  } = useFetchLatestNews();
   return (
     <div className="container4 mx-auto">
-      <SingleNewsBanner />
+      <SingleNewsBanner newsPageByIdData = {newsPageByIdData}/>
       <div className="grid lg:grid-cols-12 grid-cols-1 gap-[2rem] mt-[3rem]">
         <div className="lg:col-span-8 col-span-1">
-          <SingleNewsDescription /> 
+          <SingleNewsDescription newsPageByIdData = {newsPageByIdData}/>
         </div>
         <div className="lg:col-span-4 col-span-1">
-          <LastNews />
+          <LastNews LatestNewsData = {LatestNewsData}/>
         </div>
       </div>
     </div>

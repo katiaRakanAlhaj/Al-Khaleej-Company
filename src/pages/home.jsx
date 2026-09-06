@@ -1,5 +1,3 @@
-import slide from "../assets/images/slide1.png";
-import { useEffect } from "react";
 import SliderHome from "../features/home/component/sliderHome";
 import About from "../features/home/component/about";
 import Services from "../features/home/component/services";
@@ -11,18 +9,22 @@ import OurBranches from "../features/home/component/ourBranches";
 import Contact from "../features/home/component/contact";
 import { usefetchHomePage } from "../features/home/hook/useFetchHome";
 const Home = () => {
-  const {data} = usefetchHomePage();
+  const {
+    data: homePageData,
+    isLoading: homePageDataLoading,
+    error: homePageDataError,
+  } = usefetchHomePage();
   return (
     <div>
-      <SliderHome />
-      <About />
-      <Services/>
-       <WorkProcess/>
-      <Client/>
-      <Protection/>
-      <ChooseUs/>
-      <OurBranches/>
-      <Contact/> 
+      <SliderHome homePageData={homePageData} />
+      <About homePageData={homePageData} />
+      <Services homePageData={homePageData} />
+      <WorkProcess homePageData={homePageData} />
+      <Client homePageData={homePageData}/>
+      <Protection homePageData={homePageData} />
+      <ChooseUs homePageData = {homePageData}/>
+      <OurBranches homePageData = {homePageData}/>
+      <Contact />
     </div>
   );
 };

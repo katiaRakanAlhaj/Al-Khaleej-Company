@@ -6,7 +6,7 @@ import serviceIcon5 from "../../../assets/images/serviceIcon5.svg";
 import serviceIcon6 from "../../../assets/images/serviceIcon6.svg";
 import serviceIcon7 from "../../../assets/images/serviceIcon7.svg";
 
-const ServicesGrid = () => {
+const ServicesGrid = ({servicesData}) => {
   const services = [
     {
       id: 1,
@@ -63,17 +63,16 @@ const ServicesGrid = () => {
       {/* Header Section */}
       <div className="flex flex-col items-center justify-center mt-[2rem]">
         <h1 className="font-bold text-[#131B2E] lg:text-4xl text-[1.5rem] text-nowrap">
-          Comprehensive Coverage
+          {servicesData?.data?.title}
         </h1>
         <p className="text-[#434652] text-lg lg:px-[15rem] mt-3 text-center">
-          Discover our range of specialized insurance products designed to offer
-          peace of mind in every aspect of life and business.
+        {servicesData?.data?.description}
         </p>
       </div>
 
       {/* Services Grid */}
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2rem] lg:mt-[4rem] mt-[2rem]">
-        {services.map((service) => (
+        {servicesData?.data?.services.map((service) => (
           <div
             key={service.id}
             className="w-full h-[15rem] bg-white border border-[#C4C6D4] rounded-lg p-[1.5rem]"
@@ -90,7 +89,7 @@ const ServicesGrid = () => {
                 {service.title}
               </h1>
               <p className="text-[#434652] leading-relaxed text-md line-clamp-3">
-                {service.desc}
+                {service.description}
               </p>
             </div>
           </div>

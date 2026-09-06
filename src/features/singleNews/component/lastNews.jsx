@@ -1,42 +1,11 @@
 import i18next from "i18next";
-import last1 from "../../../assets/images/last1.jpg";
-import last2 from "../../../assets/images/last2.jpg";
-
-const LastNews = () => {
-  const items = [
-    {
-      image: last1,
-      title: "The Importance of Comprehensive Health…",
-      date: "April 22, 2023",
-    },
-    {
-      image: last2,
-      title: "The Importance of Comprehensive Health…",
-      date: "April 22, 2023",
-    },
-    {
-      image: last1,
-      title: "The Importance of Comprehensive Health…",
-      date: "April 22, 2023",
-    },
-    {
-      image: last2,
-      title: "The Importance of Comprehensive Health…",
-      date: "April 22, 2023",
-    },
-    {
-      image: last1,
-      title: "The Importance of Comprehensive Health…",
-      date: "April 22, 2023",
-    },
-  ];
-
+const LastNews = ({LatestNewsData}) => {
   return (
     <div className="w-full h-auto border border-[#C4C6D4] rounded-md p-[2rem]">
       <h1 className="text-[#131B2E] font-bold text-xl">{i18next.t("last_news")}</h1>
       <div className="w-full h-[0.1rem] bg-[#C4C6D4] mt-2"></div>
       <div className="flex flex-col space-y-[1rem] mt-[1rem]">
-        {items.map((item, index) => (
+        {LatestNewsData?.data?.map((item, index) => (
           <div key={index} className="flex gap-x-2">
             <img
               src={item.image}

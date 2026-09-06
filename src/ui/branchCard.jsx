@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const BranchCard = ({ branch, onClick }) => {
+  console.log("branch",branch)
   const navigate = useNavigate();
   const { i18n } = useTranslation();
 
@@ -35,7 +36,7 @@ const BranchCard = ({ branch, onClick }) => {
       {/* Branch Content */}
       <div className="px-[1.5rem]">
         <h3 className="text-primary font-bold text-xl mb-2 mt-2">
-          {branch.title}
+          {branch.name}
         </h3>
         <p className="text-[#777777] text-lg leading-relaxed line-clamp-2">
           {branch.description}

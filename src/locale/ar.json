@@ -28,11 +28,12 @@
         "logoAlt": "الشعار"
     },
     "Services": {
-        "our_services]": "خدماتنا"
+        "our_services": "خدماتنا"
     },
     "aboutUs": {
         "about_us": "من نحن",
         "Licensed & Financially Secure": "مرخص وآمن مالياً",
+        "our_vission_title": "رؤيتنا",
         "our_vission": "رؤيتنا وشركاؤنا",
         "Our_Partners": "شركاؤنا"
     },
@@ -42,7 +43,8 @@
     },
     "Protection": {
         "prtection_title": "الحماية التي تهمك",
-        "donwload_pdf": "تحميل ملف"
+        "donwload_pdf": "تحميل ملف",
+        "downloading": "جاري التحميل..."
     },
     "chooseUs": {
         "choose_us_title": "لماذا نحن؟"

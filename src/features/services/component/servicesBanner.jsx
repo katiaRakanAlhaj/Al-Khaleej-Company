@@ -2,15 +2,13 @@ import i18next from "i18next";
 import serviesBanner from "../../../assets/images/aboutBanner.png";
 import Banner from "../../../ui/banner";
 
-const ServicesBanner = () => {
+const ServicesBanner = ({servicesData}) => {
   return (
     <div>
       <Banner
-        image={serviesBanner}
+        image={servicesData?.data?.banner}
         title={i18next.t("Services.our_services")}
-        description="Providing comprehensive and reliable insurance solutions across Iraq, tailored to
-protect your future."
-        altText="services banner"
+        description={servicesData?.data?.banner_description}
       />
     </div>
   );

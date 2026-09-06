@@ -1,48 +1,16 @@
 import TitleSection from "../../../ui/titleSection";
-import work1 from "../../../assets/images/work1.png";
-import work2 from "../../../assets/images/work2.png";
-import work3 from "../../../assets/images/work3.png";
-import work4 from "../../../assets/images/work4.png";
 import arrow from "../../../assets/images/arrow.svg";
 import i18next from "i18next";
 
-const WorkProcess = () => {
-  const steps = [
-    {
-      image: work1,
-      number: 1,
-      title: "Select Insurance",
-      description:
-        "The first step in selecting insurance is to assess your needs",
-    },
-    {
-      image: work2,
-      number: 2,
-      title: "Schedule meeting",
-      description:
-        "The first step in selecting insurance is to assess your needs",
-    },
-    {
-      image: work3,
-      number: 3,
-      title: "Meet with Agent",
-      description:
-        "The first step in selecting insurance is to assess your needs",
-    },
-    {
-      image: work4,
-      number: 4,
-      title: "Get Insurance",
-      description:
-        "The first step in selecting insurance is to assess your needs",
-    },
-  ];
+const WorkProcess = ({homePageData}) => {
+  // Use data from API response
+  const steps = homePageData?.data?.home_page?.work_process || [];
 
   return (
     <section className="w-full overflow-hidden bg-white py-[4rem]">
       {/* Heading */}
       <div className="mx-auto flex flex-col items-center justify-center">
-        <TitleSection title= {i18next.t("WorkProcess.work_process")} />
+        <TitleSection title={i18next.t("WorkProcess.work_process")} />
 
         <h1 className="mt-[1rem] text-center font-bold leading-tight text-primary lg:text-[2.5rem] text-[1.5rem] text-wrap lg:w-[100%] w-[80%]">
           {i18next.t("WorkProcess.work_steps")}
@@ -94,16 +62,16 @@ const WorkProcess = () => {
         ========================== */}
         <div className="relative z-10 grid grid-cols-1 gap-[2rem] sm:grid-cols-2 lg:px-[6rem] px-[3rem] lg:grid-cols-4 lg:gap-[2rem]">
           {steps.map((step, index) => {
-            // Get number position based on the number
-            const getNumberPosition = (num) => {
-              switch(num) {
-                case 1:
+            // Get number position based on the index
+            const getNumberPosition = (idx) => {
+              switch(idx) {
+                case 0:
                   return "top-[5.5rem] -left-[4.5rem]";
-                case 2:
+                case 1:
                   return "top-[2.5rem] left-[-6rem]";
-                case 3:
+                case 2:
                   return "top-[5.5rem] left-[-6rem]";
-                case 4:
+                case 3:
                   return "top-[5.5rem] left-[-6rem]";
                 default:
                   return "-top-[0.1875rem] -left-[0.1875rem]";
@@ -112,7 +80,7 @@ const WorkProcess = () => {
 
             return (
               <div
-                key={step.number}
+                key={index}
                 className="relative flex flex-col items-center text-center"
               >
                 {/* Image with Number on Border */}
@@ -167,10 +135,10 @@ const WorkProcess = () => {
                       shadow-md
                       border-2
                       border-white
-                      ${getNumberPosition(step.number)}
+                      ${getNumberPosition(index)}
                     `}
                   >
-                    {step.number}
+                    {index + 1}
                   </div>
                 </div>
 

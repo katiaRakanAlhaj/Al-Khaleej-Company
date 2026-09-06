@@ -1,13 +1,13 @@
 import clientBanner from "../../../assets/images/clientBanner.png";
 import Banner from "../../../ui/banner";
 import i18next from "i18next"
-const ClientsBanner = () => {
+const ClientsBanner = ({clinetsDataPage}) => {
   return (
     <div>
       <Banner
-        image={clientBanner}
+        image={clinetsDataPage?.data?.banner}
         title={i18next.t("clients.our_clients")}
-        description="Providing comprehensive and reliable insurance solutions across Iraq, tailored to protect your future."
+        description={clinetsDataPage?.data?.description}
       />
     </div>
   );

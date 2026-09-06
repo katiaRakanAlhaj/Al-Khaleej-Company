@@ -1,12 +1,12 @@
 import aboutBanner from "../../../assets/images/aboutBanner.png";
 import Banner from "../../../ui/banner";
 import i18next from "i18next"
-const AboutBanner = () => {
+const AboutBanner = ({aboutPageData}) => {
   return (
     <Banner
-      image={aboutBanner}
+      image={aboutPageData?.data?.banner}
       title={i18next.t("aboutUs.about_us")}
-      description="Gulf Insurance Company is a leader in life and general insurance in Iraq since 2004."
+      description={aboutPageData?.data?.description}
       altText="about banner"
     />
   );

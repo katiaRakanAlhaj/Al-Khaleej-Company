@@ -1,0 +1,16 @@
+import { useQuery } from "@tanstack/react-query";
+import { fetchLatestNews, fetchNewsPageById } from "../api/fetchSingleNewsById";
+
+export const useFetchNewsPageById = (id) => {
+    return useQuery({
+        queryKey: ["news", id], // Include id in queryKey for caching
+        queryFn: () => fetchNewsPageById(id),
+        enabled: !!id, // Only run query if id exists
+    });
+};
+export const useFetchLatestNews = () => {
+    return useQuery({
+        queryKey: ["latest-news"], // Include id in queryKey for caching
+        queryFn: () => fetchLatestNews(),
+    });
+};

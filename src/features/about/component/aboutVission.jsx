@@ -2,7 +2,7 @@ import vission from "../../../assets/images/vission.svg";
 import partners from "../../../assets/images/partners.svg";
 import i18next from "i18next";
 
-const AboutVission = () => {
+const AboutVission = ({ aboutPageData }) => {
   // Reusable class constants
   const cardShadow = "shadow-[0px_1px_2px_0px_#0000000D]";
   const sectionTitleClasses = "flex gap-x-[1rem] items-center";
@@ -24,11 +24,9 @@ const AboutVission = () => {
               </h1>
             </div>
             <p className="text-[#434652] text-lg mt-[2rem]">
-              Gulf Insurance Company holds a license issued by the Iraqi
-              Insurance Diwan and the Ministry of Finance, allowing us to offer
-              life and general insurance products.
+              {aboutPageData?.data?.licensed_and_financially_secure}
             </p>
-            <div className="lg:flex gap-x-4 mt-[3rem]">
+            {/* <div className="lg:flex gap-x-4 mt-[3rem]">
               <div className="w-full h-[6rem] bg-white p-[1rem] border border-[#C4C6D4]">
                 <h1 className="text-[#505F76] text-lg">Current Capital</h1>
                 <p className="text-[#131B2E] mt-1 font-bold text-2xl">
@@ -41,14 +39,16 @@ const AboutVission = () => {
                   242.1 Million
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Second Column */}
           <div>
             <div className={sectionTitleClasses}>
               <div className={titleBarClasses}></div>
-              <h1 className={titleTextClasses}>{i18next.t("aboutUs.our_vission")}</h1>
+              <h1 className={titleTextClasses}>
+                {i18next.t("aboutUs.our_vission")}
+              </h1>
             </div>
 
             {/* Vision Card */}
@@ -57,15 +57,12 @@ const AboutVission = () => {
             >
               <div className="flex gap-x-2">
                 <img src={vission} alt="Vision" />
-                <h1 className="text-white font-[600] text-2xl">{i18next.t("aboutUs.Our_Partners")}</h1>
+                <h1 className="text-white font-[600] text-2xl">
+                  {i18next.t("aboutUs.our_vission_title")}
+                </h1>
               </div>
               <p className={`${descriptionClasses} text-white`}>
-                Gulf Insurance Company aims to occupy a leading position in the
-                insurance field in the Iraqi market and to be one of the best
-                providers of insurance services in Iraq for companies,
-                commercial groups, or individuals, and to continue maintaining
-                this position by overcoming routine and complications and speed
-                of answer and response in the event of any incident.
+                {aboutPageData?.data?.our_vision}
               </p>
             </div>
 
@@ -80,12 +77,7 @@ const AboutVission = () => {
                 </h1>
               </div>
               <p className={`${descriptionClasses} text-[#434652]`}>
-                Gulf Insurance Company aims to occupy a leading position in the
-                insurance field in the Iraqi market and to be one of the best
-                providers of insurance services in Iraq for companies,
-                commercial groups, or individuals, and to continue maintaining
-                this position by overcoming routine and complications and speed
-                of answer and response in the event of any incident.
+                {aboutPageData?.data?.partners}
               </p>
             </div>
           </div>

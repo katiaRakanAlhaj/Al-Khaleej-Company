@@ -18,10 +18,10 @@ const servicesData = [
   { id: 6, title: "Vehicle Insurance Vehicle Insurance", image: service3 },
 ];
 
-const Services = () => {
+const Services = ({ homePageData }) => {
   // Detect if current language is Arabic
-  const isRTL = i18next.language === 'ar';
-  
+  const isRTL = i18next.language === "ar";
+
   // Reverse slides for RTL if needed (optional - sometimes Swiper handles this automatically with dir prop)
   const slides = isRTL ? [...servicesData].reverse() : servicesData;
 
@@ -32,14 +32,12 @@ const Services = () => {
         <div className="grid lg:grid-cols-12 mb-[3rem] lg:mt-0 mt-[0.6rem]">
           <div className="flex flex-col lg:col-span-6">
             <h1 className="text-primary font-bold lg:text-[2.5rem] md:text-[1.5rem] text-[1.5rem] md:w-[80%] leading-tight">
-              Insurance service that keep you protect & confident
+              {homePageData?.data?.home_page?.service_title}
             </h1>
           </div>
           <div className="lg:col-span-6 lg:ml-[-2rem] lg:mt-0 mt-[0.6rem]">
             <p className="text-[1.125rem] text-[#777777]">
-              Lorem ipsum dolor sit amet consectur adipiscing elit sed eiusmod
-              tempor incididunt labore dolore magna aliquaenim ad minim. Sed
-              risus commodo ornare felis non, eleifend eleifend.
+             {homePageData?.data?.services_section?.description}
             </p>
           </div>
         </div>
@@ -63,7 +61,7 @@ const Services = () => {
             loop={true}
             className="w-full pb-[4rem]"
           >
-            {slides.map((service, index) => (
+            {homePageData?.data?.services_section?.services?.map((service, index) => (
               <SwiperSlide
                 key={index}
                 className="!w-[22rem] transition-all duration-300"

@@ -5,46 +5,10 @@ import service3 from "../../../assets/images/servicegrid3.jpg";
 import readMoreArrow from "../../../assets/images/readMoreArrow.svg";
 import i18next from "i18next";
 
-const NewsGrid = () => {
+const NewsGrid = ({newsData}) => {
   const navigate = useNavigate();
   const { lang } = useParams(); // Get the current language from URL
 
-  // Array of news data
-  const newsData = [
-    {
-      id: 1,
-      date: "July 2, 2019",
-      title:
-        "The Reality of Insurance in Iraq and the Draft Law for Compulsory Insurance",
-      description:
-        "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
-      image: service1,
-    },
-    {
-      id: 2,
-      date: "July 2, 2019",
-      title: "The Most Important Benefits of Getting Travel...",
-      description:
-        "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
-      image: service2,
-    },
-    {
-      id: 3,
-      date: "July 2, 2019",
-      title: "Why You Might Need a Property Insurance Policy?",
-      description:
-        "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
-      image: service3,
-    },
-    {
-      id: 4,
-      date: "July 2, 2019",
-      title: "6 Reasons That Will Change Your Perspective on...",
-      description:
-        "The Iraqi insurance sector suffers from many problems, some of which are inherited historically and others that have emerged in the past three decades. Some colleagues have written articles...",
-      image: service1,
-    },
-  ];
 
   const handleCardClick = (id) => {
     // Navigate with the language parameter
@@ -55,7 +19,7 @@ const NewsGrid = () => {
     <div className="container3 mx-auto lg:mt-[4rem] mt-[6rem]">
       {/* Grid container for multiple cards */}
       <div className="grid grid-cols-1 gap-10">
-        {newsData.map((news) => (
+        {newsData?.data?.map((news) => (
           <div
             key={news.id}
             className="w-full lg:h-[20rem] border border-[#DAE2FD] rounded-md overflow-hidden cursor-pointer"

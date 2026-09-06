@@ -3,38 +3,15 @@ import step2 from "../../../assets/images/step2.png";
 import step3 from "../../../assets/images/step3.png";
 import step4 from "../../../assets/images/step4.png";
 import step5 from "../../../assets/images/step5.png";
-const ClientsGrid = () => {
-  const array = [
-    step1,
-    step2,
-    step3,
-    step4,
-    step5,
-    step1,
-    step2,
-    step3,
-    step4,
-    step5,
-    step1,
-    step2,
-    step3,
-    step4,
-    step5,
-    step1,
-    step2,
-    step3,
-    step4,
-    step5,
-    step1,
-    step2,
-  ];
+const ClientsGrid = ({clinetsDataPage}) => {
+
   return (
     <div className="flex flex-wrap mt-[5rem] px-[3.5rem] gap-x-[2rem] items-center justify-center">
-      {array?.map((array) => (
+      {clinetsDataPage?.data?.clients?.map((client) => (
         <div>
           <img
             className="w-[10rem] h-[10rem] object-contain mt-[-2rem]"
-            src={array}
+            src={client}
           />
         </div>
       ))}

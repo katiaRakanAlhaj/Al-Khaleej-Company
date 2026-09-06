@@ -34,6 +34,7 @@
         "about_us": "About Us",
         "Licensed & Financially Secure": "Licensed & Financially Secure",
         "our_vission": "Our Vision & Partners",
+        "our_vission_title": "Our Vision",
         "Our_Partners": "Our Partners"
     },
     "WorkProcess": {
@@ -42,7 +43,8 @@
     },
     "Protection": {
         "prtection_title": "Protection that matters to you",
-        "donwload_pdf": "Download PDF"
+        "donwload_pdf": "Download PDF",
+        "downloading": "Downloading..."
     },
     "chooseUs": {
         "choose_us_title": "why choose us"

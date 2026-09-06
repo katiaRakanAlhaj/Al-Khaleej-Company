@@ -1,71 +1,106 @@
 import sharing from "../../../assets/images/sharing.svg";
 import mail from "../../../assets/images/mail.svg";
-const SingleNewsDescription = () => {
+
+const SingleNewsDescription = ({ newsPageByIdData }) => {
   // Reusable classes to avoid repetition
   const bodyTextStyles =
     "text-[#131B2E] lg:text-xl text-lg leading-relaxed mt-4 flex text-justify";
   const headingStyles = "text-[#00348A] font-bold lg:text-3xl text-[1.5rem] mt-4";
   const buttonStyles =
     "w-[2.5rem] h-[2.5rem] flex justify-center items-center rounded-full bg-[#E2E7FF]";
+  
   const buttons = ["Insurance", "Legislation", "Iraq"];
+
+  // Extract sections from the response data
+  const sections = newsPageByIdData?.data?.sections || [];
+
   return (
     <div>
-      <p className="text-[#131B2E] flex text-justify lg:text-xl text-lg leading-relaxed">
-        The Iraqi insurance sector has faced numerous challenges both
-        historically and in recent times. Economic fluctuations, regulatory
-        hurdles, and a lack of public awareness have contributed to a fragmented
-        market. However, there is a growing recognition of the critical role
-        that a robust insurance industry plays in national economic stability
-        and development. Overcoming these challenges requires strategic
-        legislative reforms and concerted efforts from all stakeholders.
-      </p>
+      {/* Render all sections dynamically */}
+      {sections.map((section, index) => {
+        // Check if section has a title or note to determine rendering style
+        const hasTitle = section.title && section.title.trim() !== "";
+        const hasNote = section.note && section.note.trim() !== "";
+        
+        // If section has a note, render it as a quote block
+        if (hasNote) {
+          return (
+            <div key={index}>
+              {/* If there's a title before the note, render it */}
+              {hasTitle && <h1 className={headingStyles}>{section.title}</h1>}
+              
+              {/* Render description if it exists */}
+              {section.description && section.description.trim() !== "" && (
+                <p className={bodyTextStyles}>{section.description}</p>
+              )}
+              
+              {/* Render the note as a quote block */}
+              <div className="w-full h-auto bg-[#F2F3FF] mt-4 flex justify-center items-center p-8 relative">
+                <div className="absolute h-full left-0 top-0 w-[0.3em] bg-[#00348A]"></div>
+                <p className="w-full lg:text-xl text-lg leading-relaxed text-[#434652]">
+                  "{section.note}"
+                </p>
+              </div>
+            </div>
+          );
+        }
+        
+        // If section has a title but no note, render as heading + description
+        if (hasTitle && !hasNote) {
+          return (
+            <div key={index}>
+              <h1 className={headingStyles}>{section.title}</h1>
+              {section.description && section.description.trim() !== "" && (
+                <p className={bodyTextStyles}>{section.description}</p>
+              )}
+            </div>
+          );
+        }
+        
+        // If section has no title but has description (first section typically)
+        if (!hasTitle && section.description) {
+          return (
+            <p key={index} className="text-[#131B2E] flex text-justify lg:text-xl text-lg leading-relaxed">
+              {section.description}
+            </p>
+          );
+        }
+        
+        // Fallback: just render description if nothing else
+        if (section.description) {
+          return (
+            <p key={index} className="text-[#131B2E] flex text-justify lg:text-xl text-lg leading-relaxed">
+              {section.description}
+            </p>
+          );
+        }
+        
+        return null;
+      })}
 
-      <h1 className={headingStyles}>
-        Current Challenges in the Insurance Sector
-      </h1>
-
-      <p className={bodyTextStyles}>
-        To address these systemic issues, the proposal for a Compulsory
-        Insurance Law has emerged as a viable solution. This draft legislation
-        aims to mandate essential insurance coverage across various sectors,
-        thereby mitigating risks and ensuring a safety net for businesses and
-        individuals alike. The implementation of such a law is seen as a
-        necessary step towards modernizing the Iraqi insurance landscape.
-      </p>
-
-      <div className="w-full h-auto bg-[#F2F3FF] mt-4 flex justify-center items-center p-8 relative">
-        <div className="absolute h-full left-0 top-0 w-[0.3em] bg-[#00348A]"></div>
-        <p className="w-full lg:text-xl text-lg leading-relaxed text-[#434652]">
-          "Enacting a compulsory insurance law will represent a qualitative leap
-          in protecting individuals and properties, and will effectively
-          contribute to the stability of the national economy."
-        </p>
-      </div>
-
-      <h1 className={headingStyles}>Next Steps and Proposals</h1>
-
-      <p className={bodyTextStyles}>
-        Key provisions of the proposed law focus on critical areas such as Fire
-        Insurance for commercial shops and warehouses, providing much-needed
-        protection against unforeseen disasters. Furthermore, it advocates for
-        compulsory insurance for car owners and imported active role of the
-        Iraqi Insurance Association and the regulatory oversight of the Diwan of
-        Insurance.
-      </p>
+      {/* Divider line */}
       <div className="w-full h-[0.1rem] mt-[4rem] bg-[#C4C6D4]"></div>
+      
+      {/* Tags and share buttons */}
       <div className="mt-[2rem] flex justify-between items-center flex-wrap">
-        <div className="flex gap-x-2  text-lg text-[#505F76]">
-          {buttons?.map((button) => (
-            <div className="w-fit p-2 h-[2.4rem] bg-[#E2E7FF]">{button}</div>
+        {/* <div className="flex gap-x-2 text-lg text-[#505F76] flex-wrap">
+          {buttons?.map((button, index) => (
+            <div 
+              key={index} 
+              className="w-fit p-2 h-[2.4rem] bg-[#E2E7FF] rounded"
+            >
+              {button}
+            </div>
           ))}
-        </div>
+        </div> */}
+        {/* Uncomment if you want to show share buttons */}
         {/* <div className="flex items-center gap-x-2">
           <p className="text-md text-[#505F76]">Share News:</p>
           <div className={buttonStyles}>
-            <img className="w-[1rem]" src={sharing} />
+            <img className="w-[1rem]" src={sharing} alt="Share" />
           </div>
           <div className={buttonStyles}>
-            <img className="w-[1rem]" src={mail} />
+            <img className="w-[1rem]" src={mail} alt="Email" />
           </div>
         </div> */}
       </div>
