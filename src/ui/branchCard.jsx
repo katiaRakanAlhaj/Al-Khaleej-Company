@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const BranchCard = ({ branch, onClick }) => {
-  console.log("branch",branch)
   const navigate = useNavigate();
   const { i18n } = useTranslation();
 

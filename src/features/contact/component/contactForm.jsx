@@ -39,7 +39,7 @@ const ContactForm = ({ noMargin = false }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your form submission logic here
-    console.log("Form submitted");
+    
   };
 
   return (

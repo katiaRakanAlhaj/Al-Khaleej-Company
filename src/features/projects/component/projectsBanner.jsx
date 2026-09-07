@@ -1,12 +1,10 @@
 import i18next from "i18next";
-import image from "../../../assets/images/projectBanner.png";
-
-const ProjectsBanner = () => {
+const ProjectsBanner = ({projectsData}) => {
   return (
     <div className="relative w-full lg:h-[33rem] h-[22rem] overflow-hidden">
       {/* Background Image with Gradient Overlay */}
       <div className="absolute w-full h-full overflow-hidden">
-        <img src={image} className="w-full h-full object-cover" />
+        <img src={projectsData?.data?.banner} className="w-full h-full object-cover" />
         {/* Gradient Overlay - Applied on top of image */}
         <div
           className="absolute inset-0"
@@ -21,14 +19,10 @@ const ProjectsBanner = () => {
       <div className={`absolute inset-0 flex ${i18next.language == "en"?'lg:left-[15rem] left-[3rem]':'lg:right-[15rem] right-[3rem]'} flex-col lg:top-[7rem] top-[5rem]`}>
         {/* Your content here */}
         <h1 className="font-bold lg:leading-[3.5rem] lg:text-5xl text-[1.5rem] w-[100%] lg:w-[40%] text-[#00348A]">
-          Our Work & Major Contracts
+          {i18next.t("projects.our_projects")}
         </h1>
         <p className="lg:text-xl lg:line-clamp-6 line-clamp-5 text-lg text-[#434652] leading-relaxed lg:w-[60%] lg:mt-[2rem] mt-[1rem]">
-          Over the past decade, Gulf Insurance Company has successfully secured
-          robust contracts with major commercial and service institutions across
-          Iraq. From national infrastructure to premier commercial developments,
-          our portfolio reflects unwavering reliability and clinical precision
-          in risk management.
+          {projectsData?.data?.banner_description}
         </p>
       </div>
     </div>

@@ -50,7 +50,8 @@
         "choose_us_title": "why choose us"
     },
     "branches": {
-        "branches_title": "Our branches"
+        "branches_title": "Our branches",
+        "more_branches": "More branches"
     },
     "contact": {
         "title": "Get in Touch",
@@ -73,12 +74,50 @@
         "Key_Partnerships": "Key Partnerships",
         "Engineering_Projects": "Engineering Projects",
         "Filter_projects": "Filter projects...",
-        "SPECIALIZED_COVERAGE": "SPECIALIZED COVERAGE"
-
+        "SPECIALIZED_COVERAGE": "SPECIALIZED COVERAGE",
+        "our_projects": "Our Projects",
+        "Search_anything": "Search anything...",
+        "Search": "Search",
+        "Hide_Filters": "Hide Filters",
+        "Filters": "Filters",
+        "Company_Name": "Company Name",
+        "Responsible_Authority": "Responsible Authority",
+        "Project_Type": "Project Type",
+        "Year": "Year",
+        "Filter_by_company": "Filter by company...",
+        "Filter_by_authority": "Filter by authority...",
+        "Filter_by_project_type": "Filter by project type...",
+        "Filter_by_year": "Filter by year...",
+        "Clear_All_Filters": "Clear All Filters",
+        "Showing": "Showing",
+        "of": "of",
+        "projects": "projects",
+        "filtered": "(filtered)",
+        "No_projects_found": "No projects found",
+        "Error_loading_projects": "Error loading projects",
+        "COMPANY_NAME": "COMPANY NAME",
+        "RESPONSIBLE_AUTHORITY": "RESPONSIBLE AUTHORITY",
+        "PROJECT_TYPE": "PROJECT TYPE",
+        "YEAR": "YEAR"
     },
     "read_more": "Read More",
     "last_news": "Latest News",
     "quick_links": "Quick Links",
-    "contact_us": "Contact Us"
+    "contact_us": "Contact Us",
+    "BranchDetailsMain": {
+        "Hours": "Hours",
+        "Contact": "Contact",
+        "Services": "Services",
+        "Location": "Location",
+        "Sunday": "Sunday",
+        "Monday": "Monday",
+        "Tuesday": "Tuesday",
+        "Wednesday": "Wednesday",
+        "Thursday": "Thursday",
+        "Friday": "Friday",
+        "Saturday": "Saturday",
+        "Closed": "Closed",
+        "to": "-"
+    }
 
 }

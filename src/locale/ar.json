@@ -50,7 +50,8 @@
         "choose_us_title": "لماذا نحن؟"
     },
     "branches": {
-        "branches_title": "فروعنا"
+        "branches_title": "فروعنا",
+        "more_branches": "فروع إضافية"
     },
     "contact": {
         "title": "تواصل معنا",
@@ -73,10 +74,49 @@
         "Key_Partnerships": "الشراكات الرئيسية",
         "Engineering_Projects": "المشاريع الهندسية",
         "Filter_projects": "تصفية المشاريع...",
-        "SPECIALIZED_COVERAGE": "تغطية متخصصة"
+        "SPECIALIZED_COVERAGE": "تغطية متخصصة",
+        "our_projects": "مشاريعنا",
+        "Search_anything": "ابحث عن أي شيء...",
+        "Search": "بحث",
+        "Hide_Filters": "إخفاء الفلاتر",
+        "Filters": "فلاتر",
+        "Company_Name": "اسم الشركة",
+        "Responsible_Authority": "الجهة المسؤولة",
+        "Project_Type": "نوع المشروع",
+        "Year": "السنة",
+        "Filter_by_company": "تصفية حسب الشركة...",
+        "Filter_by_authority": "تصفية حسب الجهة...",
+        "Filter_by_project_type": "تصفية حسب نوع المشروع...",
+        "Filter_by_year": "تصفية حسب السنة...",
+        "Clear_All_Filters": "مسح جميع الفلاتر",
+        "Showing": "عرض",
+        "of": "من",
+        "projects": "مشاريع",
+        "filtered": "(مصفى)",
+        "No_projects_found": "لا توجد مشاريع",
+        "Error_loading_projects": "خطأ في تحميل المشاريع",
+        "COMPANY_NAME": "اسم الشركة",
+        "RESPONSIBLE_AUTHORITY": "الجهة المسؤولة",
+        "PROJECT_TYPE": "نوع المشروع",
+        "YEAR": "السنة"
     },
     "read_more": "اقرأ المزيد",
     "last_news": "آخر الأخبار",
     "quick_links": "روابط سريعة",
-    "contact_us": "اتصل بنا"
+    "contact_us": "اتصل بنا",
+    "BranchDetailsMain": {
+        "Hours": "مواعيد العمل",
+        "Contact": "وسائل التواصل",
+        "Services": "الخدمات المقدمة",
+        "Location": "العنوان",
+        "Sunday": "الأحد",
+        "Monday": "الإثنين",
+        "Tuesday": "الثلاثاء",
+        "Wednesday": "الأربعاء",
+        "Thursday": "الخميس",
+        "Friday": "الجمعة",
+        "Saturday": "السبت",
+        "Closed": "مغلق",
+        "to": "إلى"
+    }
 }
