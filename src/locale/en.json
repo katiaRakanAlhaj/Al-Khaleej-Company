@@ -65,7 +65,17 @@
         "email_placeholder": "Enter Email Address",
         "message": "Message",
         "message_placeholder": "Any Message",
-        "submit": "Submit Message"
+        "submit": "Submit Message",
+        "first_name_required": "First name is required",
+        "last_name_required": "Last name is required",
+        "phone_required": "Phone number is required",
+        "email_required": "Email is required",
+        "message_required": "Message is required",
+        "sending": "Sending...",
+        "email_invalid": "Please enter a valid email address",
+        "success_message": "Your message has been sent successfully!",
+        "error_message": "Failed to send message. Please try again."
+
     },
     "clients": {
         "our_clients": "Our Clients"
@@ -118,6 +128,24 @@
         "Saturday": "Saturday",
         "Closed": "Closed",
         "to": "-"
+    },
+    "ContactHeader": {
+        "Headquarters": "Headquarters",
+        "CustomerSupport": "Customer Support",
+        "GeneralInquiries": "General Inquiries",
+        "BusinessHours": "Business Hours",
+        "Sunday": "Sunday",
+        "Monday": "Monday",
+        "Tuesday": "Tuesday",
+        "Wednesday": "Wednesday",
+        "Thursday": "Thursday",
+        "Friday": "Friday",
+        "Saturday": "Saturday",
+        "Closed": "Closed",
+        "to": "to"
+    },
+    "contactGrid": {
+        "have_question": "Have questions? connect with us for support"
     }
 
 }

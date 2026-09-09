@@ -4,25 +4,16 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./servicesStyle.css";
-import service1 from "../../../assets/images/service1.png";
-import service2 from "../../../assets/images/service2.png";
-import service3 from "../../../assets/images/service3.png";
 import i18next from "i18next";
-
-const servicesData = [
-  { id: 1, title: "Vehicle Insurance Vehicle Insurance", image: service1 },
-  { id: 2, title: "Vehicle Insurance Vehicle Insurance", image: service2 },
-  { id: 3, title: "Vehicle Insurance Vehicle Insurance", image: service3 },
-  { id: 4, title: "Vehicle Insurance Vehicle Insurance", image: service1 },
-  { id: 5, title: "Vehicle Insurance Vehicle Insurance", image: service2 },
-  { id: 6, title: "Vehicle Insurance Vehicle Insurance", image: service3 },
-];
 
 const Services = ({ homePageData }) => {
   // Detect if current language is Arabic
   const isRTL = i18next.language === "ar";
 
-  // Reverse slides for RTL if needed (optional - sometimes Swiper handles this automatically with dir prop)
+  // Get services data
+  const servicesData = homePageData?.data?.services_section?.services || [];
+  
+  // Reverse slides for RTL if needed
   const slides = isRTL ? [...servicesData].reverse() : servicesData;
 
   return (
@@ -61,7 +52,7 @@ const Services = ({ homePageData }) => {
             loop={true}
             className="w-full pb-[4rem]"
           >
-            {homePageData?.data?.services_section?.services?.map((service, index) => (
+            {slides.map((service, index) => (
               <SwiperSlide
                 key={index}
                 className="!w-[22rem] transition-all duration-300"

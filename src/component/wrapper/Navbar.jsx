@@ -12,7 +12,7 @@ import Location from "../../assets/images/location.svg";
 import flag from "../../assets/images/flag.svg";
 import i18next from "i18next";
 
-const Navbar = () => {
+const Navbar = ({contactData}) => {
   const { lang } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -42,51 +42,51 @@ const Navbar = () => {
       id: 1,
       name: t("navbar.socialMedia.facebook"),
       icon: facebook,
-      url: "https://facebook.com/yourpage",
+      url: contactData?.data?.facebook,
     },
     {
       id: 2,
       name: t("navbar.socialMedia.instagram"),
       icon: instgram,
-      url: "https://instagram.com/yourpage",
+      url: contactData?.data?.instagram,
     },
     {
       id: 3,
       name: t("navbar.socialMedia.linkedin"),
       icon: LinkedIn,
-      url: "https://linkedin.com/company/yourpage",
+      url: contactData?.data?.linkedin,
     },
     {
       id: 4,
       name: t("navbar.socialMedia.twitter"),
       icon: Twitter,
-      url: "https://twitter.com/yourpage",
+      url: contactData?.data?.x,
     },
   ];
 
-  // Contact information array
+  // Contact information array - FIXED: using dynamic values from contactData
   const contactInfo = [
     {
       id: 1,
       type: "phone",
       icon: phone,
-      value: "6102",
+      value: contactData?.data?.phone1,        // ← FIXED: dynamic
       label: t("navbar.contactInfo.phone"),
-      href: "tel:6102",
+      href: `tel:${contactData?.data?.phone1}`, // ← FIXED: dynamic
     },
     {
       id: 2,
       type: "email",
       icon: email,
-      value: "info@yourcompany.com",
+      value: contactData?.data?.email1,        // ← FIXED: dynamic
       label: t("navbar.contactInfo.email"),
-      href: "mailto:info@yourcompany.com",
+      href: `mailto:${contactData?.data?.email1}`, // ← FIXED: dynamic
     },
     {
       id: 3,
       type: "address",
       icon: Location,
-      value: "238, Arimantab, Moska - USA",
+      value: contactData?.data?.address,       // ← FIXED: dynamic
       label: t("navbar.contactInfo.address"),
     },
   ];

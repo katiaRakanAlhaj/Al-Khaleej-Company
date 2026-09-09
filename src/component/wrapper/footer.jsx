@@ -1,13 +1,10 @@
-import React from "react";
 import { useLocation, Link } from "react-router-dom"; // Added Link here
-import logoFooter from "../../assets/images/logoFooter.svg";
 import locationFooter from "../../assets/images/locationFooter.svg";
 import emailFooter from "../../assets/images/emailFooter.svg";
 import callFooter from "../../assets/images/callFooter.svg";
-import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 
-const Footer = () => {
+const Footer = ({contactData , homePageData}) => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
   const location = useLocation(); // Get current location
@@ -36,26 +33,25 @@ const Footer = () => {
   const firstHalf = Links.slice(0, midIndex);
   const secondHalf = Links.slice(midIndex);
 
-  const contactData = [
+  const contactDataInfo = [
     {
       icon: locationFooter,
       alt: "Location",
       lines: [
-        "Baghdad, Al-Harithiya, Al-Kindi Street,",
-        "Baghdad, Al-Arosot, near Max Mall",
+      contactData?.data?.address
       ],
       isStart: true,
     },
     {
       icon: callFooter,
       alt: "Phone",
-      lines: ["009647729000530", "009647821041006"],
+      lines: [contactData?.data?.phone1, contactData?.data?.phone2],
       isStart: false,
     },
     {
       icon: emailFooter,
       alt: "Email",
-      lines: ["info@gulfinsco.com", "admin@gulfinsco.com"],
+      lines: [contactData?.data?.email1, contactData?.data?.email2],
       isStart: false,
     },
   ];
@@ -67,11 +63,9 @@ const Footer = () => {
           <div className="grid lg:grid-cols-12 grid-cols-1">
             {/* first column */}
             <div className="lg:col-span-4 col-span-1">
-              <img src={logoFooter} alt="Logo" />
+              <img src={homePageData?.data?.footer?.logo} alt="Logo" />
               <p className="text-white font-[400] opacity-80 mt-[1rem] leading-relaxed text-lg lg:w-[60%] w-[90%]">
-                Redefining insurance for the modern world. We provide security
-                and peace of mind through expert consultation and innovative
-                digital solutions.
+               {homePageData?.data?.footer?.description}
               </p>
             </div>
 
@@ -135,7 +129,7 @@ const Footer = () => {
                    {t("contact_us")}
                   </h1>
                   <ul className="space-y-4">
-                    {contactData.map((item, index) => (
+                    {contactDataInfo.map((item, index) => (
                       <li
                         key={index}
                         className="flex items-start lg:items-center gap-3 bg-white/5 lg:bg-transparent p-3 lg:p-0 rounded-lg lg:rounded-none hover:bg-white/10 lg:hover:bg-transparent transition-all duration-300"
@@ -168,8 +162,8 @@ const Footer = () => {
           </div>
           <div className="w-full h-[0.01rem] bg-[#FFFFFF40] mt-[4rem]"></div>
           <div className="lg:flex justify-between mt-[2rem] text-white text-lg opacity-80">
-            <p>© 2026 Gulfinsco Insurance Company. All rights reserved.</p>
-            <p className="lg:mt-0 mt-[1.5rem]">Terms Privacy</p>
+            <p>{homePageData?.data?.footer?.copyright}</p>
+            {/* <p className="lg:mt-0 mt-[1.5rem]">Terms Privacy</p> */}
           </div>
         </div>
       </footer>

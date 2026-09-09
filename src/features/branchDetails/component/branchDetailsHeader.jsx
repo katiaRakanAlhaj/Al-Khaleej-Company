@@ -1,5 +1,3 @@
-import singleBranchImage from "../../../assets/images/singleBranchImage.png";
-
 const BranchDetailsHeader = ({ branchDetailsData }) => {
   return (
     <div className="grid lg:grid-cols-12 grid-cols-1 gap-y-[2rem] gap-x-[2rem] lg:mt-[6rem] mt-[5rem]">

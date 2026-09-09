@@ -8,23 +8,37 @@ import ChooseUs from "../features/home/component/chooseUs";
 import OurBranches from "../features/home/component/ourBranches";
 import Contact from "../features/home/component/contact";
 import { usefetchHomePage } from "../features/home/hook/useFetchHome";
+import { HelmetProvider } from "react-helmet-async";
+import MetaHelmet from "../component/meta/metaHelemt";
+import ScrollToTop from "../component/scrollToTop/scrollToTop";
+import Loader from "../component/loader/loader";
 const Home = () => {
   const {
     data: homePageData,
     isLoading: homePageDataLoading,
     error: homePageDataError,
   } = usefetchHomePage();
+  if (homePageDataLoading) {
+    return <Loader />;
+  }
   return (
     <div>
-      <SliderHome homePageData={homePageData} />
-      <About homePageData={homePageData} />
-      <Services homePageData={homePageData} />
-      <WorkProcess homePageData={homePageData} />
-      <Client homePageData={homePageData}/>
-      <Protection homePageData={homePageData} />
-      <ChooseUs homePageData = {homePageData}/>
-      <OurBranches homePageData = {homePageData}/>
-      <Contact />
+      <ScrollToTop />
+      <HelmetProvider>
+        <MetaHelmet
+          title={homePageData?.data?.home_page?.meta_title}
+          description={homePageData?.data?.home_page?.meta_description}
+        />
+        <SliderHome homePageData={homePageData} />
+        <About homePageData={homePageData} />
+        <Services homePageData={homePageData} />
+        <WorkProcess homePageData={homePageData} />
+        <Client homePageData={homePageData} />
+        <Protection homePageData={homePageData} />
+        <ChooseUs homePageData={homePageData} />
+        <OurBranches homePageData={homePageData} />
+        <Contact />
+      </HelmetProvider>
     </div>
   );
 };

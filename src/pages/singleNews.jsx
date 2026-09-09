@@ -4,6 +4,10 @@ import SingleNewsDescription from "../features/singleNews/component/singleNewsDe
 import { useParams } from "react-router-dom"; // If using React Router
 import { useFetchNewsPageById } from "../features/singleNews/hook/usefetchNewsPageById";
 import { useFetchLatestNews } from "../features/singleNews/hook/usefetchNewsPageById";
+import { HelmetProvider } from "react-helmet-async";
+import MetaHelmet from "../component/meta/metaHelemt";
+import ScrollToTop from "../component/scrollToTop/scrollToTop";
+import Loader from "../component/loader/loader";
 
 const SingleNews = () => {
   const { id } = useParams();
@@ -17,18 +21,30 @@ const SingleNews = () => {
     isLoading: LatestNewsDataLoading,
     error: LatestNewsDataError,
   } = useFetchLatestNews();
+  if (newsPageByIdDataLoading || LatestNewsDataLoading) {
+    return <Loader />;
+  }
   return (
-    <div className="container4 mx-auto">
-      <SingleNewsBanner newsPageByIdData = {newsPageByIdData}/>
-      <div className="grid lg:grid-cols-12 grid-cols-1 gap-[2rem] mt-[3rem]">
-        <div className="lg:col-span-8 col-span-1">
-          <SingleNewsDescription newsPageByIdData = {newsPageByIdData}/>
+    <>
+      <ScrollToTop />
+      <HelmetProvider>
+        <MetaHelmet
+          title={newsPageByIdData?.data?.title}
+          description={newsPageByIdData?.data?.title}
+        />
+        <div className="container4 mx-auto">
+          <SingleNewsBanner newsPageByIdData={newsPageByIdData} />
+          <div className="grid lg:grid-cols-12 grid-cols-1 gap-[2rem] mt-[3rem]">
+            <div className="lg:col-span-8 col-span-1">
+              <SingleNewsDescription newsPageByIdData={newsPageByIdData} />
+            </div>
+            <div className="lg:col-span-4 col-span-1">
+              <LastNews LatestNewsData={LatestNewsData} />
+            </div>
+          </div>
         </div>
-        <div className="lg:col-span-4 col-span-1">
-          <LastNews LatestNewsData = {LatestNewsData}/>
-        </div>
-      </div>
-    </div>
+      </HelmetProvider>
+    </>
   );
 };
 export default SingleNews;

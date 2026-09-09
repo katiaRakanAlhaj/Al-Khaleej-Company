@@ -16,7 +16,7 @@ import locationIcon from "../../assets/images/location.svg";
 import flag from "../../assets/images/flag.svg";
 import i18n from "../../i18n";
 
-const NavbarMobile = () => {
+const NavbarMobile = ({contactData}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedCategories, setExpandedCategories] = useState({});
   const menuRef = useRef(null);
@@ -38,53 +38,53 @@ const NavbarMobile = () => {
     return value || fallback;
   };
 
-  // Contact information array
-  const contactInfo = [
-    {
-      id: 1,
-      type: "phone",
-      icon: phone,
-      value: "6102",
-      label: t("navbar.contactInfo.phone"),
-      href: "tel:6102"
-    },
-    {
-      id: 2,
-      type: "email",
-      icon: email,
-      value: "info@yourcompany.com",
-      label: t("navbar.contactInfo.email"),
-      href: "mailto:info@yourcompany.com"
-    },
-    {
-      id: 3,
-      type: "address",
-      icon: locationIcon,
-      value: "238, Arimantab, Moska - USA",
-      label: t("navbar.contactInfo.address")
-    }
-  ];
+ // Contact information array
+const contactInfo = [
+  {
+    id: 1,
+    type: "phone",
+    icon: phone,
+    value: contactData?.data?.phone1,
+    label: t("navbar.contactInfo.phone"),
+    href: `tel:${contactData?.data?.phone1}` // ← FIXED: uses dynamic phone number
+  },
+  {
+    id: 2,
+    type: "email",
+    icon: email,
+    value: contactData?.data?.email1,
+    label: t("navbar.contactInfo.email"),
+    href: `mailto:${contactData?.data?.email1}` // ← FIXED: uses dynamic email
+  },
+  {
+    id: 3,
+    type: "address",
+    icon: locationIcon,
+    value: contactData?.data?.address,
+    label: t("navbar.contactInfo.address")
+  }
+];
 
   // Social Icons Configuration
   const socialIcons = [
     { 
       icon: facebook, 
-      link: "https://facebook.com/yourcompany",
+      link: contactData?.data?.facebook,
       name: getSafeTranslation("navbar.socialMedia.facebook", "Facebook")
     },
     { 
       icon: linkedIn, 
-      link: "https://linkedin.com/company/yourcompany",
+      link: contactData?.data?.linkedin,
       name: getSafeTranslation("navbar.socialMedia.linkedin", "LinkedIn")
     },
     { 
       icon: instgram, 
-      link: "https://instagram.com/yourcompany",
+      link: contactData?.data?.instagram,
       name: getSafeTranslation("navbar.socialMedia.instagram", "Instagram")
     },
     { 
       icon: twitter, 
-      link: "https://twitter.com/yourcompany",
+      link: contactData?.data?.x,
       name: getSafeTranslation("navbar.socialMedia.twitter", "Twitter")
     },
   ];

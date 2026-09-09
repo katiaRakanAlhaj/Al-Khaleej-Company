@@ -7,6 +7,10 @@ import {
   useFetchBranchesGrid,
   useFetchBranchesPage,
 } from "../features/ourBranches/hook/useFetchBranchesPage";
+import { HelmetProvider } from "react-helmet-async";
+import MetaHelmet from "../component/meta/metaHelemt";
+import ScrollToTop from "../component/scrollToTop/scrollToTop";
+import Loader from "../component/loader/loader";
 
 const BranchDetails = () => {
   const { id } = useParams();
@@ -20,13 +24,23 @@ const BranchDetails = () => {
     isLoading: branchesDataLoading,
     error: branchesDataError,
   } = useFetchBranchesGrid();
+  if (branchDetailsDataLoading || branchesDataLoading) {
+    return <Loader />;
+  }
   return (
     <div>
-      <div className="container1 mx-auto">
-        <BranchDetailsHeader branchDetailsData={branchDetailsData} />
-        <BranchDetailsMain branchDetailsData={branchDetailsData} />
-      </div>
-      <MoreBranches branchesData={branchesData} />
+      <ScrollToTop />
+      <HelmetProvider>
+        <MetaHelmet
+          title={branchDetailsData?.data?.name}
+          description={branchDetailsData?.data?.name}
+        />
+        <div className="container1 mx-auto">
+          <BranchDetailsHeader branchDetailsData={branchDetailsData} />
+          <BranchDetailsMain branchDetailsData={branchDetailsData} />
+        </div>
+        <MoreBranches branchesData={branchesData} />
+      </HelmetProvider>
     </div>
   );
 };
