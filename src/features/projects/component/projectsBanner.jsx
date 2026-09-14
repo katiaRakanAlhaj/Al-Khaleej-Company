@@ -1,23 +1,35 @@
 import i18next from "i18next";
-const ProjectsBanner = ({projectsData}) => {
+
+const ProjectsBanner = ({ projectsData }) => {
+  const isArabic = i18next.language === "ar";
+
   return (
     <div className="relative w-full lg:h-[33rem] h-[22rem] overflow-hidden">
       {/* Background Image with Gradient Overlay */}
       <div className="absolute w-full h-full overflow-hidden">
-        <img src={projectsData?.data?.banner} className="w-full h-full object-cover" />
-        {/* Gradient Overlay - Applied on top of image */}
+        <img
+          src={projectsData?.data?.banner}
+          className="w-full h-full object-cover"
+        />
+        {/* Gradient Overlay - direction flips for Arabic */}
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "linear-gradient(90deg, rgba(250, 248, 255, 0.95) 0%, rgba(250, 248, 255, 0.8) 50%, rgba(250, 248, 255, 0) 100%)",
+            background: isArabic
+              ? "linear-gradient(270deg, rgba(250, 248, 255, 0.95) 0%, rgba(250, 248, 255, 0.8) 50%, rgba(250, 248, 255, 0) 100%)"
+              : "linear-gradient(90deg, rgba(250, 248, 255, 0.95) 0%, rgba(250, 248, 255, 0.8) 50%, rgba(250, 248, 255, 0) 100%)",
           }}
         />
       </div>
 
       {/* Content Overlay - Centered */}
-      <div className={`absolute inset-0 flex ${i18next.language == "en"?'lg:left-[15rem] left-[3rem]':'lg:right-[15rem] right-[3rem]'} flex-col lg:top-[7rem] top-[5rem]`}>
-        {/* Your content here */}
+      <div
+        className={`absolute inset-0 flex ${
+          i18next.language === "en"
+            ? "lg:left-[15rem] left-[3rem]"
+            : "lg:right-[15rem] right-[3rem]"
+        } flex-col lg:top-[7rem] top-[5rem]`}
+      >
         <h1 className="font-bold lg:leading-[3.5rem] lg:text-5xl text-[1.5rem] w-[100%] lg:w-[40%] text-[#00348A]">
           {i18next.t("projects.our_projects")}
         </h1>

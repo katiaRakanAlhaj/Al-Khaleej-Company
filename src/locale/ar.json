@@ -28,7 +28,8 @@
         "logoAlt": "الشعار"
     },
     "Services": {
-        "our_services": "خدماتنا"
+        "our_services": "خدماتنا",
+        "Service_Details": "تفاصيل الخدمة"
     },
     "aboutUs": {
         "about_us": "من نحن",

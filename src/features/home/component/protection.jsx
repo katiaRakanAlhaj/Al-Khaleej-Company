@@ -48,7 +48,7 @@ const Protection = ({ homePageData }) => {
   return (
     <div className="w-full h-auto py-[4rem] bg-[#F4F7FF]">
       <div className="flex justify-center items-center">
-        <TitleSection title={i18next.t("Protection.prtection_title")} />
+        <TitleSection title={homePageData?.data?.home_page?.protection_title} />
       </div>
       <div className="container1 mx-auto">
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-[6rem] gap-y-[2rem] mt-[3rem]">

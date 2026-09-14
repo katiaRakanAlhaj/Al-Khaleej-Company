@@ -10,11 +10,11 @@ const ProjectsSpeclalizedCoverage = ({ projectsData }) => {
           <div className="flex gap-x-2 items-center">
             <div className="w-[3rem] h-[0.2rem] rounded-full bg-[#00348A]"></div>
             <h1 className="text-[#00348A] text-lg font-bold">
-              {i18next.t("projects.SPECIALIZED_COVERAGE")}
+              {projectsData?.data?.title}
             </h1>
           </div>
           <div className="mt-[1.5rem]">
-            <ProjectsTitle title={projectsData?.data?.title} />
+            <ProjectsTitle title={projectsData?.data?.sub_title} />
           </div>
           <p className="text-[#434652] mt-[2rem] text-lg">
             {projectsData?.data?.description}

@@ -2,6 +2,7 @@ import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import readMoreArrow from "../../../assets/images/readMoreArrow.svg";
 import i18next from "i18next";
 import Pagination from "../../../ui/pagination";
+import DOMPurify from "dompurify";
 
 const NewsGrid = ({ newsData }) => {
   const navigate = useNavigate();
@@ -49,9 +50,13 @@ const NewsGrid = ({ newsData }) => {
                 <h1 className="text-[#131B2E] w-[90%] font-bold lg:text-2xl  text-[1.2rem] line-clamp-2">
                   {news.title}
                 </h1>
-                <p className="text-[#434652] text-lg line-clamp-3">
-                  {news.description}
-                </p>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(news.description),
+                  }}
+                  className="text-[#434652] text-lg line-clamp-3"
+                />
+
                 <div className="flex gap-x-2 cursor-pointer items-center">
                   <p className="text-primary text-md font-[400]">
                     {i18next.t("read_more")}

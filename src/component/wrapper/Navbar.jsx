@@ -9,10 +9,11 @@ import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
 import phone from "../../assets/images/phone.svg";
 import email from "../../assets/images/email.svg";
 import Location from "../../assets/images/location.svg";
-import flag from "../../assets/images/flag.svg";
+import flag from "../../assets/images/flag.svg";           // English flag
+import iraqFlag from "../../assets/images/Flag_of_Iraq.svg";   // Iraq flag (add this asset)
 import i18next from "i18next";
 
-const Navbar = ({contactData}) => {
+const Navbar = ({ contactData }) => {
   const { lang } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -64,43 +65,51 @@ const Navbar = ({contactData}) => {
     },
   ];
 
-  // Contact information array - FIXED: using dynamic values from contactData
+  // Contact information array
   const contactInfo = [
     {
       id: 1,
       type: "phone",
       icon: phone,
-      value: contactData?.data?.phone1,        // ← FIXED: dynamic
+      value: contactData?.data?.support_number,
       label: t("navbar.contactInfo.phone"),
-      href: `tel:${contactData?.data?.phone1}`, // ← FIXED: dynamic
+      href: `tel:${contactData?.data?.phone1}`,
     },
     {
       id: 2,
       type: "email",
       icon: email,
-      value: contactData?.data?.email1,        // ← FIXED: dynamic
+      value: contactData?.data?.email1,
       label: t("navbar.contactInfo.email"),
-      href: `mailto:${contactData?.data?.email1}`, // ← FIXED: dynamic
+      href: `mailto:${contactData?.data?.email1}`,
     },
     {
       id: 3,
       type: "address",
       icon: Location,
-      value: contactData?.data?.address,       // ← FIXED: dynamic
+      value: contactData?.data?.address,
       label: t("navbar.contactInfo.address"),
     },
   ];
 
-  // Handle language switch
+  // Handle language switch — FIXED
   const handleLanguageSwitch = () => {
-    const newLang = lang === "en" ? "ar" : "en";
-    const currentPath = location.pathname.replace(`/${lang}`, "");
-    const newPath = `/${newLang}${currentPath}`;
-    
+    const currentLang = i18next.language === "ar" ? "ar" : "en";
+    const newLang = currentLang === "en" ? "ar" : "en";
+
+    // Strip the current lang prefix from the path
+    let currentPath = location.pathname;
+    if (currentPath.startsWith(`/${currentLang}`)) {
+      currentPath = currentPath.slice(`/${currentLang}`.length);
+    }
+    if (!currentPath.startsWith("/")) currentPath = "/" + currentPath;
+
+    const newPath = `/${newLang}${currentPath === "/" ? "" : currentPath}`;
+
     // Change language in i18n
     i18n.changeLanguage(newLang);
     localStorage.setItem("language", newLang);
-    
+
     // Navigate to new path and reload
     navigate(newPath);
     window.location.reload();
@@ -110,21 +119,27 @@ const Navbar = ({contactData}) => {
     <header className="w-full bg-white relative shadow-md overflow-hidden">
       {/* Top Dark Bar */}
       <div className="bg-[#003057] w-full">
-        <div className="mx-auto px-4 lg:px-12 py-6 nav">
+        <div className="mx-auto px-4 lg:px-12 py-5 nav">
           <div className="flex flex-wrap items-center justify-between">
             <div className="w-[25rem] flex-shrink-0 hidden lg:block"></div>
 
             <div className="flex flex-1 items-center justify-between space-x-6 text-white text-xs md:text-sm">
               <div className="flex items-center space-x-6">
                 <div
-                  className={`flex items-center space-x-12 ${i18next.language === "en" ? "ml-[-5rem]" : "mr-[-5rem]"}`}
+                  className={`flex items-center space-x-12 ${
+                    i18next.language === "en" ? "ml-[-5rem]" : "mr-[-5rem]"
+                  }`}
                 >
                   {contactInfo.map((contact, index) => (
                     <div
                       key={contact.id}
                       className={`flex items-center space-x-4 ${
                         index > 0
-                          ? `${i18next.language === "en" ? "border-l-2 pl-10" : "border-r-2 pr-10"}`
+                          ? `${
+                              i18next.language === "en"
+                                ? "border-l-2 pl-10"
+                                : "border-r-2 pr-10"
+                            }`
                           : ""
                       } ${contact.type === "address" ? "hidden lg:flex" : ""}`}
                     >
@@ -136,19 +151,19 @@ const Navbar = ({contactData}) => {
                       {contact.type === "phone" ? (
                         <a
                           href={contact.href}
-                          className="text-white text-nowrap font-[600] text-md hover:underline"
+                          className="text-white text-nowrap font-[600] text-[1.1rem] hover:underline"
                         >
                           {contact.value}
                         </a>
                       ) : contact.type === "email" ? (
                         <a
                           href={contact.href}
-                          className="text-white font-[600] text-md line-clamp-1 hover:underline"
+                          className="text-white font-[600] text-[1.1rem] line-clamp-1 hover:underline"
                         >
                           {contact.value}
                         </a>
                       ) : (
-                        <span className="text-white font-[600] text-md line-clamp-1">
+                        <span className="text-white font-[600] text-[1.1rem] line-clamp-1">
                           {contact.value}
                         </span>
                       )}
@@ -158,17 +173,35 @@ const Navbar = ({contactData}) => {
               </div>
 
               <div className="flex items-center space-x-6">
+                {/* Language Switcher — FIXED */}
                 <div
-                  className={`flex items-center space-x-3 ${i18next.language === "en" ? "pl-[-6rem]" : "pr-[-6rem]"} cursor-pointer`}
+                  className={`flex items-center space-x-3 ${
+                    i18next.language === "en" ? "pl-[-6rem]" : "pr-[-6rem]"
+                  } cursor-pointer`}
                   onClick={handleLanguageSwitch}
                 >
-                  <img src={flag} className="w-[1.5rem]" alt={t("navbar.language.flagAlt") || "Flag"} />
+                  {/* Show flag of the language we will switch TO */}
+                  <img
+                    src={i18next.language === "en" ? iraqFlag : flag}
+                    className="w-[1.5rem]"
+                    alt={
+                      i18next.language === "en" ? "Iraq flag" : "English flag"
+                    }
+                  />
                   <span className="text-white mt-1 uppercase font-[600] font-lg">
-                    {lang === "en" ? t("navbar.language.english") : t("navbar.language.arabic")}
+                    {i18next.language === "en"
+                      ? t("navbar.language.arabic")   // site is EN → show العربية
+                      : t("navbar.language.english")} {/* site is AR → show English */}
                   </span>
                 </div>
 
-                <div className={`flex items-end justify-end space-x-4 border-white ${i18next.language == "en"?'border-l-2 pl-8':'border-r-2 pr-8'}`}>
+                <div
+                  className={`flex items-end justify-end space-x-4 border-white ${
+                    i18next.language == "en"
+                      ? "border-l-2 pl-8"
+                      : "border-r-2 pr-8"
+                  }`}
+                >
                   {socialLinks.map((social) => (
                     <a
                       key={social.id}
@@ -196,7 +229,9 @@ const Navbar = ({contactData}) => {
       <div className="relative bg-white flex items-center px-4 lg:px-12 h-[7rem] height">
         {/* Background shape */}
         <div
-          className={`bg-slate-50 z-10 absolute top-0 ${i18next.language === "en" ? "left-0" : "right-0"} h-[50%]`}
+          className={`bg-slate-50 z-10 absolute top-0 ${
+            i18next.language === "en" ? "left-0" : "right-0"
+          } h-[50%]`}
           style={{
             clipPath:
               i18next.language === "en"

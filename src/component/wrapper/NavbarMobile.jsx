@@ -1,10 +1,7 @@
-// NavbarMobile.jsx
-
 import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
 import logo from "../../assets/images/logo.svg";
 import facebook from "../../assets/images/facebook.svg";
 import linkedIn from "../../assets/images/linkedIn.svg";
@@ -15,8 +12,9 @@ import email from "../../assets/images/email.svg";
 import locationIcon from "../../assets/images/location.svg";
 import flag from "../../assets/images/flag.svg";
 import i18n from "../../i18n";
+import iraqFlag from "../../assets/images/Flag_of_Iraq.svg"; // Iraq flag
 
-const NavbarMobile = ({contactData}) => {
+const NavbarMobile = ({ contactData }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedCategories, setExpandedCategories] = useState({});
   const menuRef = useRef(null);
@@ -32,60 +30,60 @@ const NavbarMobile = ({contactData}) => {
   const getSafeTranslation = (key, fallback) => {
     const value = t(key);
     // If the value is an object, try to get its string representation
-    if (typeof value === 'object' && value !== null) {
+    if (typeof value === "object" && value !== null) {
       return value.default || value.title || value.name || fallback;
     }
     return value || fallback;
   };
 
- // Contact information array
-const contactInfo = [
-  {
-    id: 1,
-    type: "phone",
-    icon: phone,
-    value: contactData?.data?.phone1,
-    label: t("navbar.contactInfo.phone"),
-    href: `tel:${contactData?.data?.phone1}` // ← FIXED: uses dynamic phone number
-  },
-  {
-    id: 2,
-    type: "email",
-    icon: email,
-    value: contactData?.data?.email1,
-    label: t("navbar.contactInfo.email"),
-    href: `mailto:${contactData?.data?.email1}` // ← FIXED: uses dynamic email
-  },
-  {
-    id: 3,
-    type: "address",
-    icon: locationIcon,
-    value: contactData?.data?.address,
-    label: t("navbar.contactInfo.address")
-  }
-];
+  // Contact information array
+  const contactInfo = [
+    {
+      id: 1,
+      type: "phone",
+      icon: phone,
+      value: contactData?.data?.support_number,
+      label: t("navbar.contactInfo.phone"),
+      href: `tel:${contactData?.data?.phone1}`, // ← FIXED: uses dynamic phone number
+    },
+    {
+      id: 2,
+      type: "email",
+      icon: email,
+      value: contactData?.data?.email1,
+      label: t("navbar.contactInfo.email"),
+      href: `mailto:${contactData?.data?.email1}`, // ← FIXED: uses dynamic email
+    },
+    {
+      id: 3,
+      type: "address",
+      icon: locationIcon,
+      value: contactData?.data?.address,
+      label: t("navbar.contactInfo.address"),
+    },
+  ];
 
   // Social Icons Configuration
   const socialIcons = [
-    { 
-      icon: facebook, 
+    {
+      icon: facebook,
       link: contactData?.data?.facebook,
-      name: getSafeTranslation("navbar.socialMedia.facebook", "Facebook")
+      name: getSafeTranslation("navbar.socialMedia.facebook", "Facebook"),
     },
-    { 
-      icon: linkedIn, 
+    {
+      icon: linkedIn,
       link: contactData?.data?.linkedin,
-      name: getSafeTranslation("navbar.socialMedia.linkedin", "LinkedIn")
+      name: getSafeTranslation("navbar.socialMedia.linkedin", "LinkedIn"),
     },
-    { 
-      icon: instgram, 
+    {
+      icon: instgram,
       link: contactData?.data?.instagram,
-      name: getSafeTranslation("navbar.socialMedia.instagram", "Instagram")
+      name: getSafeTranslation("navbar.socialMedia.instagram", "Instagram"),
     },
-    { 
-      icon: twitter, 
+    {
+      icon: twitter,
       link: contactData?.data?.x,
-      name: getSafeTranslation("navbar.socialMedia.twitter", "Twitter")
+      name: getSafeTranslation("navbar.socialMedia.twitter", "Twitter"),
     },
   ];
 
@@ -95,7 +93,9 @@ const contactInfo = [
       id: "home",
       path: `/${currentLang}`,
       label: getSafeTranslation("navbar.navLinks.home", "Home"),
-      isActive: location.pathname === `/${currentLang}` || location.pathname === `/${currentLang}/`,
+      isActive:
+        location.pathname === `/${currentLang}` ||
+        location.pathname === `/${currentLang}/`,
     },
     {
       id: "about",
@@ -171,10 +171,10 @@ const contactInfo = [
 
   // Handlers
   const handleLanguageChange = () => {
-    const newLang = currentLang === 'en' ? 'ar' : 'en';
-    const currentPath = location.pathname.replace(`/${currentLang}`, '');
+    const newLang = currentLang === "en" ? "ar" : "en";
+    const currentPath = location.pathname.replace(`/${currentLang}`, "");
     const newPath = `/${newLang}${currentPath}`;
-    
+
     i18n.changeLanguage(newLang);
     localStorage.setItem("language", newLang);
     navigate(newPath);
@@ -184,9 +184,9 @@ const contactInfo = [
 
   const handleCategoryClick = (category) => {
     if (category.children && category.children.length > 0) {
-      setExpandedCategories(prev => ({
+      setExpandedCategories((prev) => ({
         ...prev,
-        [category.id]: !prev[category.id]
+        [category.id]: !prev[category.id],
       }));
     } else {
       setIsMobileMenuOpen(false);
@@ -205,28 +205,45 @@ const contactInfo = [
 
   // Render Methods
   const renderLanguageSwitcher = () => (
-    <div 
+    <div
       className="flex items-center gap-3 cursor-pointer bg-white/10 rounded-lg px-4 py-2 hover:bg-white/20 transition-colors"
       onClick={handleLanguageChange}
     >
-      <img src={flag} className="w-5 h-5" alt={getSafeTranslation("navbar.language.flagAlt", "Flag")} />
+      {/* Show flag of the language we will switch TO */}
+      <img
+        src={currentLang === "en" ? iraqFlag : flag}
+        className="w-[1.5rem] h-[1.1rem] object-cover rounded-sm"
+        alt={currentLang === "en" ? "Iraq flag" : "English flag"}
+      />
       <span className="text-white uppercase font-semibold text-sm">
-        {currentLang === 'en' ? getSafeTranslation("navbar.language.english", "English") : getSafeTranslation("navbar.language.arabic", "العربية")}
+        {currentLang === "en"
+          ? getSafeTranslation("navbar.language.arabic", "العربية") // site is EN → show العربية
+          : getSafeTranslation("navbar.language.english", "English")}{" "}
+        {/* site is AR → show English */}
       </span>
     </div>
   );
-
   const renderContactInfo = () => (
     <div className="space-y-3 border-b border-white/20 pb-4">
       {contactInfo.map((contact) => (
         <div key={contact.id} className="flex items-center gap-3">
-          <img src={contact.icon} alt={contact.label} className="w-5 h-5 brightness-0 invert" />
+          <img
+            src={contact.icon}
+            alt={contact.label}
+            className="w-5 h-5 brightness-0 invert"
+          />
           {contact.type === "phone" ? (
-            <a href={contact.href} className="text-white/90 text-sm hover:text-white transition-colors">
+            <a
+              href={contact.href}
+              className="text-white/90 text-sm hover:text-white transition-colors"
+            >
               {contact.value}
             </a>
           ) : contact.type === "email" ? (
-            <a href={contact.href} className="text-white/90 text-sm hover:text-white transition-colors">
+            <a
+              href={contact.href}
+              className="text-white/90 text-sm hover:text-white transition-colors"
+            >
               {contact.value}
             </a>
           ) : (
@@ -258,18 +275,19 @@ const contactInfo = [
 
   const renderSocialIcons = () => (
     <div className="flex items-center justify-center gap-4 pt-4 border-t border-white/20">
-      {socialIcons.map((social, index) => (
-        social?.icon && (
-          <img
-            loading="lazy"
-            key={index}
-            className="cursor-pointer hover:scale-110 transition-transform w-5 h-5 brightness-0 invert"
-            src={social.icon}
-            onClick={() => handleSocialClick(social.link)}
-            alt={social.name || `Social ${index + 1}`}
-          />
-        )
-      ))}
+      {socialIcons.map(
+        (social, index) =>
+          social?.icon && (
+            <img
+              loading="lazy"
+              key={index}
+              className="cursor-pointer hover:scale-110 transition-transform w-5 h-5 brightness-0 invert"
+              src={social.icon}
+              onClick={() => handleSocialClick(social.link)}
+              alt={social.name || `Social ${index + 1}`}
+            />
+          ),
+      )}
     </div>
   );
 
@@ -281,7 +299,10 @@ const contactInfo = [
             <button
               className="lg:hidden text-white focus:outline-none"
               onClick={toggleMenu}
-              aria-label={getSafeTranslation("navbar.menu.toggle", "Toggle menu")}
+              aria-label={getSafeTranslation(
+                "navbar.menu.toggle",
+                "Toggle menu",
+              )}
             >
               {isMobileMenuOpen ? (
                 <MdClose className="text-2xl" />
@@ -290,7 +311,12 @@ const contactInfo = [
               )}
             </button>
             <Link to={`/${currentLang}`}>
-              <img loading="lazy" className="w-[4rem]" src={logo} alt={getSafeTranslation("navbar.logoAlt", "logo")} />
+              <img
+                loading="lazy"
+                className="w-[4rem]"
+                src={logo}
+                alt={getSafeTranslation("navbar.logoAlt", "logo")}
+              />
             </Link>
           </div>
           {renderLanguageSwitcher()}
@@ -302,7 +328,7 @@ const contactInfo = [
   return (
     <>
       {renderMobileHeader()}
-      
+
       <div
         ref={menuRef}
         className={`fixed top-[4rem] right-0 h-full w-[85%] max-w-[22rem] bg-[#003057] z-40 shadow-2xl transform transition-transform duration-300 ease-in-out overflow-y-auto custom-scrollbar ${
@@ -314,16 +340,14 @@ const contactInfo = [
           <div className="mt-4 space-y-3">
             {navItems.map((item) => renderNavLink(item))}
           </div>
-          <div className="mt-6">
-            {renderSocialIcons()}
-          </div>
+          <div className="mt-6">{renderSocialIcons()}</div>
         </div>
       </div>
-      
+
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-black/50 z-30" onClick={closeMenu} />
       )}
-      
+
       <style>{`
         .custom-scrollbar::-webkit-scrollbar {
           width: 0.1875rem;

@@ -15,10 +15,10 @@ const WorkProcess = ({ homePageData }) => {
     >
       {/* Heading */}
       <div className="mx-auto flex flex-col items-center justify-center">
-        <TitleSection title={i18next.t("WorkProcess.work_process")} />
+        <TitleSection title={homePageData?.data?.home_page?.work_process_title} />
 
         <h1 className="mt-[1rem] text-center font-bold leading-tight text-primary lg:text-[2.5rem] text-[1.5rem] text-wrap lg:w-[100%] w-[80%]">
-          {i18next.t("WorkProcess.work_steps")}
+          {homePageData?.data?.home_page?.work_process_sub_title}
         </h1>
       </div>
 

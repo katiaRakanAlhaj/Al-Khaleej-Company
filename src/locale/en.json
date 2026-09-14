@@ -28,7 +28,8 @@
         "logoAlt": "Logo"
     },
     "Services": {
-        "our_services": "Our Services"
+        "our_services": "Our Services",
+        "Service_Details": "Service Details"
     },
     "aboutUs": {
         "about_us": "About Us",

@@ -46,7 +46,7 @@ const Contact = ({ contactData ,homePageData}) => {
                 <div>
                   <p className="text-white text-xl">{i18next.t("contact.phone")}</p>
                   <p className="lg:text-4xl text-[1rem] mt-2 font-bold text-nowrap text-white">
-                    {i18next.t("contactGrid.Call")}: {contactData?.data?.phone1}
+                    {i18next.t("contactGrid.Call")}: {contactData?.data?.support_number}
                   </p>
                 </div>
               </div>

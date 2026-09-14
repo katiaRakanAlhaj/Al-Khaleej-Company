@@ -1,4 +1,29 @@
-const ServicesGrid = ({ servicesData }) => {
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import Pagination from "../../../ui/pagination";
+import DOMPurify from "dompurify";
+
+const ServicesGrid = ({
+  servicesData,
+  allServicesData,
+  currentPage,
+  lastPage,
+  onPageChange,
+}) => {
+  const navigate = useNavigate();
+  const { lang } = useParams(); // assumes your route is like /:lang/services
+
+  // Scroll to top whenever the page changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
+  const handleCardClick = (serviceId) => {
+    // If lang exists in params, keep it; otherwise fallback
+    const language = lang || "en";
+    navigate(`/${language}/service/${serviceId}`);
+  };
+
   return (
     <div className="container2 mx-auto lg:mt-[5rem] mt-[3rem]">
       {/* Header Section */}
@@ -13,10 +38,11 @@ const ServicesGrid = ({ servicesData }) => {
 
       {/* Services Grid */}
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2rem] lg:mt-[4rem] mt-[2rem]">
-        {servicesData?.data?.services.map((service) => (
+        {allServicesData?.data?.map((service) => (
           <div
             key={service.id}
-            className="w-full h-[15rem] bg-white border border-[#C4C6D4] rounded-lg p-[1.5rem]"
+            onClick={() => handleCardClick(service.id)}
+            className="w-full h-[15rem] bg-white border border-[#C4C6D4] rounded-lg p-[1.5rem] cursor-pointer hover:shadow-md transition-shadow"
           >
             <div className="flex flex-col space-y-2">
               <div className="w-[3rem] h-[3rem] bg-[#204CA91A] rounded-sm flex justify-center items-center">
@@ -29,13 +55,23 @@ const ServicesGrid = ({ servicesData }) => {
               <h1 className="text-primary font-bold text-[1.4rem]">
                 {service.title}
               </h1>
-              <p className="text-[#434652] leading-relaxed text-md line-clamp-3">
-                {service.description}
-              </p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(service.description),
+                }}
+                className="text-[#434652] leading-relaxed md:text-lg text-md line-clamp-3"
+              />
             </div>
           </div>
         ))}
       </div>
+
+      {/* Pagination */}
+      <Pagination
+        currentPage={currentPage}
+        lastPage={lastPage}
+        onPageChange={onPageChange}
+      />
     </div>
   );
 };

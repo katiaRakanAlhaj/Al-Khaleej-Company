@@ -34,7 +34,7 @@ const SingleNews = () => {
       <HelmetProvider>
         <MetaHelmet
           title={newsPageByIdData?.data?.title}
-          description={newsPageByIdData?.data?.title}
+          description={newsPageByIdData?.data?.description}
         />
         <div className="container4 mx-auto">
           <SingleNewsBanner newsPageByIdData={newsPageByIdData} />

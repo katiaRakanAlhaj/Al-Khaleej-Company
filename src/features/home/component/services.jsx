@@ -5,17 +5,24 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./servicesStyle.css";
 import i18next from "i18next";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Services = ({ homePageData }) => {
+  const navigate = useNavigate();
+  const { lang } = useParams();
   // Detect if current language is Arabic
   const isRTL = i18next.language === "ar";
 
   // Get services data
-  const servicesData = homePageData?.data?.services_section?.services || [];
-  
+  const servicesData = homePageData?.data?.services_section || [];
+
   // Reverse slides for RTL if needed
   const slides = isRTL ? [...servicesData].reverse() : servicesData;
-
+  const handleCardClick = (serviceId) => {
+    // If lang exists in params, keep it; otherwise fallback
+    const language = lang || "en";
+    navigate(`/${language}/service/${serviceId}`);
+  };
   return (
     <div className="w-full mt-[4rem] py-[4rem] h-auto bg-[#F4F7FF] overflow-hidden">
       <div className="container1 mx-auto">
@@ -28,7 +35,7 @@ const Services = ({ homePageData }) => {
           </div>
           <div className="lg:col-span-6 lg:ml-[-2rem] lg:mt-0 mt-[0.6rem]">
             <p className="text-[1.125rem] text-[#777777]">
-             {homePageData?.data?.services_section?.description}
+              {homePageData?.data?.services_section?.description}
             </p>
           </div>
         </div>
@@ -57,7 +64,10 @@ const Services = ({ homePageData }) => {
                 key={index}
                 className="!w-[22rem] transition-all duration-300"
               >
-                <div className="service-card relative h-[28rem] rounded-[1.5rem] overflow-hidden shadow-md group">
+                <div
+                  onClick={() => handleCardClick(service.id)}
+                  className="service-card relative h-[28rem] rounded-[1.5rem] cursor-pointer overflow-hidden shadow-md group"
+                >
                   {/* Image Container with Scale on Hover */}
                   <div className="w-full h-full overflow-hidden">
                     <img

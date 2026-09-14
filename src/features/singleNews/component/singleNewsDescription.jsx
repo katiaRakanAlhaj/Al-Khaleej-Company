@@ -1,4 +1,6 @@
 import i18next from "i18next";
+import DOMPurify from "dompurify";
+
 const SingleNewsDescription = ({ newsPageByIdData }) => {
   const bodyTextStyles =
     "text-[#131B2E] lg:text-xl text-lg leading-relaxed mt-4 flex text-justify";
@@ -40,13 +42,21 @@ const SingleNewsDescription = ({ newsPageByIdData }) => {
               <div key={index}>
                 {hasTitle && <h1 className={headingStyles}>{section.title}</h1>}
                 {section.description && section.description.trim() !== "" && (
-                  <p className={bodyTextStyles}>{section.description}</p>
+                  <p
+                    className={bodyTextStyles}
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(section.description),
+                    }}
+                  />
                 )}
                 <div className="w-full h-auto bg-[#F2F3FF] mt-4 flex justify-center items-center p-8 relative">
                   <div className="absolute h-full left-0 top-0 w-[0.3em] bg-[#00348A]"></div>
-                  <p className="w-full lg:text-xl text-lg leading-relaxed text-[#434652]">
-                    "{section.note}"
-                  </p>
+                  <p
+                    className="w-full lg:text-xl text-lg leading-relaxed text-[#434652]"
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(`"${section.note}"`),
+                    }}
+                  />
                 </div>
               </div>
             );
@@ -57,7 +67,12 @@ const SingleNewsDescription = ({ newsPageByIdData }) => {
               <div key={index}>
                 <h1 className={headingStyles}>{section.title}</h1>
                 {section.description && section.description.trim() !== "" && (
-                  <p className={bodyTextStyles}>{section.description}</p>
+                  <p
+                    className={bodyTextStyles}
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(section.description),
+                    }}
+                  />
                 )}
               </div>
             );
@@ -65,9 +80,13 @@ const SingleNewsDescription = ({ newsPageByIdData }) => {
 
           if (!hasTitle && section.description) {
             return (
-              <p key={index} className={bodyTextStyles}>
-                {section.description}
-              </p>
+              <p
+                key={index}
+                className={bodyTextStyles}
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(section.description),
+                }}
+              />
             );
           }
 
