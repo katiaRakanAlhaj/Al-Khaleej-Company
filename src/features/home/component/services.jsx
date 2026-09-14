@@ -57,7 +57,7 @@ const Services = ({ homePageData }) => {
                 key={index}
                 className="!w-[22rem] transition-all duration-300"
               >
-                <div className="service-card relative h-[28rem] rounded-[1.5rem] overflow-hidden shadow-md cursor-pointer group">
+                <div className="service-card relative h-[28rem] rounded-[1.5rem] overflow-hidden shadow-md group">
                   {/* Image Container with Scale on Hover */}
                   <div className="w-full h-full overflow-hidden">
                     <img

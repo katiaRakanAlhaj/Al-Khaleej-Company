@@ -1,6 +1,3 @@
-import water from "../../../assets/images/water.svg";
-import bank from "../../../assets/images/bank.svg";
-import mall from "../../../assets/images/mall.svg";
 import { ProjectLineStyle } from "../../../ui/projectLineStyle";
 import { ProjectsTitle } from "../../../ui/projectsTitle";
 import i18next from "i18next";

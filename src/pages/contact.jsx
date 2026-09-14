@@ -5,6 +5,7 @@ import { usefetchContactPage } from "../features/contact/hook/useFetchContact";
 import MetaHelmet from "../component/meta/metaHelemt";
 import ScrollToTop from "../component/scrollToTop/scrollToTop";
 import Loader from "../component/loader/loader";
+import ErrorMessageNetwork from "../component/errorMessage/errorMessage";
 const Contact = () => {
   const {
     data: contactData,
@@ -13,6 +14,9 @@ const Contact = () => {
   } = usefetchContactPage();
   if (contactDataLoading) {
     return <Loader />;
+  }
+  if (contactDataError) {
+    return <ErrorMessageNetwork />;
   }
   return (
     <div className="container1 mx-auto">

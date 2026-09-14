@@ -1,7 +1,6 @@
-import clientBanner from "../../../assets/images/clientBanner.png";
 import Banner from "../../../ui/banner";
-import i18next from "i18next"
-const ClientsBanner = ({clinetsDataPage}) => {
+import i18next from "i18next";
+const ClientsBanner = ({ clinetsDataPage }) => {
   return (
     <div>
       <Banner

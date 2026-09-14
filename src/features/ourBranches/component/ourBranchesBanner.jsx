@@ -1,5 +1,4 @@
 import i18next from "i18next";
-import bgBranch from "../../../assets/images/bgBranch.png";
 import Banner from "../../../ui/banner";
 const OurBranchesBanner = ({ branchesData }) => {
   return (

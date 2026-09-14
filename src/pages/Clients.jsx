@@ -5,6 +5,7 @@ import { usefetchClientsPage } from "../features/clients/hook/useFetchClientsPag
 import MetaHelmet from "../component/meta/metaHelemt";
 import ScrollToTop from "../component/scrollToTop/scrollToTop";
 import Loader from "../component/loader/loader";
+import ErrorMessageNetwork from "../component/errorMessage/errorMessage";
 
 const Clients = () => {
   const {
@@ -14,6 +15,9 @@ const Clients = () => {
   } = usefetchClientsPage();
   if (clinetsDataPageLoading) {
     return <Loader />;
+  }
+  if (clinetsDataPageError) {
+    return <ErrorMessageNetwork />;
   }
   return (
     <div>

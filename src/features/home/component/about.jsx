@@ -18,7 +18,7 @@ const About = ({ homePageData }) => {
             src={homePageData?.data?.home_page?.about_image}
             alt="About Us"
           />
-          <div className="absolute lg:w-[21rem] w-[18rem] h-[5rem] lg:h-[8rem] bg-[#003057] lg:-bottom-[5rem] -bottom-[2rem] flex items-center px-6 gap-x-5 text-white shadow-lg">
+          <div className={`absolute lg:w-[21rem] w-[18rem] h-[5rem] lg:h-[8rem] bg-[#003057] lg:-bottom-[5rem] -bottom-[2rem] flex items-center px-6 gap-x-5 text-white shadow-lg ${i18next.language == "ar"?'lg:left-[10rem]':''}`}>
             <div className="relative flex items-center justify-center w-[4.8rem] h-[5.2rem]">
               <span
                 className="relative z-10 lg:text-7xl text-3xl font-extrabold tracking-wider"

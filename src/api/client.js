@@ -3,7 +3,7 @@ import axios from "axios";
 import i18n from "../i18n"
 // src/api/axios.js
 const api = axios.create({
-    baseURL: "http://gulf.hostorr.net/api",
+    baseURL: "https://gulf.hostorr.net/api",
     withCredentials: false, // Add this
     headers: {
         'Content-Type': 'application/json',

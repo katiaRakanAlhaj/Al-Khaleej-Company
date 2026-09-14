@@ -8,6 +8,7 @@ import {
 import MetaHelmet from "../component/meta/metaHelemt";
 import ScrollToTop from "../component/scrollToTop/scrollToTop";
 import Loader from "../component/loader/loader";
+import ErrorMessageNetwork from "../component/errorMessage/errorMessage";
 
 const OurBranches = () => {
   const {
@@ -22,6 +23,9 @@ const OurBranches = () => {
   } = useFetchBranchesGrid();
   if (branchesGridDataLoading || branchesDataLoading) {
     return <Loader />;
+  }
+  if (branchesDataError || branchesGridDataError) {
+    return <ErrorMessageNetwork />;
   }
   return (
     <div>

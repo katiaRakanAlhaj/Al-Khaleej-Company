@@ -110,7 +110,7 @@ const Navbar = ({contactData}) => {
     <header className="w-full bg-white relative shadow-md overflow-hidden">
       {/* Top Dark Bar */}
       <div className="bg-[#003057] w-full">
-        <div className="mx-auto px-4 lg:px-12 py-6">
+        <div className="mx-auto px-4 lg:px-12 py-6 nav">
           <div className="flex flex-wrap items-center justify-between">
             <div className="w-[25rem] flex-shrink-0 hidden lg:block"></div>
 
@@ -131,24 +131,24 @@ const Navbar = ({contactData}) => {
                       <img
                         src={contact.icon}
                         alt={contact.label}
-                        className="w-6 h-6"
+                        className="w-6 h-6 image"
                       />
                       {contact.type === "phone" ? (
                         <a
                           href={contact.href}
-                          className="text-white font-[600] text-md hover:underline"
+                          className="text-white text-nowrap font-[600] text-md hover:underline"
                         >
                           {contact.value}
                         </a>
                       ) : contact.type === "email" ? (
                         <a
                           href={contact.href}
-                          className="text-white font-[600] text-md hover:underline"
+                          className="text-white font-[600] text-md line-clamp-1 hover:underline"
                         >
                           {contact.value}
                         </a>
                       ) : (
-                        <span className="text-white font-[600] text-md">
+                        <span className="text-white font-[600] text-md line-clamp-1">
                           {contact.value}
                         </span>
                       )}
@@ -193,7 +193,7 @@ const Navbar = ({contactData}) => {
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="relative bg-white flex items-center px-4 lg:px-12 h-[7rem]">
+      <div className="relative bg-white flex items-center px-4 lg:px-12 h-[7rem] height">
         {/* Background shape */}
         <div
           className={`bg-slate-50 z-10 absolute top-0 ${i18next.language === "en" ? "left-0" : "right-0"} h-[50%]`}
@@ -207,7 +207,7 @@ const Navbar = ({contactData}) => {
 
         {/* Logo Container */}
         <div
-          className={`bg-[#1e40af] absolute bottom-0 top-[-4.4rem] w-[20rem] lg:w-[27rem] flex items-center justify-center px-8 py-4 z-20 ${
+          className={`bg-[#1e40af] absolute bottom-0 top-[-4.4rem] widthLogo w-[20rem] lg:w-[27rem] flex items-center justify-center px-8 py-4 z-20 ${
             i18next.language === "en" ? "left-0" : "right-0"
           }`}
           style={{
@@ -231,7 +231,7 @@ const Navbar = ({contactData}) => {
         {/* Navigation Links */}
         <nav
           className={`flex items-center justify-center flex-1 gap-x-[3rem] text-base lg:text-lg font-medium z-20 ${
-            i18next.language === "en" ? "ml-[30rem]" : "mr-[30rem]"
+            i18next.language === "en" ? "ml-[30rem] item1" : "mr-[30rem] item2"
           }`}
         >
           {updatedNavLinks.map((link, index) => {

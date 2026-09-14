@@ -5,6 +5,7 @@ import { usefetchServicesPage } from "../features/services/hook/useFetchServices
 import MetaHelmet from "../component/meta/metaHelemt";
 import ScrollToTop from "../component/scrollToTop/scrollToTop";
 import Loader from "../component/loader/loader";
+import ErrorMessageNetwork from "../component/errorMessage/errorMessage";
 
 const Services = () => {
   const {
@@ -14,6 +15,9 @@ const Services = () => {
   } = usefetchServicesPage();
   if (servicesDataLoading) {
     return <Loader />;
+  }
+  if (servicesDataError) {
+    return <ErrorMessageNetwork />;
   }
   return (
     <div>

@@ -1,5 +1,4 @@
 import TitleSection from "../../../ui/titleSection";
-import protectionImage from "../../../assets/images/protectionImage.png";
 import download from "../../../assets/images/download.svg";
 import i18next from "i18next";
 import { useState } from "react";
@@ -61,7 +60,7 @@ const Protection = ({ homePageData }) => {
               alt={currentProtection.title}
             />
             <div className="absolute bottom-[3rem] left-[3rem] w-[17rem] h-[6rem] bg-white flex justify-between items-center px-4">
-              <p className="text-xl text-[#5B5B5B]">
+              <p className="lg:text-xl text-lg text-[#5B5B5B]">
                 {currentProtection.image_text}
               </p>
             </div>

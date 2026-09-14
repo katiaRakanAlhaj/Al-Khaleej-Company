@@ -1,7 +1,6 @@
-import aboutBanner from "../../../assets/images/aboutBanner.png";
 import Banner from "../../../ui/banner";
-import i18next from "i18next"
-const AboutBanner = ({aboutPageData}) => {
+import i18next from "i18next";
+const AboutBanner = ({ aboutPageData }) => {
   return (
     <Banner
       image={aboutPageData?.data?.banner}

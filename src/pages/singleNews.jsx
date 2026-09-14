@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import MetaHelmet from "../component/meta/metaHelemt";
 import ScrollToTop from "../component/scrollToTop/scrollToTop";
 import Loader from "../component/loader/loader";
+import ErrorMessageNetwork from "../component/errorMessage/errorMessage";
 
 const SingleNews = () => {
   const { id } = useParams();
@@ -23,6 +24,9 @@ const SingleNews = () => {
   } = useFetchLatestNews();
   if (newsPageByIdDataLoading || LatestNewsDataLoading) {
     return <Loader />;
+  }
+  if (newsPageByIdDataError || LatestNewsDataError) {
+    return <ErrorMessageNetwork />;
   }
   return (
     <>

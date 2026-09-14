@@ -6,6 +6,7 @@ import AboutVission from "../features/about/component/aboutVission";
 import { usefetchAboutPage } from "../features/about/hook/useFetchAbout";
 import ScrollToTop from "../component/scrollToTop/scrollToTop";
 import Loader from "../component/loader/loader";
+import ErrorMessageNetwork from "../component/errorMessage/errorMessage";
 
 const About = () => {
   const {
@@ -15,6 +16,9 @@ const About = () => {
   } = usefetchAboutPage();
   if (aboutPageDataLoading) {
     return <Loader />;
+  }
+  if (aboutPageDataError) {
+    return <ErrorMessageNetwork />;
   }
   return (
     <div>

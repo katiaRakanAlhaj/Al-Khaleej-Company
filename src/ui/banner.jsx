@@ -14,7 +14,7 @@ const Banner = ({ image, title, description, altText = "Banner image" }) => {
 
       {/* Content Overlay - Centered */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-white lg:text-5xl text-4xl font-bold mb-4 line-clamp-2 lg:mt-0 mt-[3rem]">{title}</h1>
+        <h1 className="text-white lg:text-5xl text-4xl font-bold mb-4  lg:mt-0 mt-[3rem] text-balance">{title}</h1>
         <p className="text-white lg:text-2xl text-xl max-w-3xl line-clamp-3">{description}</p>
       </div>
     </div>

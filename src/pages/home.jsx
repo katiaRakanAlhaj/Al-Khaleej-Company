@@ -12,14 +12,24 @@ import { HelmetProvider } from "react-helmet-async";
 import MetaHelmet from "../component/meta/metaHelemt";
 import ScrollToTop from "../component/scrollToTop/scrollToTop";
 import Loader from "../component/loader/loader";
+import ErrorMessageNetwork from "../component/errorMessage/errorMessage";
+import { usefetchContactPage } from "../features/contact/hook/useFetchContact";
 const Home = () => {
   const {
     data: homePageData,
     isLoading: homePageDataLoading,
     error: homePageDataError,
   } = usefetchHomePage();
-  if (homePageDataLoading) {
+  const {
+    data: contactData,
+    isLoading: contactDataLoading,
+    error: contactDataError,
+  } = usefetchContactPage();
+  if (homePageDataLoading || contactDataLoading) {
     return <Loader />;
+  }
+  if (homePageDataError || contactDataError) {
+    return <ErrorMessageNetwork />;
   }
   return (
     <div>
@@ -37,7 +47,7 @@ const Home = () => {
         <Protection homePageData={homePageData} />
         <ChooseUs homePageData={homePageData} />
         <OurBranches homePageData={homePageData} />
-        <Contact />
+        <Contact homePageData = {homePageData} contactData = {contactData}/>
       </HelmetProvider>
     </div>
   );

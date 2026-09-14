@@ -1,12 +1,12 @@
-import bgContact from "../../../assets/images/bgContact.png";
+import i18next from "i18next";
 import phone from "../../../assets/images/phone.svg";
 import ContactForm from "../../contact/component/contactForm";
 
-const Contact = () => {
+const Contact = ({ contactData ,homePageData}) => {
   return (
     <section
       className="relative w-full h-auto bg-cover bg-center lg:px-16 px-6 py-12"
-      style={{ backgroundImage: `url(${bgContact})` }}
+      style={{ backgroundImage: `url(${homePageData?.data?.home_page?.contact_image})` }}
     >
       {/* Gradient Overlay */}
       <div
@@ -22,11 +22,10 @@ const Contact = () => {
         <div className="lg:col-span-6 text-white">
           <div>
             <h1 className="lg:text-5xl text-[1.5rem] lg:mt-[9rem] mt-[3rem] w-[95%] font-bold tracking-tight leading-tight">
-              Have questions? connect with us for support
+              {i18next.t("contactGrid.have_question")}{" "}
             </h1>
-            <p className="text-white font-[400] w-[98%] text-xl mt-[1rem]">
-              Connect with our experts and experience seamless assistance every
-              step of the way.
+            <p className="text-white font-[400] w-[98%] lg:text-xl text-lg mt-[1rem]">
+              {contactData?.data?.description}
             </p>
           </div>
 
@@ -34,16 +33,20 @@ const Contact = () => {
           <div className="lg:px-[4rem]">
             <div className="backdrop-blur-sm lg:h-[18rem] h-[15rem] bg-[#D9D9D933] border lg:mt-[10rem] mt-[3rem] border-white/20 rounded-3xl lg:p-6 p-3 shadow-xl">
               <h3 className="lg:text-3xl text-[1.5rem] mt-[1.5rem] font-bold text-white mb-4 flex justify-center items-center">
-                Need help? Contact us today!
+                {i18next.t("contactGrid.need_help")}
               </h3>
               <div className="flex items-center space-x-4 lg:mt-[4rem] mt-[2rem] lg:px-[2.2rem]">
                 <div className="lg:w-[5rem] lg:h-[5rem] w-[4rem] h-[4rem] bg-primary rounded-full flex items-center justify-center shadow-lg text-white">
-                  <img className="lg:w-[3rem] w-[2rem]" src={phone} alt="phone" />
+                  <img
+                    className="lg:w-[3rem] w-[2rem]"
+                    src={phone}
+                    alt="phone"
+                  />
                 </div>
                 <div>
-                  <p className="text-white text-xl">Phone Number</p>
-                  <p className="lg:text-4xl text-[1.5rem] mt-2 font-bold text-white">
-                    Call: 6102
+                  <p className="text-white text-xl">{i18next.t("contact.phone")}</p>
+                  <p className="lg:text-4xl text-[1rem] mt-2 font-bold text-nowrap text-white">
+                    {i18next.t("contactGrid.Call")}: {contactData?.data?.phone1}
                   </p>
                 </div>
               </div>

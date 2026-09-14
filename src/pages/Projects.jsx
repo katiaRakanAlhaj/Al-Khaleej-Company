@@ -10,6 +10,7 @@ import {
 import MetaHelmet from "../component/meta/metaHelemt";
 import ScrollToTop from "../component/scrollToTop/scrollToTop";
 import Loader from "../component/loader/loader";
+import ErrorMessageNetwork from "../component/errorMessage/errorMessage";
 
 const Projects = () => {
   const {
@@ -24,6 +25,9 @@ const Projects = () => {
   } = useFetchEngineeringProjects();
   if (projectsDataLoading || engineeringProjectsDataLoading) {
     return <Loader />;
+  }
+  if (projectsDataError || engineeringProjectsDataError) {
+    return <ErrorMessageNetwork />;
   }
   return (
     <div>

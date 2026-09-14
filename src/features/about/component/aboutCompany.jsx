@@ -1,17 +1,15 @@
-import mainCompany from "../../../assets/images/mainCompany.svg";
-
 const AboutCompany = ({ aboutPageData }) => {
   // Extract data from the response
   const sections = aboutPageData?.data?.sections || [];
-  
+
   // The first section is the company overview
   const overviewSection = sections[0] || {};
-  
+
   // The remaining sections are the company details (items)
-  const items = sections.slice(1).map(section => ({
+  const items = sections.slice(1).map((section) => ({
     image: section.icon, // Use the icon URL from the response
     title: section.title,
-    desc: section.description
+    desc: section.description,
   }));
 
   return (
@@ -24,10 +22,10 @@ const AboutCompany = ({ aboutPageData }) => {
             className="w-full h-auto pb-[3.5rem] bg-white p-[2rem] rounded-xl"
           >
             <div className="flex gap-x-2 items-center-safe">
-              <img 
-                className="w-[2rem]" 
-                src={overviewSection.icon} 
-                alt="Company" 
+              <img
+                className="w-[2rem]"
+                src={overviewSection.icon}
+                alt="Company"
               />
               <h1 className="text-primary lg:text-4xl text-[1.5rem] font-bold">
                 {overviewSection.title}
@@ -38,7 +36,7 @@ const AboutCompany = ({ aboutPageData }) => {
             </p>
           </div>
         </div>
-        
+
         {/* second column - Company Details */}
         <div className="lg:col-span-4 col-span-1">
           <div className="flex flex-col space-y-[1rem]">
@@ -50,10 +48,10 @@ const AboutCompany = ({ aboutPageData }) => {
               >
                 <div className="flex gap-x-[1rem]">
                   <div>
-                    <img 
-                      className="w-[1.2rem] lg:mt-0 mt-[0.6rem]" 
-                      src={item.image} 
-                      alt={item.title} 
+                    <img
+                      className="w-[1.2rem] lg:mt-0 mt-[0.6rem]"
+                      src={item.image}
+                      alt={item.title}
                     />
                   </div>
                   <div className="flex flex-col">

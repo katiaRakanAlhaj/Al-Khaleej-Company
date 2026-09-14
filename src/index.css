@@ -260,4 +260,26 @@ html::-webkit-scrollbar {
         scrollbar-width: thin;
         scrollbar-color: #001E40 #f1f1f1;
     }
+    @media only screen and (min-width: 1923px) and (max-width: 4098px) {
+        .nav {
+            padding: 1.2rem 1.5rem !important;
+            /* CORRECT */
+        }
+        .image {
+            width: 1.2rem !important;
+            height: 1.2rem !important;
+        }
+        .height {
+            height: 6rem !important;
+        }
+        .widthLogo {
+            width: 25rem !important;
+        }
+        .item1 {
+            margin-left: 25rem;
+        }
+        .item2 {
+            margin-right: 25rem;
+        }
+    }
 }

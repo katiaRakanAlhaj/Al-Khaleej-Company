@@ -108,7 +108,8 @@
         "COMPANY_NAME": "COMPANY NAME",
         "RESPONSIBLE_AUTHORITY": "RESPONSIBLE AUTHORITY",
         "PROJECT_TYPE": "PROJECT TYPE",
-        "YEAR": "YEAR"
+        "YEAR": "YEAR",
+        "filters_active": "filters active"
     },
     "read_more": "Read More",
     "last_news": "Latest News",
@@ -145,7 +146,22 @@
         "to": "to"
     },
     "contactGrid": {
-        "have_question": "Have questions? connect with us for support"
+        "have_question": "Have questions? connect with us for support",
+        "need_help": "Need help? Contact us today! to arabic",
+        "Call": "Call"
+    },
+    "errorMessage": {
+        "errorOops": "Oops!",
+        "errorMessage": "Something went wrong. Please check your network connection and try again.",
+        "errorRetryButton": "Retry"
+    },
+    "pagination": {
+        "previous": "previous",
+        "next": "next"
+    },
+    "emptyNews": {
+        "no_content": "No Content Available",
+        "no_news": " There are no details or sections available for this news article yet. Please check back later."
     }
 
 }

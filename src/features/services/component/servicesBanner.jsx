@@ -1,8 +1,7 @@
 import i18next from "i18next";
-import serviesBanner from "../../../assets/images/aboutBanner.png";
 import Banner from "../../../ui/banner";
 
-const ServicesBanner = ({servicesData}) => {
+const ServicesBanner = ({ servicesData }) => {
   return (
     <div>
       <Banner

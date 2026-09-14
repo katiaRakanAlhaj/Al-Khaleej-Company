@@ -1,14 +1,15 @@
 import rightIcon from "../../../assets/images/rightIcon.svg";
 import user from "../../../assets/images/user.svg";
 import date from "../../../assets/images/date.svg";
+import i18next from "i18next";
 const SingleNewsBanner = ({newsPageByIdData}) => {
   return (
     <div className="lg:mt-[3rem] mt-[7rem]">
-      <div className="flex gap-x-2 flex-wrap">
+      <div className="flex items-center gap-x-2 flex-wrap">
         <p className="text-[#505F76] text-md">Home</p>
-        <img src={rightIcon} />
+        <img className = {`${i18next.language == "ar"?'rotate-180':'rotate-180'}`} src={rightIcon} />
         <p className="text-[#505F76] text-md">News</p>
-        <img src={rightIcon} />
+        <img className = {`${i18next.language == "ar"?'rotate-180':'rotate-180'}`} src={rightIcon} />
         <p className="text-[#131B2E] text-md">
           {newsPageByIdData?.data?.title}
         </p>

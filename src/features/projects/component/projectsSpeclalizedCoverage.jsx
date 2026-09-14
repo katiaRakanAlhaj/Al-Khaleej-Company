@@ -1,20 +1,11 @@
-import operationImage from "../../../assets/images/operationImage.png";
-import operationIcon from "../../../assets/images/operationIcon.svg";
 import checkProject from "../../../assets/images/checkProject.svg";
 import { ProjectsTitle } from "../../../ui/projectsTitle";
 import i18next from "i18next";
 
 const ProjectsSpeclalizedCoverage = ({ projectsData }) => {
-  const itemsCheck = [
-    "Phase II camp expansion (Gharraf, 2012)",
-    "Diesel tanks supply & installation (Gharraf, 2012)",
-    "Temporary housing construction (2012)",
-    "River water treatment unit supply (2012)",
-  ];
-
   return (
     <div className="container4 mx-auto mt-[4rem]">
-      <div className="grid lg:grid-cols-12 grid-cols-1 gap-x-[2rem]">
+      <div className="grid lg:grid-cols-12 grid-cols-1 gap-[2rem]">
         <div className="lg:col-span-5 col-span-1 flex flex-col justify-center">
           <div className="flex gap-x-2 items-center">
             <div className="w-[3rem] h-[0.2rem] rounded-full bg-[#00348A]"></div>
@@ -48,7 +39,9 @@ const ProjectsSpeclalizedCoverage = ({ projectsData }) => {
             />
 
             {/* Fix: Use solid color or higher opacity */}
-            <div className="w-[19rem] flex gap-x-4 items-center h-auto p-[1rem] absolute right-[2rem] bottom-[2rem] z-10 bg-white/80 rounded-md shadow-lg">
+            <div
+              className={`w-[19rem] flex gap-x-4 items-center h-auto p-[1rem] absolute ${i18next.language == "en" ? "lg:right-[2rem]" : "lg:left-[2rem]"} bottom-[2rem] z-10 bg-white/80 rounded-md shadow-lg`}
+            >
               <div className="w-[3rem] h-[3rem] flex justify-center items-center bg-[#204CA9]">
                 <img
                   className="w-[1.3rem]"
