@@ -37,7 +37,7 @@ const BranchCard = ({ branch, onClick }) => {
         <h3 className="text-primary font-bold text-xl mb-2 mt-2">
           {branch.name}
         </h3>
-        <p className="text-[#777777] text-lg leading-relaxed line-clamp-2">
+        <p className="text-[#777777] whitespace-break-spaces  text-lg leading-relaxed line-clamp-2">
           {branch.description}
         </p>
         <div className="flex items-center gap-2 text-md text-[#000000] pt-3 border-t border-gray-100">

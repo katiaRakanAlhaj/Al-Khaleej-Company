@@ -64,7 +64,7 @@ const Footer = ({contactData , homePageData}) => {
             {/* first column */}
             <div className="lg:col-span-4 col-span-1">
               <img src={homePageData?.data?.footer?.logo} alt="Logo" />
-              <p className="text-white font-[400] opacity-80 mt-[1rem] leading-relaxed text-lg lg:w-[60%] w-[90%]">
+              <p className="text-white font-[400] whitespace-break-spaces  opacity-80 mt-[1rem] leading-relaxed text-lg lg:w-[60%] w-[90%]">
                {homePageData?.data?.footer?.description}
               </p>
             </div>

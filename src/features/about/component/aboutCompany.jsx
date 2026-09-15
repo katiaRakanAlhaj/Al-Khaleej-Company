@@ -31,7 +31,7 @@ const AboutCompany = ({ aboutPageData }) => {
                 {overviewSection.title}
               </h1>
             </div>
-            <p className="leading-[2rem] whitespace-pre-line text-lg mt-[1rem] text-[#434652]">
+            <p className="leading-[2rem] whitespace-break-spaces  text-lg mt-[1rem] text-[#434652]">
               {overviewSection.description}
             </p>
           </div>

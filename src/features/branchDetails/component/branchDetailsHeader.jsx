@@ -6,7 +6,7 @@ const BranchDetailsHeader = ({ branchDetailsData }) => {
         <h1 className="font-bold text-[#111C2D] lg:text-5xl text-[2rem]">
           {branchDetailsData?.data?.name}
         </h1>
-        <p className="text-[#434652] lg:text-xl text-lg leading-relaxed w-[90%] lg:mt-[2rem] mt-[1rem]">
+        <p className="text-[#434652] lg:text-xl whitespace-break-spaces text-lg leading-relaxed w-[90%] lg:mt-[2rem] mt-[1rem]">
           {branchDetailsData?.data?.description}
         </p>
       </div>

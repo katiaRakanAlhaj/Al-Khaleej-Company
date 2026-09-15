@@ -12,16 +12,16 @@ const ProjectPartnerships = ({ projectsData }) => {
           {projectsData?.data?.key_partnerships.map((item, index) => (
             <div
               key={index}
-              className="w-full lg:h-[21rem] rounded-lg p-[2rem] border border-[#C4C6D4]"
+              className="w-full lg:h-[19rem] rounded-lg p-[2rem] border border-[#C4C6D4]"
             >
               <div className="flex flex-col space-y-2">
-                <div className="w-[3.5rem] h-[3.5rem] rounded bg-[#F2F3FF] flex justify-center items-center">
+                {/* <div className="w-[3.5rem] h-[3.5rem] rounded bg-[#F2F3FF] flex justify-center items-center">
                   <img
                     className="w-[2rem] h-[2rem]"
                     src={item.icon}
                     alt={item.title}
                   />
-                </div>
+                </div> */}
                 <h1 className="text-[#131B2E] font-bold text-[1.3rem] mt-2">
                   {item.title}
                 </h1>

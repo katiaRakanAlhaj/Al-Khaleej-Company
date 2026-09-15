@@ -43,23 +43,23 @@ const NavbarMobile = ({ contactData }) => {
       type: "phone",
       icon: phone,
       value: contactData?.data?.support_number,
-      label: t("navbar.contactInfo.phone"),
-      href: `tel:${contactData?.data?.phone1}`, // ← FIXED: uses dynamic phone number
+      label: t("navbar.contactInfo.support_number"),
+      href: `tel:${contactData?.data?.support_number}`, // ← FIXED: uses dynamic phone number
     },
     {
       id: 2,
       type: "email",
       icon: email,
-      value: contactData?.data?.email1,
-      label: t("navbar.contactInfo.email"),
-      href: `mailto:${contactData?.data?.email1}`, // ← FIXED: uses dynamic email
+      value: contactData?.data?.support_email,
+      label: t("navbar.contactInfo.support_email"),
+      href: `mailto:${contactData?.data?.support_email}`, // ← FIXED: uses dynamic email
     },
     {
       id: 3,
       type: "address",
       icon: locationIcon,
-      value: contactData?.data?.address,
-      label: t("navbar.contactInfo.address"),
+      value: contactData?.data?.main_address,
+      label: t("navbar.contactInfo.main_address"),
     },
   ];
 
