@@ -310,9 +310,9 @@ const ProjectsFilter = ({ projectsData }) => {
                 <div className="mb-6">
                     <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
                         <div className="flex-1">
-                            <ProjectsTitle title={i18next.t("projects.Engineering_Projects")} />
-                            <p className="text-[#434652] mt-2 lg:text-xl text-lg">
-                                {projectsData?.data?.engineering_projects_title || i18next.t("projects.Engineering_Projects")}
+                            <ProjectsTitle title={projectsData?.data?.engineering_projects_title } />
+                            <p className="text-[#434652] w-[90%] mt-2 lg:text-xl text-lg">
+                                {projectsData?.data?.engineering_projects_description}
                             </p>
                         </div>
                         <div className="flex items-center gap-2">

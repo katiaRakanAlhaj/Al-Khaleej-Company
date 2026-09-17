@@ -283,3 +283,198 @@ html::-webkit-scrollbar {
         }
     }
 }
+
+
+/* ============================================
+   Rich Text / Sanitized HTML Content Styles
+   Applies to any container rendering HTML
+   from DOMPurify (news, articles, descriptions)
+   ============================================ */
+
+
+/* Restore list styles (Tailwind preflight removes them) */
+
+.rich-content ol,
+.news-content ol,
+.prose ol,
+div[dangerouslySetInnerHTML] ol,
+[data-rich-text] ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    padding-inline-start: 1.75rem;
+    margin-block: 0.75rem;
+}
+
+.rich-content ul,
+.news-content ul,
+.prose ul,
+div[dangerouslySetInnerHTML] ul,
+[data-rich-text] ul {
+    list-style-type: disc;
+    padding-inline-start: 1.75rem;
+    margin-block: 0.75rem;
+}
+
+
+/* List items */
+
+.rich-content li,
+.news-content li,
+.prose li,
+div[dangerouslySetInnerHTML] li,
+[data-rich-text] li {
+    margin-bottom: 0.5rem;
+    line-height: 1.75;
+}
+
+
+/* Nested lists */
+
+.rich-content ol ol,
+.rich-content ul ul,
+.rich-content ol ul,
+.rich-content ul ol {
+    margin-block: 0.25rem;
+}
+
+
+/* RTL: ensure Arabic alignment and markers on the right */
+
+[dir="rtl"] .rich-content ol,
+[dir="rtl"] .news-content ol,
+[dir="rtl"] .prose ol,
+[dir="rtl"] div[dangerouslySetInnerHTML] ol,
+[dir="rtl"] [data-rich-text] ol {
+    list-style-type: arabic-indic;
+    padding-inline-start: 0;
+    padding-inline-end: 1.75rem;
+}
+
+[dir="rtl"] .rich-content ul,
+[dir="rtl"] .news-content ul,
+[dir="rtl"] .prose ul,
+[dir="rtl"] div[dangerouslySetInnerHTML] ul,
+[dir="rtl"] [data-rich-text] ul {
+    padding-inline-start: 0;
+    padding-inline-end: 1.75rem;
+}
+
+
+/* Headings inside rich content */
+
+.rich-content h1,
+.news-content h1,
+.prose h1,
+div[dangerouslySetInnerHTML] h1,
+[data-rich-text] h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #00348a;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.rich-content h2,
+.news-content h2,
+.prose h2,
+div[dangerouslySetInnerHTML] h2,
+[data-rich-text] h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00348a;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.rich-content h3,
+.news-content h3,
+.prose h3,
+div[dangerouslySetInnerHTML] h3,
+[data-rich-text] h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #00348a;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* Paragraphs inside rich content */
+
+.rich-content p,
+.news-content p,
+.prose p,
+div[dangerouslySetInnerHTML] p,
+[data-rich-text] p {
+    margin-block: 0.75rem;
+    line-height: 1.75;
+}
+
+
+/* Links */
+
+.rich-content a,
+.news-content a,
+.prose a,
+div[dangerouslySetInnerHTML] a,
+[data-rich-text] a {
+    color: #00348a;
+    text-decoration: underline;
+}
+
+
+/* Strong / emphasis */
+
+.rich-content strong,
+.news-content strong {
+    font-weight: 700;
+    color: #131b2e;
+}
+
+
+/* global.css */
+
+.rich-content ol {
+    list-style-type: arabic-indic;
+    padding-inline-start: 1.75rem;
+    margin-block: 0.75rem;
+}
+
+.rich-content ul {
+    list-style-type: disc;
+    padding-inline-start: 1.75rem;
+    margin-block: 0.75rem;
+}
+
+.rich-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.75;
+}
+
+.rich-content h1,
+.rich-content h2,
+.rich-content h3 {
+    color: #00348a;
+    font-weight: 700;
+}
+
+.rich-content h2 {
+    font-size: 1.5rem;
+    margin-top: 1.25rem;
+}
+
+.rich-content h3 {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+
+.rich-content p {
+    margin-block: 0.75rem;
+    line-height: 1.75;
+}
+
+[dir="rtl"] .rich-content ol,
+[dir="rtl"] .rich-content ul {
+    padding-inline-start: 0;
+    padding-inline-end: 1.75rem;
+}

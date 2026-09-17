@@ -146,24 +146,24 @@ const Navbar = ({ contactData }) => {
                       <img
                         src={contact.icon}
                         alt={contact.label}
-                        className="w-6 h-6 image"
+                        className="w-5 h-5 image"
                       />
                       {contact.type === "phone" ? (
                         <a
                           href={contact.href}
-                          className="text-white text-nowrap font-[600] text-[1.1rem] hover:underline"
+                          className="text-white text-nowrap font-[600] text-md hover:underline"
                         >
                           {contact.value}
                         </a>
                       ) : contact.type === "email" ? (
                         <a
                           href={contact.href}
-                          className="text-white font-[600] text-[1.1rem] line-clamp-1 hover:underline"
+                          className="text-white font-[600] text-md hover:underline"
                         >
                           {contact.value}
                         </a>
                       ) : (
-                        <span className="text-white font-[600] text-[1.1rem] line-clamp-1">
+                        <span className="text-white font-[600] text-md">
                           {contact.value}
                         </span>
                       )}

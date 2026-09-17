@@ -7,9 +7,9 @@ const SingleNewsBanner = ({newsPageByIdData}) => {
     <div className="lg:mt-[3rem] mt-[7rem]">
       <div className="flex items-center gap-x-2 flex-wrap">
         <p className="text-[#505F76] text-md">Home</p>
-        <img className = {`${i18next.language == "ar"?'rotate-180':'rotate-180'}`} src={rightIcon} />
+        <img className = {`${i18next.language == "ar"?'rotate-180':''}`} src={rightIcon} />
         <p className="text-[#505F76] text-md">News</p>
-        <img className = {`${i18next.language == "ar"?'rotate-180':'rotate-180'}`} src={rightIcon} />
+        <img className = {`${i18next.language == "ar"?'rotate-180':''}`} src={rightIcon} />
         <p className="text-[#131B2E] text-md">
           {newsPageByIdData?.data?.title}
         </p>

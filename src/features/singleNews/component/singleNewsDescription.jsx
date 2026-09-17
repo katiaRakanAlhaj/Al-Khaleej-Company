@@ -3,7 +3,7 @@ import DOMPurify from "dompurify";
 
 const SingleNewsDescription = ({ newsPageByIdData }) => {
   const bodyTextStyles =
-    "text-[#131B2E] lg:text-xl text-lg leading-relaxed mt-4 flex text-justify";
+    "text-[#131B2E] lg:text-xl text-lg leading-relaxed mt-4";
   const headingStyles =
     "text-[#00348A] font-bold lg:text-3xl text-[1.5rem] mt-4";
 
@@ -42,8 +42,8 @@ const SingleNewsDescription = ({ newsPageByIdData }) => {
               <div key={index}>
                 {hasTitle && <h1 className={headingStyles}>{section.title}</h1>}
                 {section.description && section.description.trim() !== "" && (
-                  <p
-                    className={bodyTextStyles}
+                  <div
+                    className={`${bodyTextStyles} prose prose-lg max-w-none`}
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(section.description),
                     }}
@@ -51,8 +51,8 @@ const SingleNewsDescription = ({ newsPageByIdData }) => {
                 )}
                 <div className="w-full h-auto bg-[#F2F3FF] mt-4 flex justify-center items-center p-8 relative">
                   <div className="absolute h-full left-0 top-0 w-[0.3em] bg-[#00348A]"></div>
-                  <p
-                    className="w-full lg:text-xl text-lg leading-relaxed text-[#434652]"
+                  <div
+                    className="w-full lg:text-xl text-lg leading-relaxed text-[#434652] prose prose-lg max-w-none"
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(`"${section.note}"`),
                     }}
@@ -67,8 +67,8 @@ const SingleNewsDescription = ({ newsPageByIdData }) => {
               <div key={index}>
                 <h1 className={headingStyles}>{section.title}</h1>
                 {section.description && section.description.trim() !== "" && (
-                  <p
-                    className={bodyTextStyles}
+                  <div
+                    className={`${bodyTextStyles} prose prose-lg max-w-none`}
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(section.description),
                     }}
@@ -80,9 +80,9 @@ const SingleNewsDescription = ({ newsPageByIdData }) => {
 
           if (!hasTitle && section.description) {
             return (
-              <p
+              <div
                 key={index}
-                className={bodyTextStyles}
+                className={`${bodyTextStyles} prose prose-lg max-w-none`}
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(section.description),
                 }}

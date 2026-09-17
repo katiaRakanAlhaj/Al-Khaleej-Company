@@ -40,10 +40,11 @@ const SingleServiceDescription = ({ serviceByIdData }) => {
             </h2>
 
             {/* Description (renders HTML from API) */}
-            <div
-              className="prose prose-slate mt-8 max-w-none text-base leading-relaxed text-slate-600 sm:text-lg prose-p:my-3 prose-br:block"
-              dangerouslySetInnerHTML={{ __html: service.description }}
-            />
+          <div
+  dir="auto"
+  className="prose prose-slate prose-lg mt-8 max-w-none text-base leading-relaxed text-slate-600 lg:text-lg text-md"
+  dangerouslySetInnerHTML={{ __html: service.description }}
+/>
           </div>
 
           {/* RIGHT — Image with decorative frame */}
