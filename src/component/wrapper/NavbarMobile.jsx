@@ -38,14 +38,14 @@ const NavbarMobile = ({ contactData }) => {
 
   // Contact information array
   const contactInfo = [
-    {
-      id: 1,
-      type: "phone",
-      icon: phone,
-      value: contactData?.data?.support_number,
-      label: t("navbar.contactInfo.support_number"),
-      href: `tel:${contactData?.data?.support_number}`, // ← FIXED: uses dynamic phone number
-    },
+    // {
+    //   id: 1,
+    //   type: "phone",
+    //   icon: phone,
+    //   value: contactData?.data?.support_number,
+    //   label: t("navbar.contactInfo.support_number"),
+    //   href: `tel:${contactData?.data?.support_number}`, // ← FIXED: uses dynamic phone number
+    // },
     {
       id: 2,
       type: "email",

@@ -52,7 +52,10 @@
     },
     "branches": {
         "branches_title": "Our branches",
-        "more_branches": "More branches"
+        "more_branches": "More branches",
+        "main_branch":"Main Branch",
+        "call_now":"Call Now",
+        "other_branches":"Other Branches"
     },
     "contact": {
         "title": "Get in Touch",
@@ -163,6 +166,12 @@
     "emptyNews": {
         "no_content": "No Content Available",
         "no_news": " There are no details or sections available for this news article yet. Please check back later."
+    },
+    "footer":{
+        "managing_director":"Managing Director",
+        "deputy_director":"Deputy Director",
+        "customer_service":"Customer Service",
+        "short_number":"Short Number"
     }
 
 }

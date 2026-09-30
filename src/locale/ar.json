@@ -52,7 +52,10 @@
     },
     "branches": {
         "branches_title": "فروعنا",
-        "more_branches": "فروع إضافية"
+        "more_branches": "فروع إضافية",
+        "main_branch":"الفرع الرئيسي",
+        "call_now":"اتصل الآن",
+        "other_branches":"فروعنا الأخرى"
     },
     "contact": {
         "title": "تواصل معنا",
@@ -162,6 +165,12 @@
     "emptyNews": {
         "no_content": "لا يوجد محتوى متاح",
         "no_news": "لا توجد تفاصيل أو أقسام متاحة لهذا المقال الإخباري بعد. يرجى التحقق مرة أخرى لاحقاً."
+    },
+    "footer":{
+        "managing_director":"المدير المفوض",
+        "deputy_director":"نائب المدير",
+        "customer_service":"خدمة العملاء",
+        "short_number":"الرقم المختصر"
     }
 
 }
