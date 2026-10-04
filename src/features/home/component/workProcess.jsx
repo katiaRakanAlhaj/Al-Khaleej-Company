@@ -15,7 +15,9 @@ const WorkProcess = ({ homePageData }) => {
     >
       {/* Heading */}
       <div className="mx-auto flex flex-col items-center justify-center">
-        <TitleSection title={homePageData?.data?.home_page?.work_process_title} />
+        <TitleSection
+          title={homePageData?.data?.home_page?.work_process_title}
+        />
 
         <h1 className="mt-[1rem] text-center font-bold leading-tight text-primary lg:text-[2.5rem] text-[1.5rem] text-wrap lg:w-[100%] w-[80%]">
           {homePageData?.data?.home_page?.work_process_sub_title}
@@ -82,7 +84,7 @@ const WorkProcess = ({ homePageData }) => {
           <img
             src={arrow}
             alt="Arrow"
-            className={`h-full w-full object-contain ${isRTL ? "rotate-180" : ""}`}
+            className={`h-full w-full object-contain ${isRTL ? "-rotate-90" : ""}`}
           />
         </div>
 
@@ -160,6 +162,7 @@ const WorkProcess = ({ homePageData }) => {
                       hidden
                       z-30 
                       flex 
+                      text-center
                       h-[3.5rem] 
                       w-[3.5rem] 
                       items-center 
@@ -175,7 +178,12 @@ const WorkProcess = ({ homePageData }) => {
                       ${getNumberPosition(index)}
                     `}
                   >
-                    {index + 1}
+                    <p
+                      className={`${i18next.language == "ar" ? "flex justify-center items-center mt-2" : ""}`}
+                    >
+                      {" "}
+                      {index + 1}
+                    </p>
                   </div>
                 </div>
 
