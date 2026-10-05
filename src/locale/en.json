@@ -171,7 +171,8 @@
         "managing_director":"Managing Director",
         "deputy_director":"Deputy Director",
         "customer_service":"Customer Service",
-        "short_number":"Short Number"
+        "short_number":"Short Number",
+        "note_title":"Important Notice"
     }
 
 }

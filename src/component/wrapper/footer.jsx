@@ -22,6 +22,17 @@ const classes = {
   description:
     "text-white font-[400] whitespace-break-spaces opacity-80 mt-[1rem] leading-relaxed text-lg lg:w-[60%] w-[90%]",
 
+  // ===== Note (Disclaimer) =====
+  noteWrapper:
+    "mt-[1.5rem] lg:w-[90%] w-[95%] bg-white/5 border border-white/10 border-l-4 border-l-primary rounded-lg p-4 backdrop-blur-sm",
+  noteHeader: "flex items-center gap-2 mb-2",
+  noteIconWrapper:
+    "w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0",
+  noteIcon: "w-3.5 h-3.5 text-primary",
+  noteTitle: "text-primary font-bold text-lg uppercase tracking-wider",
+  noteText:
+    "text-white/75 text-lg leading-relaxed whitespace-pre-line font-[400]",
+
   // Second column
   secondCol: "lg:col-span-8 col-span-1",
 
@@ -55,12 +66,14 @@ const classes = {
 
   // ===== Short Code / Support Number Highlight (Featured Card) =====
   supportCard:
-    "flex items-center justify-between bg-primary/10 border border-primary/30 rounded-xl p-3 mt-4",
+    "flex flex-col gap-3 bg-primary/10 border border-primary/30 rounded-xl p-3 mt-4",
   supportInfo: "flex items-center gap-3",
   supportIconWrapper:
     "w-9 h-9 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0 text-primary",
   supportLabel: "text-lg font-bold text-primary block",
   supportNumberText: "text-lg font-[400] tracking-wider text-white",
+  supportNumbersRow: "flex items-center gap-2 flex-wrap",
+  supportNumberRow: "flex items-center gap-2 flex-wrap",
 
   // Links
   linkBase: "transition text-lg",
@@ -132,6 +145,37 @@ const Footer = ({ contactData, homePageData }) => {
               <p className={classes.description}>
                 {homePageData?.data?.footer?.description}
               </p>
+
+              {/* ===== Note / Disclaimer under description ===== */}
+              {homePageData?.data?.footer?.note && (
+                <div className={classes.noteWrapper}>
+                  <div className={classes.noteHeader}>
+                    <div className={classes.noteIconWrapper}>
+                      {/* Info icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={classes.noteIcon}
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="16" x2="12" y2="12" />
+                        <line x1="12" y1="8" x2="12.01" y2="8" />
+                      </svg>
+                    </div>
+                    <span className={classes.noteTitle}>
+                      {i18next.t("footer.note_title") || "Important Notice"}
+                    </span>
+                  </div>
+                  <p className={classes.noteText}>
+                    {homePageData?.data?.footer?.note}
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Second column */}
@@ -256,7 +300,7 @@ const Footer = ({ contactData, homePageData }) => {
                     </div>
 
                     {/* ===== Support Number / Short Code Widget (خدمة الزبائن) ===== */}
-                    {data?.support_number && (
+                    {(data?.support_number || data?.support_number_2) && (
                       <div className={classes.supportCard}>
                         <div className={classes.supportInfo}>
                           <div className={classes.supportIconWrapper}>
@@ -266,18 +310,36 @@ const Footer = ({ contactData, homePageData }) => {
                               className="w-4 h-4 brightness-200"
                             />
                           </div>
-                          <div>
-                            <span className={classes.supportLabel}>
-                              {i18next.t("footer.customer_service")}
-                            </span>
-                            <span className={classes.supportNumberText}>
-                              {data.support_number}
-                            </span>
-                          </div>
+                          <span className={classes.supportLabel}>
+                            {i18next.t("footer.customer_service")}
+                          </span>
                         </div>
-                        <span className={classes.phoneLabel}>
-                          {i18next.t("footer.short_number")}
-                        </span>
+
+                        <div className="flex flex-col gap-2">
+                          {/* Support Number 1 */}
+                          {data?.support_number && (
+                            <div className={classes.supportNumberRow}>
+                              <span className={classes.supportNumberText}>
+                                {data.support_number}
+                              </span>
+                              <span className={classes.phoneLabel}>
+                                {i18next.t("footer.short_number")}
+                              </span>
+                            </div>
+                          )}
+
+                          {/* Support Number 2 */}
+                          {data?.support_number_2 && (
+                            <div className={classes.supportNumberRow}>
+                              <span className={classes.supportNumberText}>
+                                {data.support_number_2}
+                              </span>
+                              <span className={classes.phoneLabel}>
+                                {i18next.t("footer.short_number")}
+                              </span>
+                            </div>
+                          )}
+                        </div>
                       </div>
                     )}
                   </div>

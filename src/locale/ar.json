@@ -170,7 +170,8 @@
         "managing_director":"المدير المفوض",
         "deputy_director":"نائب المدير",
         "customer_service":"خدمة العملاء",
-        "short_number":"الرقم المختصر"
+        "short_number":"الرقم المختصر",
+        "note_title":"إشعار مهم"
     }
 
 }
