@@ -7,88 +7,103 @@ import i18next from "i18next";
 
 // ============ EXTRACTED CLASSES ============
 const classes = {
-  // Wrapper
+  // ===== Wrapper =====
   wrapper: "lg:mt-[6rem] mt-[3rem] overflow-hidden",
-  footer: "bg-[#111620] h-auto text-white pt-16 pb-8 font-sans",
-  container: "container1 mx-auto",
+  footer:
+    "relative bg-gradient-to-br from-[#2c3644] via-[#384454] to-[#2a3340] text-white pt-20 pb-8 font-sans",
+  // Decorative glow overlays
+  glowTop:
+    "pointer-events-none absolute -top-32 -left-32 w-[28rem] h-[28rem] rounded-full bg-[#099EC8]/20 blur-[120px]",
+  glowBottom:
+    "pointer-events-none absolute -bottom-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-[#099EC8]/10 blur-[120px]",
+  container: "container1 mx-auto relative z-10",
 
-  // Grids
-  mainGrid: "grid lg:grid-cols-12 grid-cols-1",
-  innerGrid: "grid lg:grid-cols-3 md:grid-cols-2 grid-cols-2 gap-4",
+  // ===== Grids =====
+  mainGrid: "grid lg:grid-cols-12 grid-cols-1 gap-10 lg:gap-8",
 
-  // First column
+  // ===== Column 1: Logo + Description + Quick Links =====
   firstCol: "lg:col-span-4 col-span-1",
-  logoImg: "",
+  logoImg: "h-14 w-auto object-contain drop-shadow-lg",
   description:
-    "text-white font-[400] whitespace-break-spaces opacity-80 mt-[1rem] leading-relaxed text-lg lg:w-[60%] w-[90%]",
+    "text-white/85 font-[400] whitespace-break-spaces mt-5 leading-relaxed text-lg lg:w-[92%] w-[95%]",
 
-  // ===== Note (Disclaimer) =====
+  // Quick Links
+  quickLinksWrapper: "mt-8",
+  quickLinksHeader: "flex items-center gap-3 mb-5",
+  quickLinksIconWrapper:
+    "w-9 h-9 rounded-xl bg-gradient-to-br from-[#099EC8]/30 to-[#099EC8]/10 border border-[#099EC8]/40 flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_-4px_rgba(9,158,200,0.5)]",
+  quickLinksIcon: "w-4 h-4 text-[#4FC3E8]",
+  quickLinksTitle:
+    "text-white font-bold text-lg uppercase tracking-[0.15em] relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-[2px] after:bg-gradient-to-r after:from-[#099EC8] after:to-transparent",
+  quickLinksGrid: "grid grid-cols-2 gap-x-5 gap-y-3",
+  quickLinkItem:
+    "group transition-all duration-300 text-[1.2rem] text-white/80 hover:text-[#4FC3E8] flex items-center gap-2.5 hover:translate-x-1",
+  quickLinkDot:
+    "w-1.5 h-1.5 rounded-full bg-[#099EC8]/50 group-hover:bg-[#4FC3E8] group-hover:shadow-[0_0_8px_rgba(9,158,200,0.9)] transition-all duration-300 flex-shrink-0",
+  quickLinkActive:
+    "text-[#4FC3E8] font-semibold [&>span]:bg-[#4FC3E8] [&>span]:shadow-[0_0_8px_rgba(9,158,200,0.9)]",
+
+  // ===== Column 2: Notice =====
+  noticeCol: "lg:col-span-4 col-span-1 flex items-start",
   noteWrapper:
-    "mt-[1.5rem] lg:w-[90%] w-[95%] bg-white/5 border border-white/10 border-l-4 border-l-primary rounded-lg p-4 backdrop-blur-sm",
-  noteHeader: "flex items-center gap-2 mb-2",
+    "relative w-full rounded-2xl overflow-hidden backdrop-blur-xl bg-gradient-to-br from-white/[0.12] to-white/[0.04] border border-white/20 p-6 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.4)]",
+  noteAccent:
+    "absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#099EC8] via-[#4FC3E8] to-[#099EC8]/20",
+  noteGlow:
+    "pointer-events-none absolute -top-16 -right-16 w-40 h-40 rounded-full bg-[#099EC8]/25 blur-3xl",
+  noteHeader: "relative flex items-center gap-3 mb-3",
   noteIconWrapper:
-    "w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0",
-  noteIcon: "w-3.5 h-3.5 text-primary",
-  noteTitle: "text-primary font-bold text-lg uppercase tracking-wider",
+    "w-9 h-9 rounded-xl bg-gradient-to-br from-[#099EC8]/40 to-[#099EC8]/10 border border-[#099EC8]/50 flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_-4px_rgba(9,158,200,0.6)]",
+  noteIcon: "w-4 h-4 text-[#4FC3E8]",
+  noteTitle: "text-[#4FC3E8] font-bold text-lg uppercase tracking-[0.18em]",
   noteText:
-    "text-white/75 text-lg leading-relaxed whitespace-pre-line font-[400]",
+    "relative text-white/90 text-[1.02rem] leading-relaxed whitespace-pre-line font-[400]",
 
-  // Second column
-  secondCol: "lg:col-span-8 col-span-1",
-
-  // Quick Links columns
-  linkColumn1: "",
-  linkColumn2: (currentLang) =>
-    currentLang === "en" ? "lg:ml-[-4rem]" : "lg:mr-[-4rem]",
-  linkList1: "space-y-2",
-  linkList2: "space-y-2 lg:mt-[2.5rem] mt-[4rem]",
-
-  // Section titles
-  sectionTitle: "font-bold text-lg mb-4 lg:mt-0 mt-[1rem]",
-  contactTitle: "font-bold text-lg text-white mb-4 lg:mt-0 mt-[1rem]",
-
-  // Contact column
+  // ===== Column 3: Contact =====
+  contactCol: "lg:col-span-4 col-span-1",
+  contactTitle:
+    "font-bold text-lg uppercase tracking-[0.15em] text-white mb-6 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-[2px] after:bg-gradient-to-r after:from-[#099EC8] after:to-transparent",
   contactWrapper: "space-y-6",
-  branchWrapper: "space-y-2",
-  branchTitle: "text-primary font-bold text-base text-lg",
+  branchWrapper:
+    "relative pl-4 border-l border-white/10 hover:border-[#099EC8]/50 transition-colors duration-300 space-y-3",
+  branchTitle: "text-[#4FC3E8] font-bold text-lg tracking-wide",
 
-  // Contact rows
-  contactRow: "flex items-start gap-2",
-  contactIcon: "w-4 h-4 mt-1 flex-shrink-0",
-  contactText: "text-white opacity-80 text-lg",
-  contactColFlex: "flex flex-col",
+  // Contact rows & Icon Wrapper (Matched with Notice Icon Style)
+  contactRow: "flex items-start gap-3 group",
+  contactIconWrapper:
+    "w-9 h-9 rounded-xl bg-gradient-to-br from-[#099EC8]/40 to-[#099EC8]/10 border border-[#099EC8]/50 flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_-4px_rgba(9,158,200,0.6)] group-hover:border-[#099EC8] transition-all duration-300",
+  contactIcon: "w-4 h-4 brightness-200",
+  contactText:
+    "text-white/90 text-[0.98rem] group-hover:text-white transition-colors break-all self-center",
+  contactColFlex: "flex flex-col gap-2.5 justify-center",
 
-  // ===== Phone label design =====
+  // Phone label
   phoneRow: "flex items-center gap-2 flex-wrap",
   phoneLabel:
-    "inline-block text-[0.9rem] font-semibold tracking-wide uppercase px-2 py-[2px] rounded-md bg-primary/15 text-primary border border-primary/30",
-  phoneNumber: "text-white opacity-80 text-lg",
+    "inline-block text-md font-semibold tracking-[0.08em] uppercase px-2 py-[3px] rounded-md bg-[#099EC8]/15 text-[#4FC3E8] border border-[#099EC8]/35",
+  phoneNumber:
+    "text-white text-[0.98rem] font-medium tracking-wide group-hover:text-[#4FC3E8] transition-colors",
 
-  // ===== Short Code / Support Number Highlight (Featured Card) =====
+  // Support widget
   supportCard:
-    "flex flex-col gap-3 bg-primary/10 border border-primary/30 rounded-xl p-3 mt-4",
-  supportInfo: "flex items-center gap-3",
+    "relative flex flex-col gap-3 rounded-2xl p-4 mt-3 overflow-hidden bg-gradient-to-br from-[#099EC8]/20 via-[#099EC8]/10 to-transparent border border-[#099EC8]/40 shadow-[0_8px_24px_-8px_rgba(9,158,200,0.5)]",
+  supportGlow:
+    "pointer-events-none absolute -top-10 -right-10 w-32 h-32 rounded-full bg-[#099EC8]/30 blur-3xl",
+  supportInfo: "relative flex items-center gap-3",
   supportIconWrapper:
-    "w-9 h-9 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0 text-primary",
-  supportLabel: "text-lg font-bold text-primary block",
-  supportNumberText: "text-lg font-[400] tracking-wider text-white",
-  supportNumbersRow: "flex items-center gap-2 flex-wrap",
-  supportNumberRow: "flex items-center gap-2 flex-wrap",
+    "w-10 h-10 rounded-xl bg-gradient-to-br from-[#099EC8]/40 to-[#099EC8]/10 border border-[#099EC8]/50 flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_-4px_rgba(9,158,200,0.7)]",
+  supportLabel:
+    "text-[0.95rem] font-bold text-[#4FC3E8] uppercase tracking-[0.1em] block",
+  supportNumberText:
+    "relative text-lg font-semibold tracking-[0.05em] text-white",
+  supportNumberRow: "relative flex items-center gap-2 flex-wrap",
 
-  // Links
-  linkBase: "transition text-lg",
-  linkActive: "text-primary font-bold opacity-100",
-  linkInactive: "opacity-80 hover:opacity-100 text-white",
-
-  // Divider & copyright
-  divider: "w-full h-[0.01rem] bg-[#FFFFFF40] mt-[4rem]",
+  // ===== Divider & copyright =====
+  divider:
+    "w-full h-px bg-gradient-to-r from-transparent via-white/25 to-transparent mt-14",
   copyrightRow:
-    "lg:flex justify-between mt-[2rem] text-white text-lg opacity-80",
+    "lg:flex font-bold justify-between items-center mt-6 text-white/70 text-lg",
 };
-
-// Helper to build link className
-const getLinkClass = (isActive) =>
-  `${classes.linkBase} ${isActive ? classes.linkActive : classes.linkInactive}`;
 
 // ============ COMPONENT ============
 const Footer = ({ contactData, homePageData }) => {
@@ -112,18 +127,19 @@ const Footer = ({ contactData, homePageData }) => {
     return location.pathname.startsWith(path);
   };
 
-  const midIndex = Math.ceil(Links.length / 2);
-  const firstHalf = Links.slice(0, midIndex);
-  const secondHalf = Links.slice(midIndex);
-
   const data = contactData?.data;
 
-  // Reusable link renderer
-  const renderLink = (link, index) => {
+  const renderQuickLink = (link, index) => {
     const isActive = isActiveLink(link.path);
     return (
       <li key={index}>
-        <Link to={link.path} className={getLinkClass(isActive)}>
+        <Link
+          to={link.path}
+          className={`${classes.quickLinkItem} ${
+            isActive ? classes.quickLinkActive : ""
+          }`}
+        >
+          <span className={classes.quickLinkDot}></span>
           {link.name}
         </Link>
       </li>
@@ -133,9 +149,14 @@ const Footer = ({ contactData, homePageData }) => {
   return (
     <div className={classes.wrapper}>
       <footer className={classes.footer}>
+        {/* Decorative glows */}
+        <div className={classes.glowTop}></div>
+        <div className={classes.glowBottom}></div>
+
         <div className={classes.container}>
+          {/* ===== 3-Column Main Grid ===== */}
           <div className={classes.mainGrid}>
-            {/* First column */}
+            {/* ===== Column 1: Logo + Description + Quick Links ===== */}
             <div className={classes.firstCol}>
               <img
                 src={homePageData?.data?.footer?.logo}
@@ -146,12 +167,43 @@ const Footer = ({ contactData, homePageData }) => {
                 {homePageData?.data?.footer?.description}
               </p>
 
-              {/* ===== Note / Disclaimer under description ===== */}
+              {/* Quick Links */}
+              <div className={classes.quickLinksWrapper}>
+                <div className={classes.quickLinksHeader}>
+                  <div className={classes.quickLinksIconWrapper}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={classes.quickLinksIcon}
+                    >
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                    </svg>
+                  </div>
+                  <span className={classes.quickLinksTitle}>
+                    {t("quick_links")}
+                  </span>
+                </div>
+                <ul className={classes.quickLinksGrid}>
+                  {Links.map(renderQuickLink)}
+                </ul>
+              </div>
+            </div>
+
+            {/* ===== Column 2: Notice ===== */}
+            <div className={classes.noticeCol}>
               {homePageData?.data?.footer?.note && (
                 <div className={classes.noteWrapper}>
+                  <span className={classes.noteAccent}></span>
+                  <div className={classes.noteGlow}></div>
+
                   <div className={classes.noteHeader}>
                     <div className={classes.noteIconWrapper}>
-                      {/* Info icon */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -178,172 +230,148 @@ const Footer = ({ contactData, homePageData }) => {
               )}
             </div>
 
-            {/* Second column */}
-            <div className={classes.secondCol}>
-              <div className={classes.innerGrid}>
-                {/* Column 1 - Quick Links (first half) */}
-                <div className={classes.linkColumn1}>
-                  <h1 className={classes.sectionTitle}>{t("quick_links")}</h1>
-                  <ul className={classes.linkList1}>
-                    {firstHalf.map(renderLink)}
-                  </ul>
-                </div>
+            {/* ===== Column 3: Contact ===== */}
+            <div className={classes.contactCol}>
+              <h3 className={classes.contactTitle}>{t("contact_us")}</h3>
+              <div className={classes.contactWrapper}>
+                {/* Branch 1 */}
+                <div className={classes.branchWrapper}>
+                  <h3 className={classes.branchTitle}>{data?.title1}</h3>
 
-                {/* Column 2 - Quick Links (second half) */}
-                <div className={classes.linkColumn2(currentLang)}>
-                  <ul className={classes.linkList2}>
-                    {secondHalf.map(renderLink)}
-                  </ul>
-                </div>
-
-                {/* Column 3 - Contact Us & Branches */}
-                <div
-                  className={`${i18next.language == "en" ? "lg:ml-[-6rem]" : "lg:mr-[-6rem]"} col-span-2 lg:col-span-1 md:col-span-2`}
-                >
-                  <h1 className={classes.contactTitle}>{t("contact_us")}</h1>
-                  <div className={classes.contactWrapper}>
-                    {/* Branch 1 - General Management */}
-                    <div className={classes.branchWrapper}>
-                      <h3 className={classes.branchTitle}>{data?.title1}</h3>
-
-                      {/* Phones */}
-                      {(data?.first_phone || data?.second_phone) && (
-                        <div className={classes.contactRow}>
-                          <img
-                            src={callFooter}
-                            alt="Phone"
-                            className={classes.contactIcon}
-                          />
-                          <div className={classes.contactColFlex}>
-                            {data?.first_phone && (
-                              <div className={classes.phoneRow}>
-                                <span className={classes.phoneNumber}>
-                                  {data.first_phone}
-                                </span>
-                                <span className={classes.phoneLabel}>
-                                  {i18next.t("footer.managing_director")}
-                                </span>
-                              </div>
-                            )}
-                            {data?.second_phone && (
-                              <div className={classes.phoneRow}>
-                                <span className={classes.phoneNumber}>
-                                  {data.second_phone}
-                                </span>
-                                <span className={classes.phoneLabel}>
-                                  {i18next.t("footer.managing_director")}
-                                </span>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Emails */}
-                      {(data?.first_email || data?.second_email) && (
-                        <div className={classes.contactRow}>
-                          <img
-                            src={emailFooter}
-                            alt="Email"
-                            className={classes.contactIcon}
-                          />
-                          <div className={classes.contactColFlex}>
-                            {data?.first_email && (
-                              <span className={classes.contactText}>
-                                {data.first_email}
-                              </span>
-                            )}
-                            {data?.second_email && (
-                              <span className={classes.contactText}>
-                                {data.second_email}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Branch 2 - Al-Rusafa */}
-                    <div className={classes.branchWrapper}>
-                      <h3 className={classes.branchTitle}>{data?.title2}</h3>
-
-                      {data?.third_phone && (
-                        <div className={classes.contactRow}>
-                          <img
-                            src={callFooter}
-                            alt="Phone"
-                            className={classes.contactIcon}
-                          />
+                  {(data?.first_phone || data?.second_phone) && (
+                    <div className={classes.contactRow}>
+                      <div className={classes.contactIconWrapper}>
+                        <img
+                          src={callFooter}
+                          alt="Phone"
+                          className={classes.contactIcon}
+                        />
+                      </div>
+                      <div className={classes.contactColFlex}>
+                        {data?.first_phone && (
                           <div className={classes.phoneRow}>
                             <span className={classes.phoneNumber}>
-                              {data.third_phone}
+                              {data.first_phone}
                             </span>
                             <span className={classes.phoneLabel}>
-                              {i18next.t("footer.deputy_director")}
+                              {i18next.t("footer.managing_director")}
                             </span>
                           </div>
+                        )}
+                        {data?.second_phone && (
+                          <div className={classes.phoneRow}>
+                            <span className={classes.phoneNumber}>
+                              {data.second_phone}
+                            </span>
+                            <span className={classes.phoneLabel}>
+                              {i18next.t("footer.managing_director")}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {(data?.first_email || data?.second_email) && (
+                    <div className={classes.contactRow}>
+                      <div className={classes.contactIconWrapper}>
+                        <img
+                          src={emailFooter}
+                          alt="Email"
+                          className={classes.contactIcon}
+                        />
+                      </div>
+                      <div className={classes.contactColFlex}>
+                        {data?.first_email && (
+                          <span className={classes.contactText}>
+                            {data.first_email}
+                          </span>
+                        )}
+                        {data?.second_email && (
+                          <span className={classes.contactText}>
+                            {data.second_email}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Branch 2 */}
+                <div className={classes.branchWrapper}>
+                  <h3 className={classes.branchTitle}>{data?.title2}</h3>
+
+                  {data?.third_phone && (
+                    <div className={classes.contactRow}>
+                      <div className={classes.contactIconWrapper}>
+                        <img
+                          src={callFooter}
+                          alt="Phone"
+                          className={classes.contactIcon}
+                        />
+                      </div>
+                      <div className={classes.phoneRow + " self-center"}>
+                        <span className={classes.phoneNumber}>
+                          {data.third_phone}
+                        </span>
+                        <span className={classes.phoneLabel}>
+                          {i18next.t("footer.deputy_director")}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {data?.third_email && (
+                    <div className={classes.contactRow}>
+                      <div className={classes.contactIconWrapper}>
+                        <img
+                          src={emailFooter}
+                          alt="Email"
+                          className={classes.contactIcon}
+                        />
+                      </div>
+                      <span className={classes.contactText}>
+                        {data.third_email}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Support Widget */}
+                {(data?.support_number || data?.support_number_2) && (
+                  <div className={classes.supportCard}>
+                    <div className={classes.supportGlow}></div>
+
+                    <div className={classes.supportInfo}>
+                      <div className={classes.supportIconWrapper}>
+                        <img
+                          src={callFooter}
+                          alt="Support"
+                          className="w-4 h-4 brightness-200"
+                        />
+                      </div>
+                      <span className={classes.supportLabel}>
+                        {i18next.t("footer.customer_service")}
+                      </span>
+                    </div>
+                    <div className="relative flex flex-col gap-2">
+                      {data?.support_number && (
+                        <div className={classes.supportNumberRow}>
+                          <span className={classes.supportNumberText}>
+                            {data.support_number}
+                          </span>
                         </div>
                       )}
-
-                      {data?.third_email && (
-                        <div className={classes.contactRow}>
-                          <img
-                            src={emailFooter}
-                            alt="Email"
-                            className={classes.contactIcon}
-                          />
-                          <span className={classes.contactText}>
-                            {data.third_email}
+                      {data?.support_number_2 && (
+                        <div className={classes.supportNumberRow}>
+                          <span className={classes.supportNumberText}>
+                            {data.support_number_2}
                           </span>
                         </div>
                       )}
                     </div>
-
-                    {/* ===== Support Number / Short Code Widget (خدمة الزبائن) ===== */}
-                    {(data?.support_number || data?.support_number_2) && (
-                      <div className={classes.supportCard}>
-                        <div className={classes.supportInfo}>
-                          <div className={classes.supportIconWrapper}>
-                            <img
-                              src={callFooter}
-                              alt="Support"
-                              className="w-4 h-4 brightness-200"
-                            />
-                          </div>
-                          <span className={classes.supportLabel}>
-                            {i18next.t("footer.customer_service")}
-                          </span>
-                        </div>
-
-                        <div className="flex flex-col gap-2">
-                          {/* Support Number 1 */}
-                          {data?.support_number && (
-                            <div className={classes.supportNumberRow}>
-                              <span className={classes.supportNumberText}>
-                                {data.support_number}
-                              </span>
-                              <span className={classes.phoneLabel}>
-                                {i18next.t("footer.short_number")}
-                              </span>
-                            </div>
-                          )}
-
-                          {/* Support Number 2 */}
-                          {data?.support_number_2 && (
-                            <div className={classes.supportNumberRow}>
-                              <span className={classes.supportNumberText}>
-                                {data.support_number_2}
-                              </span>
-                              <span className={classes.phoneLabel}>
-                                {i18next.t("footer.short_number")}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    )}
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>

@@ -6,10 +6,11 @@ import "swiper/css/pagination";
 import "./servicesStyle.css";
 import BranchCard from "../../../ui/branchCard";
 import i18next from "i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const OurBranches = ({ homePageData }) => {
   const allBranches = homePageData?.data?.branches || [];
+  const navigate = useNavigate();
 
   // 🔥 افصل الفرع الرئيسي عن الباقي
   const mainBranch = allBranches.find((b) => b.is_main);
@@ -20,6 +21,16 @@ const OurBranches = ({ homePageData }) => {
 
   const branchesTitle =
     homePageData?.data?.home_page?.our_branches_title || "Our Branches";
+
+  // 🔥 helper to open WhatsApp
+  const openWhatsApp = (number) => {
+    const cleanNumber = number.replace(/[^0-9]/g, "");
+    window.open(
+      `https://wa.me/${cleanNumber}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
 
   return (
     <div className="w-full lg:mt-[4rem] mt-[2rem] py-[2rem] h-auto bg-[#FFFFFF] overflow-hidden">
@@ -34,8 +45,12 @@ const OurBranches = ({ homePageData }) => {
       {/* 🔥 Main Branch Featured Card */}
       {mainBranch && (
         <div className="w-full px-[1rem] lg:px-[4rem] mb-[3rem]">
-         <Link to={`/${i18next.language}/branch/${mainBranch.id}`}>
-          <div className="relative bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-[1.875rem] overflow-hidden border border-primary/20 shadow-lg hover:shadow-2xl transition-all duration-500">
+          <div
+            onClick={() =>
+              navigate(`/${i18next.language}/branch/${mainBranch.id}`)
+            }
+            className="relative cursor-pointer bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-[1.875rem] overflow-hidden border border-primary/20 shadow-lg hover:shadow-2xl transition-all duration-500"
+          >
             {/* Badge */}
             <div className="absolute top-[1rem] ltr:right-[1rem] rtl:left-[1rem] z-20 flex items-center gap-[0.5rem] bg-primary text-white px-[1rem] py-[0.375rem] rounded-full text-[0.875rem] font-semibold shadow-lg">
               <svg
@@ -51,7 +66,6 @@ const OurBranches = ({ homePageData }) => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               {/* Image */}
-              {/* Image */}
               <div className="relative min-h-[17.5rem] lg:min-h-[26.25rem] overflow-hidden group">
                 <img
                   src={mainBranch.image}
@@ -60,6 +74,7 @@ const OurBranches = ({ homePageData }) => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent lg:bg-gradient-to-r" />
               </div>
+
               {/* Content */}
               <div className="p-[1.5rem] lg:p-[2.5rem] flex flex-col justify-center">
                 <h2 className="text-primary font-bold text-[1.5rem] lg:text-[1.875rem] mb-[1rem]">
@@ -74,6 +89,7 @@ const OurBranches = ({ homePageData }) => {
 
                 {/* Info Row */}
                 <div className="space-y-[0.75rem] mb-[1.5rem]">
+                  {/* Address */}
                   {mainBranch.address && (
                     <div className="flex items-start gap-[0.75rem]">
                       <div className="w-[2.25rem] h-[2.25rem] rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -92,6 +108,7 @@ const OurBranches = ({ homePageData }) => {
                     </div>
                   )}
 
+                  {/* Phone */}
                   {mainBranch.number && mainBranch.number !== "00000000000" && (
                     <div className="flex items-center gap-[0.75rem]">
                       <div className="w-[2.25rem] h-[2.25rem] rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -105,11 +122,45 @@ const OurBranches = ({ homePageData }) => {
                         </svg>
                       </div>
                       <a
-                        href={`tel:${mainBranch.number}`}
+                        href={`https://wa.me/${mainBranch.number.replace(
+                          /[^0-9]/g,
+                          "",
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="text-gray-700 text-md lg:text-lg pt-[0.375rem] hover:text-primary transition-colors"
                         dir="ltr"
                       >
                         {mainBranch.number}
+                      </a>
+                    </div>
+                  )}
+
+                  {/* Email */}
+                  {mainBranch.email && (
+                    <div className="flex items-center gap-[0.75rem]">
+                      <div className="w-[2.25rem] h-[2.25rem] rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-[1rem] h-[1rem] text-primary"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                      </div>
+                      <a
+                        href={`mailto:${mainBranch.email}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          window.location.href = `mailto:${mainBranch.email}`;
+                        }}
+                        className="text-gray-700 text-md lg:text-lg pt-[0.375rem] hover:text-primary transition-colors break-all"
+                        dir="ltr"
+                      >
+                        {mainBranch.email}
                       </a>
                     </div>
                   )}
@@ -118,8 +169,13 @@ const OurBranches = ({ homePageData }) => {
                 {/* CTA Buttons */}
                 <div className="flex flex-wrap gap-[0.75rem]">
                   {mainBranch.number && mainBranch.number !== "00000000000" && (
-                    <a
-                      href={`tel:${mainBranch.number}`}
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        openWhatsApp(mainBranch.number);
+                      }}
                       className="flex items-center gap-[0.5rem] bg-white text-primary border-[0.125rem] border-primary px-[1.5rem] py-[0.75rem] rounded-[0.75rem] font-semibold text-[0.875rem] hover:bg-primary hover:text-white transition-all shadow-md"
                     >
                       <svg
@@ -131,13 +187,12 @@ const OurBranches = ({ homePageData }) => {
                         <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.57.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.01l-2.2 2.21z" />
                       </svg>
                       {i18next.t("branches.call_now")}
-                    </a>
+                    </button>
                   )}
                 </div>
               </div>
             </div>
           </div>
-         </Link>
         </div>
       )}
 
