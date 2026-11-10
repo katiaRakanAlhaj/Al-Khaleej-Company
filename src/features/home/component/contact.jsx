@@ -30,7 +30,7 @@ const Contact = ({ contactData ,homePageData}) => {
           </div>
 
           {/* Glassmorphic Help Card */}
-          <div className="lg:px-[4rem]">
+          {/* <div className="lg:px-[4rem]">
             <div className="backdrop-blur-sm lg:h-[18rem] h-[15rem] bg-[#D9D9D933] border lg:mt-[10rem] mt-[3rem] border-white/20 rounded-3xl lg:p-6 p-3 shadow-xl">
               <h3 className="lg:text-3xl text-[1.5rem] mt-[1.5rem] font-bold text-white mb-4 flex justify-center items-center">
                 {i18next.t("contactGrid.need_help")}
@@ -45,13 +45,13 @@ const Contact = ({ contactData ,homePageData}) => {
                 </div>
                 <div>
                   <p className="text-white text-xl">{i18next.t("contact.phone")}</p>
-                  <p className="lg:text-4xl text-[1rem] mt-2 font-bold text-nowrap text-white">
+                  <p className="lg:text-3xl text-[1rem] mt-2 font-bold text-nowrap text-white">
                     {i18next.t("contactGrid.Call")}: {contactData?.data?.support_number}
                   </p>
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Right Column: Form - With margin */}

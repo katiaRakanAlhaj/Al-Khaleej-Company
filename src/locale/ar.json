@@ -4,7 +4,7 @@
             "home": "الرئيسية",
             "about": "من نحن",
             "services": "الخدمات",
-            "projects": "المشاريع",
+            "projects": "أعمالنا",
             "news": "الأخبار",
             "branches": "الفروع",
             "clients": "العملاء",
@@ -112,7 +112,8 @@
         "RESPONSIBLE_AUTHORITY": "الجهة المسؤولة",
         "PROJECT_TYPE": "نوع المشروع",
         "YEAR": "السنة",
-        "filters_active": "الفلاتر النشطة"
+        "filters_active": "الفلاتر النشطة",
+        "All":"كل المشاريع"
     },
     "read_more": "اقرأ المزيد",
     "last_news": "آخر الأخبار",

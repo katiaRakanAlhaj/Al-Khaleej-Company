@@ -38,12 +38,12 @@ const Projects = () => {
           description={projectsData?.data?.meta_description}
         />
         <ProjectsBanner projectsData={projectsData} />
-        <ProjectPartnerships projectsData={projectsData} />
+        {/* <ProjectPartnerships projectsData={projectsData} /> */}
         <ProjectsFilter
           engineeringProjectsData={engineeringProjectsData}
           projectsData={projectsData}
         />
-        <ProjectsSpeclalizedCoverage projectsData={projectsData} />
+        {/* <ProjectsSpeclalizedCoverage projectsData={projectsData} /> */}
       </HelmetProvider>
     </div>
   );

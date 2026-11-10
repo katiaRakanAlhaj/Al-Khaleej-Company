@@ -4,7 +4,7 @@
             "home": "Home",
             "about": "About",
             "services": "Services",
-            "projects": "Projects",
+            "projects": "Our Works",
             "news": "News",
             "branches": "Branches",
             "clients": "Clients",
@@ -113,7 +113,8 @@
         "RESPONSIBLE_AUTHORITY": "RESPONSIBLE AUTHORITY",
         "PROJECT_TYPE": "PROJECT TYPE",
         "YEAR": "YEAR",
-        "filters_active": "filters active"
+        "filters_active": "filters active",
+        "All":"All Projects"
     },
     "read_more": "Read More",
     "last_news": "Latest News",

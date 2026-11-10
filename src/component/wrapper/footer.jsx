@@ -7,27 +7,19 @@ import i18next from "i18next";
 
 // ============ EXTRACTED CLASSES ============
 const classes = {
-  // ===== Wrapper =====
   wrapper: "lg:mt-[6rem] mt-[3rem] overflow-hidden",
   footer:
     "relative bg-gradient-to-br from-[#2c3644] via-[#384454] to-[#2a3340] text-white pt-20 pb-8 font-sans",
-  // Decorative glow overlays
   glowTop:
     "pointer-events-none absolute -top-32 -left-32 w-[28rem] h-[28rem] rounded-full bg-[#099EC8]/20 blur-[120px]",
   glowBottom:
     "pointer-events-none absolute -bottom-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-[#099EC8]/10 blur-[120px]",
   container: "container1 mx-auto relative z-10",
-
-  // ===== Grids =====
   mainGrid: "grid lg:grid-cols-12 grid-cols-1 gap-10 lg:gap-8",
-
-  // ===== Column 1: Logo + Description + Quick Links =====
   firstCol: "lg:col-span-4 col-span-1",
   logoImg: "h-14 w-auto object-contain drop-shadow-lg",
   description:
     "text-white/85 font-[400] whitespace-break-spaces mt-5 leading-relaxed text-lg lg:w-[92%] w-[95%]",
-
-  // Quick Links
   quickLinksWrapper: "mt-8",
   quickLinksHeader: "flex items-center gap-3 mb-5",
   quickLinksIconWrapper:
@@ -42,8 +34,6 @@ const classes = {
     "w-1.5 h-1.5 rounded-full bg-[#099EC8]/50 group-hover:bg-[#4FC3E8] group-hover:shadow-[0_0_8px_rgba(9,158,200,0.9)] transition-all duration-300 flex-shrink-0",
   quickLinkActive:
     "text-[#4FC3E8] font-semibold [&>span]:bg-[#4FC3E8] [&>span]:shadow-[0_0_8px_rgba(9,158,200,0.9)]",
-
-  // ===== Column 2: Notice =====
   noticeCol: "lg:col-span-4 col-span-1 flex items-start",
   noteWrapper:
     "relative w-full rounded-2xl overflow-hidden backdrop-blur-xl bg-gradient-to-br from-white/[0.12] to-white/[0.04] border border-white/20 p-6 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.4)]",
@@ -58,8 +48,6 @@ const classes = {
   noteTitle: "text-[#4FC3E8] font-bold text-lg uppercase tracking-[0.18em]",
   noteText:
     "relative text-white/90 text-[1.02rem] leading-relaxed whitespace-pre-line font-[400]",
-
-  // ===== Column 3: Contact =====
   contactCol: "lg:col-span-4 col-span-1",
   contactTitle:
     "font-bold text-lg uppercase tracking-[0.15em] text-white mb-6 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-[2px] after:bg-gradient-to-r after:from-[#099EC8] after:to-transparent",
@@ -67,8 +55,6 @@ const classes = {
   branchWrapper:
     "relative pl-4 border-l border-white/10 hover:border-[#099EC8]/50 transition-colors duration-300 space-y-3",
   branchTitle: "text-[#4FC3E8] font-bold text-lg tracking-wide",
-
-  // Contact rows & Icon Wrapper (Matched with Notice Icon Style)
   contactRow: "flex items-start gap-3 group",
   contactIconWrapper:
     "w-9 h-9 rounded-xl bg-gradient-to-br from-[#099EC8]/40 to-[#099EC8]/10 border border-[#099EC8]/50 flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_-4px_rgba(9,158,200,0.6)] group-hover:border-[#099EC8] transition-all duration-300",
@@ -76,15 +62,11 @@ const classes = {
   contactText:
     "text-white/90 text-[0.98rem] group-hover:text-white transition-colors break-all self-center",
   contactColFlex: "flex flex-col gap-2.5 justify-center",
-
-  // Phone label
   phoneRow: "flex items-center gap-2 flex-wrap",
   phoneLabel:
     "inline-block text-md font-semibold tracking-[0.08em] uppercase px-2 py-[3px] rounded-md bg-[#099EC8]/15 text-[#4FC3E8] border border-[#099EC8]/35",
   phoneNumber:
     "text-white text-[0.98rem] font-medium tracking-wide group-hover:text-[#4FC3E8] transition-colors",
-
-  // Support widget
   supportCard:
     "relative flex flex-col gap-3 rounded-2xl p-4 mt-3 overflow-hidden bg-gradient-to-br from-[#099EC8]/20 via-[#099EC8]/10 to-transparent border border-[#099EC8]/40 shadow-[0_8px_24px_-8px_rgba(9,158,200,0.5)]",
   supportGlow:
@@ -97,12 +79,21 @@ const classes = {
   supportNumberText:
     "relative text-lg font-semibold tracking-[0.05em] text-white",
   supportNumberRow: "relative flex items-center gap-2 flex-wrap",
-
-  // ===== Divider & copyright =====
   divider:
     "w-full h-px bg-gradient-to-r from-transparent via-white/25 to-transparent mt-14",
   copyrightRow:
     "lg:flex font-bold justify-between items-center mt-6 text-white/70 text-lg",
+};
+
+// ============ LOCALIZATION HELPER ============
+// Only used for { en, ar } objects (name1 / name2)
+const loc = (value) => {
+  if (value == null) return "";
+  if (typeof value === "string") return value;
+  if (typeof value === "object") {
+    return i18next.language === "en" ? value.en : value.ar;
+  }
+  return String(value);
 };
 
 // ============ COMPONENT ============
@@ -149,12 +140,10 @@ const Footer = ({ contactData, homePageData }) => {
   return (
     <div className={classes.wrapper}>
       <footer className={classes.footer}>
-        {/* Decorative glows */}
         <div className={classes.glowTop}></div>
         <div className={classes.glowBottom}></div>
 
         <div className={classes.container}>
-          {/* ===== 3-Column Main Grid ===== */}
           <div className={classes.mainGrid}>
             {/* ===== Column 1: Logo + Description + Quick Links ===== */}
             <div className={classes.firstCol}>
@@ -167,7 +156,6 @@ const Footer = ({ contactData, homePageData }) => {
                 {homePageData?.data?.footer?.description}
               </p>
 
-              {/* Quick Links */}
               <div className={classes.quickLinksWrapper}>
                 <div className={classes.quickLinksHeader}>
                   <div className={classes.quickLinksIconWrapper}>
@@ -254,7 +242,7 @@ const Footer = ({ contactData, homePageData }) => {
                               {data.first_phone}
                             </span>
                             <span className={classes.phoneLabel}>
-                              {i18next.t("footer.managing_director")}
+                              {loc(data.name1)}   {/* ✅ localized */}
                             </span>
                           </div>
                         )}
@@ -262,9 +250,6 @@ const Footer = ({ contactData, homePageData }) => {
                           <div className={classes.phoneRow}>
                             <span className={classes.phoneNumber}>
                               {data.second_phone}
-                            </span>
-                            <span className={classes.phoneLabel}>
-                              {i18next.t("footer.managing_director")}
                             </span>
                           </div>
                         )}
@@ -315,7 +300,7 @@ const Footer = ({ contactData, homePageData }) => {
                           {data.third_phone}
                         </span>
                         <span className={classes.phoneLabel}>
-                          {i18next.t("footer.deputy_director")}
+                          {loc(data.name2)}   {/* ✅ localized (was hardcoded t()) */}
                         </span>
                       </div>
                     </div>
