@@ -36,10 +36,10 @@ const TableSkeleton = ({ rows = 8 }) => (
           i % 2 === 0 ? "bg-white" : "bg-[#FAFAFB]"
         }`}
       >
+        <div className="h-4 bg-gray-200 rounded animate-pulse w-8" />
         <div className="w-10 h-10 rounded-full bg-gray-200 animate-pulse" />
         <div className="h-4 bg-gray-200 rounded animate-pulse w-1/4" />
-        <div className="h-4 bg-gray-200 rounded animate-pulse w-1/5 hidden md:block" />
-        <div className="h-4 bg-gray-200 rounded animate-pulse w-16 ms-auto" />
+        <div className="h-4 bg-gray-200 rounded animate-pulse w-1/5 hidden md:block ms-auto" />
       </div>
     ))}
   </div>
@@ -64,9 +64,7 @@ const ProjectsFilter = ({ projectsData }) => {
 
   const emptyFilters = {
     company_name: "",
-    responsible_authority: "",
     project_type: "",
-    year: "",
   };
   const [filters, setFilters] = useState(emptyFilters);
   const [debouncedSearch, setDebouncedSearch] = useState("");
@@ -176,7 +174,7 @@ const ProjectsFilter = ({ projectsData }) => {
         <span className={styles.paginationIcon}>
           {isEn() ? <RiArrowDropLeftLine /> : <RiArrowDropRightLine />}
         </span>
-      </div>
+      </div>,
     );
 
     const maxVisible = 5;
@@ -193,7 +191,7 @@ const ProjectsFilter = ({ projectsData }) => {
           onClick={() => handlePageChange(1)}
         >
           <span className="text-sm font-medium">1</span>
-        </div>
+        </div>,
       );
       if (startPage > 2)
         buttons.push(
@@ -202,7 +200,7 @@ const ProjectsFilter = ({ projectsData }) => {
             className="w-[2.5rem] h-[2.5rem] flex justify-center items-center"
           >
             <span className="text-[#C4C6D4]">...</span>
-          </div>
+          </div>,
         );
     }
 
@@ -218,7 +216,7 @@ const ProjectsFilter = ({ projectsData }) => {
           onClick={() => handlePageChange(i)}
         >
           <span className="text-sm font-medium">{i}</span>
-        </div>
+        </div>,
       );
     }
 
@@ -230,7 +228,7 @@ const ProjectsFilter = ({ projectsData }) => {
             className="w-[2.5rem] h-[2.5rem] flex justify-center items-center"
           >
             <span className="text-[#C4C6D4]">...</span>
-          </div>
+          </div>,
         );
       buttons.push(
         <div
@@ -239,7 +237,7 @@ const ProjectsFilter = ({ projectsData }) => {
           onClick={() => handlePageChange(totalPages)}
         >
           <span className="text-sm font-medium">{totalPages}</span>
-        </div>
+        </div>,
       );
     }
 
@@ -256,7 +254,7 @@ const ProjectsFilter = ({ projectsData }) => {
         <span className={styles.paginationIcon}>
           {isEn() ? <RiArrowDropRightLine /> : <RiArrowDropLeftLine />}
         </span>
-      </div>
+      </div>,
     );
 
     return buttons;
@@ -281,6 +279,11 @@ const ProjectsFilter = ({ projectsData }) => {
   const projects = engineeringProjectsData?.data || [];
   const meta = engineeringProjectsData?.meta || {};
   const filteredCount = meta.filtered_count ?? meta.total_projects ?? 0;
+
+  // Serial offset so numbering continues on the next pages
+  const perPage = meta.per_page ?? 10;
+  const page = meta.current_page ?? currentPage;
+  const startNumber = (page - 1) * perPage;
 
   return (
     <div>
@@ -374,16 +377,14 @@ const ProjectsFilter = ({ projectsData }) => {
 
             {showFilters && (
               <div className={styles.filterContainer}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    ["company_name", "Company_Name", "Filter_by_company"],
+                    ["company_name", "Believer_Name", "Filter_by_believer"],
                     [
-                      "responsible_authority",
-                      "Responsible_Authority",
-                      "Filter_by_authority",
+                      "project_type",
+                      "Insurance type",
+                      "Filter_by_insurance_type",
                     ],
-                    ["project_type", "Project_Type", "Filter_by_project_type"],
-                    ["year", "Year", "Filter_by_year"],
                   ].map(([field, label, ph]) => (
                     <div key={field}>
                       <label className={styles.filterLabel}>
@@ -431,31 +432,27 @@ const ProjectsFilter = ({ projectsData }) => {
             </div>
 
             <div className="overflow-x-auto min-h-[39.5rem]">
-              <table className="w-full min-w-[48rem] table-fixed">
+              <table className="w-full min-w-[40rem] table-fixed">
                 <colgroup>
-                  <col style={{ width: "32%" }} />
-                  <col style={{ width: "26%" }} />
-                  <col style={{ width: "30%" }} />
                   <col style={{ width: "12%" }} />
+                  <col style={{ width: "44%" }} />
+                  <col style={{ width: "44%" }} />
                 </colgroup>
 
                 <thead>
                   <tr
                     className={`bg-[#204CA9] ${isEn() ? "text-left" : "text-right"}`}
                   >
-                    {[
-                      "COMPANY_NAME",
-                      "RESPONSIBLE_AUTHORITY",
-                      "PROJECT_TYPE",
-                      "YEAR",
-                    ].map((h) => (
-                      <th
-                        key={h}
-                        className="px-6 h-[3.25rem] text-white font-semibold text-sm uppercase tracking-wider"
-                      >
-                        {i18next.t(`projects.${h}`)}
-                      </th>
-                    ))}
+                    {["Serial", "The believer’s name", "Insurance type"].map(
+                      (h) => (
+                        <th
+                          key={h}
+                          className="px-6 h-[3.25rem] text-white font-semibold text-sm uppercase tracking-wider"
+                        >
+                          {i18next.t(`projects.${h}`)}
+                        </th>
+                      ),
+                    )}
                   </tr>
                 </thead>
 
@@ -464,10 +461,6 @@ const ProjectsFilter = ({ projectsData }) => {
                     projects.map((project, index) => {
                       const name =
                         project.company_name || project.company || "";
-                      const authority =
-                        project.responsible_authority ||
-                        project.authority ||
-                        "-";
                       const type =
                         project.project_type || project.projectType || "";
 
@@ -481,11 +474,17 @@ const ProjectsFilter = ({ projectsData }) => {
                             index % 2 === 0 ? "bg-white" : "bg-[#FAFAFB]"
                           }`}
                         >
+                          {/* Serial (1, 2, 3... continues across pages) */}
+                          <td className="px-6 text-[#434652] font-medium">
+                            {startNumber + index + 1}
+                          </td>
+
+                          {/* Name */}
                           <td className="px-6">
                             <div className="flex items-center gap-3 min-w-0">
-                              <span className="w-10 h-10 rounded-full bg-[#F2F3FF] text-[#204CA9] flex items-center justify-center font-bold shrink-0 transition-transform duration-300 group-hover:scale-110">
+                              {/* <span className="w-10 h-10 rounded-full bg-[#F2F3FF] text-[#204CA9] flex items-center justify-center font-bold shrink-0 transition-transform duration-300 group-hover:scale-110">
                                 {name.charAt(0).toUpperCase()}
-                              </span>
+                              </span> */}
                               <span
                                 className="font-bold text-[#131B2E] truncate"
                                 title={name}
@@ -494,25 +493,19 @@ const ProjectsFilter = ({ projectsData }) => {
                               </span>
                             </div>
                           </td>
-                          <td className="px-6 text-[#434652]">
-                            <span className="block truncate" title={authority}>
-                              {authority}
-                            </span>
-                          </td>
+
+                          {/* Insurance type */}
                           <td className="px-6 text-[#434652]">
                             <span className="block truncate" title={type}>
                               {type}
                             </span>
-                          </td>
-                          <td className="px-6 text-[#434652] font-medium">
-                            {project.year}
                           </td>
                         </motion.tr>
                       );
                     })
                   ) : (
                     <tr>
-                      <td colSpan="4" className="h-[36rem]">
+                      <td colSpan="3" className="h-[36rem]">
                         <div className="flex flex-col items-center justify-center gap-3 text-[#434652]">
                           <span className="w-16 h-16 rounded-full bg-[#F2F3FF] text-[#204CA9] flex items-center justify-center text-3xl">
                             <RiInboxLine />

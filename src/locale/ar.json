@@ -1,178 +1,184 @@
 {
-    "navbar": {
-        "navLinks": {
-            "home": "الرئيسية",
-            "about": "من نحن",
-            "services": "الخدمات",
-            "projects": "أعمالنا",
-            "news": "الأخبار",
-            "branches": "الفروع",
-            "clients": "العملاء",
-            "contactUs": "اتصل بنا"
-        },
-        "socialMedia": {
-            "facebook": "فيسبوك",
-            "instagram": "انستغرام",
-            "linkedin": "لينكد إن",
-            "twitter": "تويتر"
-        },
-        "contactInfo": {
-            "phone": "هاتف",
-            "email": "البريد الإلكتروني",
-            "address": "العنوان"
-        },
-        "language": {
-            "english": "الإنجليزية",
-            "arabic": "العربية"
-        },
-        "logoAlt": "الشعار"
+  "navbar": {
+    "navLinks": {
+      "home": "الرئيسية",
+      "about": "من نحن",
+      "services": "الخدمات",
+      "projects": "أعمالنا",
+      "news": "الأخبار",
+      "branches": "الفروع",
+      "clients": "العملاء",
+      "contactUs": "اتصل بنا"
     },
-    "Services": {
-        "our_services": "خدماتنا",
-        "Service_Details": "تفاصيل الخدمة"
+    "socialMedia": {
+      "facebook": "فيسبوك",
+      "instagram": "انستغرام",
+      "linkedin": "لينكد إن",
+      "twitter": "تويتر"
     },
-    "aboutUs": {
-        "about_us": "من نحن",
-        "Licensed & Financially Secure": "مرخص وآمن مالياً",
-        "our_vission_title": "رؤيتنا",
-        "our_vission": "رؤيتنا وشركاؤنا",
-        "Our_Partners": "شركاؤنا"
+    "contactInfo": {
+      "phone": "هاتف",
+      "email": "البريد الإلكتروني",
+      "address": "العنوان"
     },
-    "WorkProcess": {
-        "work_process": "عملية العمل",
-        "work_steps": "عملية عملنا في 4 خطوات"
+    "language": {
+      "english": "الإنجليزية",
+      "arabic": "العربية"
     },
-    "Protection": {
-        "prtection_title": "الحماية التي تهمك",
-        "donwload_pdf": "تحميل ملف",
-        "downloading": "جاري التحميل..."
-    },
-    "chooseUs": {
-        "choose_us_title": "لماذا نحن؟"
-    },
-    "branches": {
-        "branches_title": "فروعنا",
-        "more_branches": "فروع إضافية",
-        "main_branch":"الفرع الرئيسي",
-        "call_now":"اتصل الآن",
-        "other_branches":"فروعنا الأخرى"
-    },
-    "contact": {
-        "title": "تواصل معنا",
-        "first_name": "الاسم الأول",
-        "first_name_placeholder": "أدخل الاسم الأول",
-        "last_name": "اسم العائلة",
-        "last_name_placeholder": "أدخل اسم العائلة",
-        "phone": "رقم الهاتف",
-        "phone_placeholder": "أدخل رقم الهاتف",
-        "email": "البريد الإلكتروني",
-        "email_placeholder": "أدخل البريد الإلكتروني",
-        "message": "الرسالة",
-        "message_placeholder": "أكتب رسالتك",
-        "submit": "إرسال الرسالة",
-        "first_name_required": "الاسم الأول مطلوب",
-        "last_name_required": "اسم العائلة مطلوب",
-        "phone_required": "رقم الهاتف مطلوب",
-        "email_required": "البريد الإلكتروني مطلوب",
-        "message_required": "الرسالة مطلوبة",
-        "sending": "جاري الإرسال...",
-        "email_invalid": "يرجى إدخال بريد إلكتروني صحيح",
-        "success_message": "تم إرسال رسالتك بنجاح!",
-        "error_message": "فشل إرسال الرسالة. يرجى المحاولة مرة أخرى."
-    },
-    "clients": {
-        "our_clients": "عملاؤنا"
-    },
-    "projects": {
-        "Key_Partnerships": "الشراكات الرئيسية",
-        "Engineering_Projects": "المشاريع الهندسية",
-        "Filter_projects": "تصفية المشاريع...",
-        "SPECIALIZED_COVERAGE": "تغطية متخصصة",
-        "our_projects": "مشاريعنا",
-        "Search_anything": "ابحث عن أي شيء...",
-        "Search": "بحث",
-        "Hide_Filters": "إخفاء الفلاتر",
-        "Filters": "فلاتر",
-        "Company_Name": "اسم الشركة",
-        "Responsible_Authority": "الجهة المسؤولة",
-        "Project_Type": "نوع المشروع",
-        "Year": "السنة",
-        "Filter_by_company": "تصفية حسب الشركة...",
-        "Filter_by_authority": "تصفية حسب الجهة...",
-        "Filter_by_project_type": "تصفية حسب نوع المشروع...",
-        "Filter_by_year": "تصفية حسب السنة...",
-        "Clear_All_Filters": "مسح جميع الفلاتر",
-        "Showing": "عرض",
-        "of": "من",
-        "projects": "مشاريع",
-        "filtered": "(مصفى)",
-        "No_projects_found": "لا توجد مشاريع",
-        "Error_loading_projects": "خطأ في تحميل المشاريع",
-        "COMPANY_NAME": "اسم الشركة",
-        "RESPONSIBLE_AUTHORITY": "الجهة المسؤولة",
-        "PROJECT_TYPE": "نوع المشروع",
-        "YEAR": "السنة",
-        "filters_active": "الفلاتر النشطة",
-        "All":"كل المشاريع"
-    },
-    "read_more": "اقرأ المزيد",
-    "last_news": "آخر الأخبار",
-    "quick_links": "روابط سريعة",
-    "contact_us": "اتصل بنا",
-    "BranchDetailsMain": {
-        "Hours": "مواعيد العمل",
-        "Contact": "وسائل التواصل",
-        "Services": "الخدمات المقدمة",
-        "Location": "العنوان",
-        "Sunday": "الأحد",
-        "Monday": "الإثنين",
-        "Tuesday": "الثلاثاء",
-        "Wednesday": "الأربعاء",
-        "Thursday": "الخميس",
-        "Friday": "الجمعة",
-        "Saturday": "السبت",
-        "Closed": "مغلق",
-        "to": "إلى"
-    },
-    "ContactHeader": {
-        "Headquarters": "المقر الرئيسي",
-        "CustomerSupport": "دعم العملاء",
-        "GeneralInquiries": "الاستفسارات العامة",
-        "BusinessHours": "ساعات العمل",
-        "Sunday": "الأحد",
-        "Monday": "الإثنين",
-        "Tuesday": "الثلاثاء",
-        "Wednesday": "الأربعاء",
-        "Thursday": "الخميس",
-        "Friday": "الجمعة",
-        "Saturday": "السبت",
-        "Closed": "مغلق",
-        "to": "إلى"
-    },
-    "contactGrid": {
-        "have_question": "هل لديك أسئلة؟ تواصل معنا للحصول على الدعم.",
-        "need_help": "هل تحتاج إلى مساعدة؟ تواصل معنا اليوم!",
-        "Call": "اتصل بنا"
-    },
-    "errorMessage": {
-        "errorOops": "عذرًا!",
-        "errorMessage": "حدث خطأ ما. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.",
-        "errorRetryButton": "إعادة المحاولة"
-    },
-    "pagination": {
-        "previous": "السابق",
-        "next": "التالي"
-    },
-    "emptyNews": {
-        "no_content": "لا يوجد محتوى متاح",
-        "no_news": "لا توجد تفاصيل أو أقسام متاحة لهذا المقال الإخباري بعد. يرجى التحقق مرة أخرى لاحقاً."
-    },
-    "footer":{
-        "managing_director":"المدير المفوض",
-        "deputy_director":"نائب المدير",
-        "customer_service":"خدمة العملاء",
-        "short_number":"الرقم المختصر",
-        "note_title":"إشعار مهم"
-    }
-
+    "logoAlt": "الشعار"
+  },
+  "Services": {
+    "our_services": "خدماتنا",
+    "Service_Details": "تفاصيل الخدمة"
+  },
+  "aboutUs": {
+    "about_us": "من نحن",
+    "Licensed & Financially Secure": "مرخص وآمن مالياً",
+    "our_vission_title": "رؤيتنا",
+    "our_vission": "رؤيتنا وشركاؤنا",
+    "Our_Partners": "شركاؤنا"
+  },
+  "WorkProcess": {
+    "work_process": "عملية العمل",
+    "work_steps": "عملية عملنا في 4 خطوات"
+  },
+  "Protection": {
+    "prtection_title": "الحماية التي تهمك",
+    "donwload_pdf": "تحميل ملف",
+    "downloading": "جاري التحميل..."
+  },
+  "chooseUs": {
+    "choose_us_title": "لماذا نحن؟"
+  },
+  "branches": {
+    "branches_title": "فروعنا",
+    "more_branches": "فروع إضافية",
+    "main_branch": "الفرع الرئيسي",
+    "call_now": "اتصل الآن",
+    "other_branches": "فروعنا الأخرى"
+  },
+  "contact": {
+    "title": "تواصل معنا",
+    "first_name": "الاسم الأول",
+    "first_name_placeholder": "أدخل الاسم الأول",
+    "last_name": "اسم العائلة",
+    "last_name_placeholder": "أدخل اسم العائلة",
+    "phone": "رقم الهاتف",
+    "phone_placeholder": "أدخل رقم الهاتف",
+    "email": "البريد الإلكتروني",
+    "email_placeholder": "أدخل البريد الإلكتروني",
+    "message": "الرسالة",
+    "message_placeholder": "أكتب رسالتك",
+    "submit": "إرسال الرسالة",
+    "first_name_required": "الاسم الأول مطلوب",
+    "last_name_required": "اسم العائلة مطلوب",
+    "phone_required": "رقم الهاتف مطلوب",
+    "email_required": "البريد الإلكتروني مطلوب",
+    "message_required": "الرسالة مطلوبة",
+    "sending": "جاري الإرسال...",
+    "email_invalid": "يرجى إدخال بريد إلكتروني صحيح",
+    "success_message": "تم إرسال رسالتك بنجاح!",
+    "error_message": "فشل إرسال الرسالة. يرجى المحاولة مرة أخرى."
+  },
+  "clients": {
+    "our_clients": "عملاؤنا"
+  },
+  "projects": {
+    "Key_Partnerships": "الشراكات الرئيسية",
+    "Engineering_Projects": "المشاريع الهندسية",
+    "Filter_projects": "تصفية المشاريع...",
+    "SPECIALIZED_COVERAGE": "تغطية متخصصة",
+    "our_projects": "مشاريعنا",
+    "Search_anything": "ابحث عن أي شيء...",
+    "Search": "بحث",
+    "Hide_Filters": "إخفاء الفلاتر",
+    "Filters": "فلاتر",
+    "Company_Name": "اسم الشركة",
+    "Responsible_Authority": "الجهة المسؤولة",
+    "Project_Type": "نوع المشروع",
+    "Year": "السنة",
+    "Filter_by_company": "تصفية حسب الشركة...",
+    "Filter_by_authority": "تصفية حسب الجهة...",
+    "Filter_by_project_type": "تصفية حسب نوع المشروع...",
+    "Filter_by_year": "تصفية حسب السنة...",
+    "Clear_All_Filters": "مسح جميع الفلاتر",
+    "Showing": "عرض",
+    "of": "من",
+    "projects": "مشاريع",
+    "filtered": "(مصفى)",
+    "No_projects_found": "لا توجد مشاريع",
+    "Error_loading_projects": "خطأ في تحميل المشاريع",
+    "COMPANY_NAME": "اسم الشركة",
+    "RESPONSIBLE_AUTHORITY": "الجهة المسؤولة",
+    "PROJECT_TYPE": "نوع المشروع",
+    "YEAR": "السنة",
+    "filters_active": "الفلاتر النشطة",
+    "All": "كل المشاريع",
+    "The believer’s name": "اسم المؤمن له",
+    "Insurance type": "نوع التأمين",
+    "Serial": "التسلسل",
+    "Believer_Name": "اسم المؤمن",
+    "Insurance_Type": "نوع التأمين",
+    "Filter_by_believer": "تصفية حسب اسم المؤمن",
+    "Filter_by_insurance_type": "تصفية حسب نوع التأمين"
+  },
+  "read_more": "اقرأ المزيد",
+  "last_news": "آخر الأخبار",
+  "quick_links": "روابط سريعة",
+  "contact_us": "اتصل بنا",
+  "BranchDetailsMain": {
+    "Hours": "مواعيد العمل",
+    "Contact": "وسائل التواصل",
+    "Services": "الخدمات المقدمة",
+    "Location": "العنوان",
+    "Sunday": "الأحد",
+    "Monday": "الإثنين",
+    "Tuesday": "الثلاثاء",
+    "Wednesday": "الأربعاء",
+    "Thursday": "الخميس",
+    "Friday": "الجمعة",
+    "Saturday": "السبت",
+    "Closed": "مغلق",
+    "to": "إلى"
+  },
+  "ContactHeader": {
+    "Headquarters": "المقر الرئيسي",
+    "CustomerSupport": "دعم العملاء",
+    "GeneralInquiries": "الاستفسارات العامة",
+    "BusinessHours": "ساعات العمل",
+    "Sunday": "الأحد",
+    "Monday": "الإثنين",
+    "Tuesday": "الثلاثاء",
+    "Wednesday": "الأربعاء",
+    "Thursday": "الخميس",
+    "Friday": "الجمعة",
+    "Saturday": "السبت",
+    "Closed": "مغلق",
+    "to": "إلى"
+  },
+  "contactGrid": {
+    "have_question": "هل لديك أسئلة؟ تواصل معنا للحصول على الدعم.",
+    "need_help": "هل تحتاج إلى مساعدة؟ تواصل معنا اليوم!",
+    "Call": "اتصل بنا"
+  },
+  "errorMessage": {
+    "errorOops": "عذرًا!",
+    "errorMessage": "حدث خطأ ما. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.",
+    "errorRetryButton": "إعادة المحاولة"
+  },
+  "pagination": {
+    "previous": "السابق",
+    "next": "التالي"
+  },
+  "emptyNews": {
+    "no_content": "لا يوجد محتوى متاح",
+    "no_news": "لا توجد تفاصيل أو أقسام متاحة لهذا المقال الإخباري بعد. يرجى التحقق مرة أخرى لاحقاً."
+  },
+  "footer": {
+    "managing_director": "المدير المفوض",
+    "deputy_director": "نائب المدير",
+    "customer_service": "خدمة العملاء",
+    "short_number": "الرقم المختصر",
+    "note_title": "إشعار مهم"
+  }
 }
